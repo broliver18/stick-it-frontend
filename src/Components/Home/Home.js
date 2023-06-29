@@ -36,6 +36,7 @@ function Home() {
         <p>Game Pin</p>
         <input value={pinInput} onChange={handlePinChange} />
         <button onClick={sendInfoToServer}>Join</button>
+        <Link id='host-link' to='/host'>Click here to host a game</Link>
       </div>
     </div>
   );

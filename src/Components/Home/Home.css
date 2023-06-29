@@ -49,5 +49,15 @@
     border-radius: 5px;
     border: none;
     color: white;
-    background-color: black;
+    background-color: #333333;
+}
+
+.game-input-info button:hover {
+    filter: brightness(108%);
+}
+
+#host-link {
+    color: white;
+    margin-top: 12px;
+    text-decoration: none;
 }
