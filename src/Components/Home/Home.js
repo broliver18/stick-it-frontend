@@ -16,7 +16,12 @@ function Home() {
 
   const handleNameChange = (e) => setNameInput(e.target.value);
   const handlePinChange = (e) => setPinInput(e.target.value);
-  const sendInfo = () => socket.emit('display-info', nameInput, pinInput);
+  
+  function sendInfoToServer() {
+    socket.emit('display-info', nameInput, pinInput);
+    setNameInput('');
+    setPinInput('');
+  }
 
   return (
     <div id="home">
@@ -30,7 +35,7 @@ function Home() {
         />
         <p>Game Pin</p>
         <input value={pinInput} onChange={handlePinChange} />
-        <button onClick={sendInfo}>Join</button>
+        <button onClick={sendInfoToServer}>Join</button>
       </div>
     </div>
   );
