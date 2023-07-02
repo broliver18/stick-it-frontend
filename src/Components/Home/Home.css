@@ -1,18 +1,15 @@
 * {
     background-color: #588157;
+    color: white;
 }
 
-#home {
+.component-container {
     position: relative;
     transform: translateY(50%);
     display: flex;
     flex-direction: column;
     justify-content: center;
     align-items: center;
-}
-
-#home h1 {
-    color: white;
 }
 
 .game-input-info {
@@ -22,9 +19,8 @@
     align-items: center;
 }
 
-.game-input-info p {
+p {
     margin-bottom: 5px;
-    color: white;
 }
 
 .game-input-info input {
@@ -35,7 +31,7 @@
     background-color: white;
 }
 
-.game-input-info input:focus {
+input:focus {
     outline: none;
 }
 
@@ -48,7 +44,6 @@
     margin-top: 16px;
     border-radius: 5px;
     border: none;
-    color: white;
     background-color: #333333;
 }
 
@@ -57,7 +52,10 @@
 }
 
 #host-link {
-    color: white;
     margin-top: 12px;
     text-decoration: none;
+}
+
+#host-link:hover {
+    text-decoration: underline;
 }
