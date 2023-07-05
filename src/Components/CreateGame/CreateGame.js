@@ -12,7 +12,7 @@ function CreateGame() {
   return (
     <div id="create-game">
       <h1>Quiz Creator</h1>
-      <div className="question-form">{Array(numberOfQuestions).fill(true).map((_, i) => <QuestionForm key={i} />)}</div>
+      <div className="container">{Array(numberOfQuestions).fill(true).map((_, i) => <QuestionForm key={i} />)}</div>
       <div className="buttons">
         <button onClick={addQuestion}>Add Question</button>
         <button>Create Quiz</button>
