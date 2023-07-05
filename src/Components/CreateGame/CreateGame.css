@@ -1,11 +1,13 @@
-#create-game h1 {
-   text-align: center; 
+#create-game{
+   display: flex;
+   flex-direction: column;
+   justify-content: center;
+   align-items: center;
 }
 
 .question-form {
     display: flex;
     justify-content: center;
-    width: 400px;
     margin: 20px;
     border-radius: 8px;
     padding: 15px;
@@ -64,8 +66,28 @@
     background-color: #dad7cd;
 }
 
+.buttons {
+    display: flex;
+    justify-content: space-between;
+}
+
+.buttons button {
+    cursor: pointer;
+    background-color: #344e41;
+    border: none;
+    margin: 15px;
+    width: 125px;
+    height: 2rem;
+    border-radius: 15px;
+    font-weight: 600;
+}
+
+.buttons button:hover {
+    filter: brightness(110%);
+}
+
 #correct-answer {
-    width: 50px;
+    width: 40px;
 }
 
 #question-type {

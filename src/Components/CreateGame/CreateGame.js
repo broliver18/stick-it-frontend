@@ -122,6 +122,10 @@ function CreateGame() {
     <div id="create-game">
       <h1>Quiz Creator</h1>
       <div className="question-form">{questionForm()}</div>
+      <div className="buttons">
+        <button>Add Question</button>
+        <button>Create Quiz</button>
+      </div>
     </div>
   );
 }
