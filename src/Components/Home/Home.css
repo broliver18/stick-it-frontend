@@ -29,6 +29,7 @@ p {
     border-radius: 5px;
     border: none;
     background-color: white;
+    color: black;
 }
 
 input:focus {

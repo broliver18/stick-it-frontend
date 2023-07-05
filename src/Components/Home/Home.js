@@ -5,7 +5,10 @@ import { socket } from "../../socket";
 import "./Home.css";
 
 function Home() {
-  const [input, setInput] = useState({});
+  const [input, setInput] = useState({
+    displayName: '',
+    pin: ''
+  });
   const { displayName, pin } = input;
 
   const nameInputRef = useRef();
