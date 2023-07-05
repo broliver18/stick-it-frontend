@@ -4,7 +4,8 @@
 
 .question-form {
     display: flex;
-    width: 500px;
+    justify-content: center;
+    width: 400px;
     margin: 20px;
     border-radius: 8px;
     padding: 15px;
@@ -24,22 +25,21 @@
 }
 
 .question-form input {
-    border: none;
-    height: 1.3rem;
-    border-radius: 5px;
+    height: 1.5rem;
+    border-radius: 3px;
     background-color: white;
     color: black;
-    margin-left: 5px;
+    margin-bottom: 5px;
+    border: 1px solid gray;
 }
 
 .question-form select {
     background-color: white;
     color: black;
-    border: none;
-    height: 1.3rem;
-    border-radius: 5px;
+    border: 1px solid gray;
+    height: 1.7rem;
+    border-radius: 3px;
     margin-bottom: 15px;
-    margin-left: 5px;
 }
 
 .question-form select:focus {
@@ -47,8 +47,31 @@
 }
 
 .same-row {
+    margin-top: 5px;
     display: flex;
-    justify-content: center;
+    justify-content: space-between;
     background-color: #dad7cd;
 }
 
+.question-form label {
+    color: #3a5a40;
+    font-weight: 500;
+}
+
+.column {
+    display: flex;
+    flex-direction: column;
+    background-color: #dad7cd;
+}
+
+#correct-answer {
+    width: 50px;
+}
+
+#question-type {
+    width: 145px;
+}
+
+#question {
+    width: 375px;
+}
