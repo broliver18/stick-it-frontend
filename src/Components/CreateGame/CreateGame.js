@@ -6,9 +6,9 @@ import "./CreateGame.css";
 
 function CreateGame() {
   const [input, setInput] = useState({});
+  const [questionType, setQuestionType] = useState({ value: "short-answer" })
   const {
     question,
-    multipleChoice,
     answerOne,
     answerTwo,
     answerThree,
@@ -17,67 +17,69 @@ function CreateGame() {
     shortAnswer,
   } = input;
 
-  function handleChange(e) {
+  const handleSelectChange = e => setQuestionType({ value: e.target.value })
+
+  function handleInputChange(e) {
     const { name, value } = e.target;
     setInput((prevState) => ({ ...prevState, [name]: value }));
   }
 
   function renderAction() {
-    if (multipleChoice) {
+    if (questionType.value === "multiple-choice") {
       return (
         <>
-          <label for="answer-one">Answer 1</label>
+          <label>Answer 1</label>
           <input
             id="answer-one"
             name="answerOne"
             type="text"
             value={answerOne}
-            onChange={handleChange}
+            onChange={handleInputChange}
           />
-          <label for="answer-two">Answer 2</label>
+          <label>Answer 2</label>
           <input
             id="answer-two"
             name="answerTwo"
             type="text"
             value={answerTwo}
-            onChange={handleChange}
+            onChange={handleInputChange}
           />
-          <label for="answer-three">Answer 3</label>
+          <label>Answer 3</label>
           <input
             id="answer-three"
             name="answerThree"
             type="text"
             value={answerThree}
-            onChange={handleChange}
+            onChange={handleInputChange}
           />
-          <label for="answer-four">Answer 4</label>
+          <label>Answer 4</label>
           <input
             id="answer-four"
             name="answerFour"
             type="text"
             value={answerFour}
-            onChange={handleChange}
+            onChange={handleInputChange}
           />
-          <label for="correct-answer">Correct Answer</label>
+          <label>Correct Answer</label>
           <input
             id="correct-answer"
             name="correctAnswer"
             type="text"
             value={correntAnswer}
-            onChange={handleChange}
+            onChange={handleInputChange}
           />
         </>
       );
     } else {
       return (
         <>
-          <label for="short-answer">Answer</label>
+          <label>Answer</label>
           <input
             id="short-answer"
             name="answerTwo"
             type="text"
             value={shortAnswer}
-            onChange={handleChange}
+            onChange={handleInputChange}
           />
         </>
       );
@@ -87,21 +89,18 @@ function CreateGame() {
   function questionForm() {
     return (
       <form>
-        <label for="question">Question</label>
+        <label>Question Type</label>
+        <select onChange={handleSelectChange}>
+          <option value="short-answer">Short Answer</option>
+          <option value="multiple-choice">Multiple Choice</option>
+        </select>
+        <label>Question</label>
         <input
           id="question"
           name="question"
           value={question}
-          onChange={handleChange}
-        />
-        <label for="multiple-choice">Multiple Choice</label>
-        <input
-          id="multiple-choice"
-          name="multipleChoice"
-          type="radio"
-          value={multipleChoice}
-          onChange={handleChange}
-        />
+          onChange={handleInputChange}
+        />  
         {renderAction()}
       </form>
     );
