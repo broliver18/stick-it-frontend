@@ -72,4 +72,22 @@
     height: 25px;
 }
 
+@media only screen and (max-width: 450px) {
+    #question {
+        width: 200px;
+    }
+
+    #question-type {
+        width: 120px;
+    }
+
+    #answer-one, #answer-two, #answer-three, #answer-four {
+        width: 80px;
+    }
+
+    #close-button {
+        transform: translate(103px, -10px)
+    }
+}
+
  
