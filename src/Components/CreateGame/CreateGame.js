@@ -2,17 +2,27 @@ import React, { useState } from "react";
 
 import "./CreateGame.css";
 
-import QuestionForm from '../QuestionForm/QuestionForm'
+import QuestionForm from "../QuestionForm/QuestionForm";
 
 function CreateGame() {
   const [numberOfQuestions, setNumberOfQuestions] = useState(1);
+  const questionsArray = Array(numberOfQuestions).fill(true);
 
   const addQuestion = () => setNumberOfQuestions((prevState) => prevState + 1);
+
+  function removeQuestion(index) {
+    if (numberOfQuestions === 1) return;
+    setNumberOfQuestions((prevState) => prevState - 1);
+  }
 
   return (
     <div id="create-game">
       <h1>Quiz Creator</h1>
-      <div className="container">{Array(numberOfQuestions).fill(true).map((_, i) => <QuestionForm key={i} />)}</div>
+      <div className="container">
+        {questionsArray.map((_, i) => (
+          <QuestionForm key={i} index={i} removeQuestion={removeQuestion} />
+        ))}
+      </div>
       <div className="buttons">
         <button onClick={addQuestion}>Add Question</button>
         <button>Create Quiz</button>

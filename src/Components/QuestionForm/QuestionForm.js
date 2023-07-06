@@ -31,7 +31,7 @@ function CloseButton() {
   );
 }
 
-function QuestionForm() {
+function QuestionForm({ index, removeQuestion }) {
   const [input, setInput] = useState({
     question: "",
     shortAnswer: "",
@@ -135,7 +135,7 @@ function QuestionForm() {
 
   return (
     <div className="question-form">
-      <div id="close-button">
+      <div id="close-button" onClick={() => removeQuestion(index)}>
         <CloseButton />
       </div>
       <form>
