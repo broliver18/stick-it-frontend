@@ -1,26 +1,28 @@
 import React, { useState } from "react";
+import { nanoid } from "nanoid"
 
 import "./CreateGame.css";
 
 import QuestionForm from "../QuestionForm/QuestionForm";
 
 function CreateGame() {
-  const [numberOfQuestions, setNumberOfQuestions] = useState(1);
-  const questionsArray = Array(numberOfQuestions).fill(true);
+  const [questionsArray, setQuestionsArray] = useState([{ value: true, id: nanoid()}])
 
-  const addQuestion = () => setNumberOfQuestions((prevState) => prevState + 1);
+  const addQuestion = () => setQuestionsArray([...questionsArray, { value: true, id: nanoid()}])
 
-  function removeQuestion(index) {
-    if (numberOfQuestions === 1) return;
-    setNumberOfQuestions((prevState) => prevState - 1);
+  function removeQuestion(id) {
+    if (questionsArray.length === 1) return;
+    const questionsCopy = [...questionsArray];
+    const filteredQuestions = questionsCopy.filter((question) => question.id !== id);
+    setQuestionsArray(filteredQuestions);
   }
 
   return (
     <div id="create-game">
       <h1>Quiz Creator</h1>
       <div className="container">
-        {questionsArray.map((_, i) => (
-          <QuestionForm key={i} index={i} removeQuestion={removeQuestion} />
+        {questionsArray.map((question) => (
+          <QuestionForm key={question.id} id={question.id} removeQuestion={removeQuestion} />
         ))}
       </div>
       <div className="buttons">
