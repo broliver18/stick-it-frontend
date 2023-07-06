@@ -1,6 +1,9 @@
 * {
-    background-color: #588157;
     color: white;
+}
+
+body {
+    background-color: #588157;
 }
 
 .component-container {
