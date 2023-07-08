@@ -21,7 +21,7 @@
  
 .question-form input {
      height: 1.5rem;
-     border-radius: 3px;
+     border-radius: 5px;
      background-color: white;
      color: black;
      margin-bottom: 5px;
@@ -33,7 +33,7 @@
      color: black;
      border: 1px solid lightgray;
      height: 1.7rem;
-     border-radius: 3px;
+     border-radius: 5px;
      margin-bottom: 15px;
 }
  

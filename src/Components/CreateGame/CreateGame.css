@@ -5,6 +5,26 @@
     align-items: center;
  }
 
+ #quiz-details {
+    margin: 15px 0;
+ }
+
+ #create-game label {
+    margin: 7px;
+ }
+
+ #create-game input {
+    margin-right: 10px;
+    color: black;
+    border: lightgray;
+    border-radius: 3px;
+    height: 1.2rem;
+ }
+
+ .smaller {
+    width: 40px;
+ }
+
 .container {
     display: flex;
     justify-content: center;

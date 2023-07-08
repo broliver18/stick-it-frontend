@@ -7,7 +7,7 @@ import "./Home.css";
 function Home() {
   const [input, setInput] = useState({
     displayName: '',
-    pin: ''
+    pin: null
   });
   const { displayName, pin } = input;
 

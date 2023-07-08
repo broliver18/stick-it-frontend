@@ -39,7 +39,7 @@ function QuestionForm({ id, removeQuestion }) {
     answerTwo: "",
     answerThree: "",
     answerFour: "",
-    correctAnswer: "",
+    correctAnswer: null,
   });
   const [questionType, setQuestionType] = useState({ value: "short-answer" });
   const {
