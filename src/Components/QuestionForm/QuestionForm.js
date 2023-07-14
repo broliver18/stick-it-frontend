@@ -64,19 +64,6 @@ function QuestionForm({
     setInput((prevState) => ({ ...prevState, [name]: value }));
   }
 
-  function saveQuestion() {
-    if (isButtonClicked)
-      saveQuestionInfo(
-        question,
-        shortAnswer,
-        answerOne,
-        answerTwo,
-        answerThree,
-        answerFour,
-        correctAnswer
-      );
-  }
-
   function renderAction() {
     if (questionType.value === "multiple-choice") {
       return (
