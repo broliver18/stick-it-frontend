@@ -18,7 +18,7 @@ function CreateGame() {
   })
 
   const addQuestion = () =>
-    setQuestionsArray([...questionsArray, { value: true, id: nanoid() }]);
+    setQuestionsArray((prevState) => [...prevState, { value: true, id: nanoid() }]);
   
   const { quizName, minPoints, maxPoints } = input;
 
