@@ -52,6 +52,15 @@
 }
 
 @media only screen and (max-width: 450px) {
+    #quiz-details {
+        display: flex;
+        flex-direction: column;
+    }
+
+    #quiz-details input {
+        margin-bottom: 5px;
+    }
+
     .buttons button {
         width: 100px;
         margin: 8px;

@@ -31,7 +31,12 @@ function CloseButton() {
   );
 }
 
-function QuestionForm({ id, removeQuestion, saveQuestionInfo, isButtonClicked }) {
+function QuestionForm({
+  id,
+  removeQuestion,
+  saveQuestionInfo,
+  isButtonClicked,
+}) {
   const [input, setInput] = useState({
     question: "",
     shortAnswer: "",
@@ -49,7 +54,7 @@ function QuestionForm({ id, removeQuestion, saveQuestionInfo, isButtonClicked })
     answerTwo,
     answerThree,
     answerFour,
-    correntAnswer,
+    correctAnswer,
   } = input;
 
   const handleSelectChange = (e) => setQuestionType({ value: e.target.value });
@@ -57,6 +62,19 @@ function QuestionForm({ id, removeQuestion, saveQuestionInfo, isButtonClicked })
   function handleInputChange(e) {
     const { name, value } = e.target;
     setInput((prevState) => ({ ...prevState, [name]: value }));
+  }
+
+  function saveQuestion() {
+    if (isButtonClicked)
+      saveQuestionInfo(
+        question,
+        shortAnswer,
+        answerOne,
+        answerTwo,
+        answerThree,
+        answerFour,
+        correctAnswer
+      );
   }
 
   function renderAction() {
@@ -112,7 +130,7 @@ function QuestionForm({ id, removeQuestion, saveQuestionInfo, isButtonClicked })
             id="correct-answer"
             name="correctAnswer"
             type="text"
-            value={correntAnswer}
+            value={correctAnswer}
             onChange={handleInputChange}
           />
         </>
@@ -123,7 +141,7 @@ function QuestionForm({ id, removeQuestion, saveQuestionInfo, isButtonClicked })
           <label>Answer</label>
           <input
             id="short-answer"
-            name="answerTwo"
+            name="shortAnswer"
             type="text"
             value={shortAnswer}
             onChange={handleInputChange}
@@ -132,7 +150,7 @@ function QuestionForm({ id, removeQuestion, saveQuestionInfo, isButtonClicked })
       );
     }
   }
-
+  
   return (
     <div className="question-form">
       <div id="close-button" onClick={() => removeQuestion(id)}>
