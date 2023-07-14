@@ -31,7 +31,7 @@ function CloseButton() {
   );
 }
 
-function QuestionForm({ id, removeQuestion }) {
+function QuestionForm({ id, removeQuestion, saveQuestionInfo, isButtonClicked }) {
   const [input, setInput] = useState({
     question: "",
     shortAnswer: "",
@@ -39,7 +39,7 @@ function QuestionForm({ id, removeQuestion }) {
     answerTwo: "",
     answerThree: "",
     answerFour: "",
-    correctAnswer: null,
+    correctAnswer: "",
   });
   const [questionType, setQuestionType] = useState({ value: "short-answer" });
   const {
