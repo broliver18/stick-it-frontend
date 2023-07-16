@@ -1,4 +1,4 @@
-import React, { useState } from "react";
+import React, { useState, useEffect } from "react";
 import { Link } from "react-router-dom";
 import { socket } from "../../socket";
 
@@ -47,6 +47,8 @@ function QuestionForm({
     correctAnswer: "",
   });
   const [questionType, setQuestionType] = useState({ value: "short-answer" });
+  const [isSentInfo, setIsSentInfo] = useState(false);
+
   const {
     question,
     shortAnswer,
@@ -137,7 +139,7 @@ function QuestionForm({
       );
     }
   }
-  
+
   return (
     <div className="question-form">
       <div id="close-button" onClick={() => removeQuestion(id)}>

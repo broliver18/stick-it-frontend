@@ -15,12 +15,18 @@ function CreateGame() {
     quizName: "",
     minPoints: "",
     maxPoints: "",
-  })
+  });
 
-  const addQuestion = () =>
-    setQuestionsArray((prevState) => [...prevState, { value: true, id: nanoid() }]);
-  
   const { quizName, minPoints, maxPoints } = input;
+
+  const toggleButtonState = () => setIsButtonClicked(!isButtonClicked);
+
+  function addQuestion() {
+    setQuestionsArray((prevState) => [
+      ...prevState,
+      { value: true, id: nanoid() },
+    ]);
+  }
 
   function removeQuestion(id) {
     if (questionsArray.length === 1) return;
@@ -36,32 +42,8 @@ function CreateGame() {
     setInput((prevState) => ({ ...prevState, [name]: value }));
   }
 
-  function saveQuestionInfo(
-    question,
-    shortAnswer,
-    answerOne,
-    answerTwo,
-    answerThree,
-    answerFour,
-    correctAnswer
-  ) {
-    const questionObject = {
-      question,
-      shortAnswer,
-      answerOne,
-      answerTwo,
-      answerThree,
-      answerFour,
-      correctAnswer
-    }
-    setQuestions((prevState) => [ ...prevState, questionObject ])
-  }
-
-  function changeButtonState() {
-    setIsButtonClicked(true);
-    setTimeout(() => {
-      setIsButtonClicked(false);
-    }, 1000);
+  function saveQuestionInfo(input) {
+    setQuestions((prevState) => [...prevState, input]);
   }
 
   return (
@@ -100,7 +82,7 @@ function CreateGame() {
         <button
           onClick={() => {
             addQuestion();
-            changeButtonState();
+            toggleButtonState();
           }}
         >
           Add Question
