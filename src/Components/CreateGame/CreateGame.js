@@ -6,7 +6,7 @@ import "./CreateGame.css";
 import QuestionForm from "../QuestionForm/QuestionForm";
 
 function CreateGame() {
-  const [isButtonClicked, setIsButtonClicked] = useState(false);
+  const [trigger, setTrigger] = useState(0);
   const [questions, setQuestions] = useState([]);
   const [questionsArray, setQuestionsArray] = useState([
     { value: true, id: nanoid() },
@@ -19,7 +19,9 @@ function CreateGame() {
 
   const { quizName, minPoints, maxPoints } = input;
 
-  const toggleButtonState = () => setIsButtonClicked(!isButtonClicked);
+  const incrementTrigger = () => setTrigger((prevState) => prevState + 1);
+
+  const saveQuestionInfo = input => setQuestions((prevState) => [...prevState, input]);
 
   function addQuestion() {
     setQuestionsArray((prevState) => [
@@ -40,10 +42,6 @@ function CreateGame() {
   function handleChange(e) {
     const { name, value } = e.target;
     setInput((prevState) => ({ ...prevState, [name]: value }));
-  }
-
-  function saveQuestionInfo(input) {
-    setQuestions((prevState) => [...prevState, input]);
   }
 
   return (
@@ -74,7 +72,8 @@ function CreateGame() {
             id={question.id}
             removeQuestion={removeQuestion}
             saveQuestionInfo={saveQuestionInfo}
-            isButtonClicked={isButtonClicked}
+            trigger={trigger}
+            questions={questions}
           />
         ))}
       </div>
@@ -82,7 +81,7 @@ function CreateGame() {
         <button
           onClick={() => {
             addQuestion();
-            toggleButtonState();
+            incrementTrigger();
           }}
         >
           Add Question

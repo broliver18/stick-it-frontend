@@ -1,6 +1,5 @@
 import React, { useState, useEffect } from "react";
 import { Link } from "react-router-dom";
-import { socket } from "../../socket";
 
 import "./QuestionForm.css";
 
@@ -31,12 +30,7 @@ function CloseButton() {
   );
 }
 
-function QuestionForm({
-  id,
-  removeQuestion,
-  saveQuestionInfo,
-  isButtonClicked,
-}) {
+function QuestionForm({ id, removeQuestion, saveQuestionInfo, trigger, questions }) {
   const [input, setInput] = useState({
     question: "",
     shortAnswer: "",
@@ -47,7 +41,15 @@ function QuestionForm({
     correctAnswer: "",
   });
   const [questionType, setQuestionType] = useState({ value: "short-answer" });
-  const [isSentInfo, setIsSentInfo] = useState(false);
+  const [isSentQuestion, setIsSentQuestion] = useState(false);
+
+  useEffect(() => {
+    const inputInfo = { id, ...input };
+    if (!input.question && !input.shortAnswer) return;
+    if (isSentQuestion) return;
+    saveQuestionInfo(inputInfo);
+    setIsSentQuestion(true);
+  }, [trigger]);
 
   const {
     question,
