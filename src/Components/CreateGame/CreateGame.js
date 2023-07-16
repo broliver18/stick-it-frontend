@@ -1,4 +1,4 @@
-import React, { useState } from "react";
+import React, { useState, useEffect } from "react";
 import { nanoid } from "nanoid";
 
 import "./CreateGame.css";
@@ -17,11 +17,19 @@ function CreateGame() {
     maxPoints: "",
   });
 
+  useEffect(() => {
+    if (!trigger) return;
+    if (questions.find((questionInfo) => !questionInfo.question)) {
+      console.log("it worked");
+    }
+  }, [questions]);
+
   const { quizName, minPoints, maxPoints } = input;
 
   const incrementTrigger = () => setTrigger((prevState) => prevState + 1);
 
-  const saveQuestionInfo = input => setQuestions((prevState) => [...prevState, input]);
+  const saveQuestionInfo = (input) =>
+    setQuestions((prevState) => [...prevState, input]);
 
   function addQuestion() {
     setQuestionsArray((prevState) => [
@@ -73,20 +81,12 @@ function CreateGame() {
             removeQuestion={removeQuestion}
             saveQuestionInfo={saveQuestionInfo}
             trigger={trigger}
-            questions={questions}
           />
         ))}
       </div>
       <div className="buttons">
-        <button
-          onClick={() => {
-            addQuestion();
-            incrementTrigger();
-          }}
-        >
-          Add Question
-        </button>
-        <button>Create Quiz</button>
+        <button onClick={addQuestion}>Add Question</button>
+        <button onClick={incrementTrigger}>Create Quiz</button>
       </div>
     </div>
   );

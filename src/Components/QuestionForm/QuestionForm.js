@@ -30,7 +30,7 @@ function CloseButton() {
   );
 }
 
-function QuestionForm({ id, removeQuestion, saveQuestionInfo, trigger, questions }) {
+function QuestionForm({ id, removeQuestion, saveQuestionInfo, trigger }) {
   const [input, setInput] = useState({
     question: "",
     shortAnswer: "",
@@ -40,15 +40,13 @@ function QuestionForm({ id, removeQuestion, saveQuestionInfo, trigger, questions
     answerFour: "",
     correctAnswer: "",
   });
-  const [questionType, setQuestionType] = useState({ value: "short-answer" });
-  const [isSentQuestion, setIsSentQuestion] = useState(false);
+  const [questionTypeValue, setQuestionTypeValue] = useState({ value: "short-answer" });
 
   useEffect(() => {
-    const inputInfo = { id, ...input };
-    if (!input.question && !input.shortAnswer) return;
-    if (isSentQuestion) return;
+    if (!trigger) return;
+    const questionType = questionTypeValue.value;
+    const inputInfo = { id, questionType, ...input };
     saveQuestionInfo(inputInfo);
-    setIsSentQuestion(true);
   }, [trigger]);
 
   const {
@@ -61,7 +59,7 @@ function QuestionForm({ id, removeQuestion, saveQuestionInfo, trigger, questions
     correctAnswer,
   } = input;
 
-  const handleSelectChange = (e) => setQuestionType({ value: e.target.value });
+  const handleSelectChange = (e) => setQuestionTypeValue({ value: e.target.value });
 
   function handleInputChange(e) {
     const { name, value } = e.target;
@@ -69,7 +67,7 @@ function QuestionForm({ id, removeQuestion, saveQuestionInfo, trigger, questions
   }
 
   function renderAction() {
-    if (questionType.value === "multiple-choice") {
+    if (questionTypeValue.value === "multiple-choice") {
       return (
         <>
           <div className="same-row">
