@@ -45,7 +45,7 @@ function QuestionForm({ id, removeQuestion, saveQuestionInfo, trigger }) {
   useEffect(() => {
     if (!trigger) return;
     const questionType = questionTypeValue.value;
-    const inputInfo = { id, questionType, ...input };
+    const inputInfo = { questionType, ...input };
     saveQuestionInfo(inputInfo);
   }, [trigger]);
 
