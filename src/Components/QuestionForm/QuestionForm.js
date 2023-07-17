@@ -63,7 +63,7 @@ function QuestionForm({ id, removeQuestion, saveQuestionInfo, trigger }) {
 
   function handleInputChange(e) {
     const { name, value } = e.target;
-    setInput((prevState) => ({ ...prevState, [name]: value }));
+    setInput(prevState => ({ ...prevState, [name]: value }));
   }
 
   function renderAction() {

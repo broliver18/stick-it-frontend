@@ -1,4 +1,5 @@
 import React, { useState, useEffect } from "react";
+import { socket } from "../../socket";
 import { nanoid } from "nanoid";
 
 import "./CreateGame.css";
@@ -19,9 +20,10 @@ function CreateGame() {
 
   useEffect(() => {
     if (!trigger) return;
-    if (questions.find((questionInfo) => !questionInfo.question)) {
-      console.log("it worked");
-    }
+    socket.emit("quiz-info", questions);
+    socket.on("error-message", (message) => alert(message));
+
+    return () => socket.off("error-message", (message) => alert(message));
   }, [questions]);
 
   const { quizName, minPoints, maxPoints } = input;
@@ -36,6 +38,19 @@ function CreateGame() {
       ...prevState,
       { value: true, id: nanoid() },
     ]);
+  }
+
+  function clearPage() {
+    setTrigger(0);
+    setQuestions([]);
+    setQuestionsArray([
+      { value: true, id: nanoid() }
+    ]);
+    setInput({
+      quizName: "",
+      minPoints: "",
+      maxPoints: "",
+    })
   }
 
   function removeQuestion(id) {

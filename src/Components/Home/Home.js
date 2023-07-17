@@ -19,12 +19,12 @@ function Home() {
 
   function handleChange(e) {
     const { name, value } = e.target;
-    setInput((prevState) => ({ ...prevState, [name]: value }));
+    setInput(prevState => ({ ...prevState, [name]: value }));
   }
 
   function sendInfoToServer() {
     socket.emit("display-info", displayName, pin);
-    setInput((prevState) => ({
+    setInput(prevState => ({
       ...prevState,
       displayName: "",
       pin: "",
