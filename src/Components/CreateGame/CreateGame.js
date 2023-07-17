@@ -20,10 +20,10 @@ function CreateGame() {
 
   useEffect(() => {
     if (!trigger) return;
-    socket.emit("quiz-info", questions);
-    socket.on("error-message", (message) => alert(message));
+    socket.emit("quiz-info", questions, input);
+    socket.on("error-message-one", message => alert(message));
 
-    return () => socket.off("error-message", (message) => alert(message));
+    return () => socket.off("error-message", message => alert(message));
   }, [questions]);
 
   const { quizName, minPoints, maxPoints } = input;
@@ -72,18 +72,18 @@ function CreateGame() {
       <h1>Quiz Creator</h1>
       <div id="quiz-details">
         <label>Quiz Name</label>
-        <input name="quiz-name" value={quizName} onChange={handleChange} />
+        <input name="quizName" value={quizName} onChange={handleChange} />
         <label>Minimum Points</label>
         <input
           className="smaller"
-          name="min-points"
+          name="minPoints"
           value={minPoints}
           onChange={handleChange}
         />
         <label>Maximum Points</label>
         <input
           className="smaller"
-          name="max-points"
+          name="maxPoints"
           value={maxPoints}
           onChange={handleChange}
         />
