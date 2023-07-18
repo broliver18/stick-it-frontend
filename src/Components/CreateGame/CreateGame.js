@@ -1,5 +1,5 @@
 import React, { useState, useEffect } from "react";
-import { Navigate } from "react-router-dom";
+import { useNavigate } from "react-router-dom";
 import { socket } from "../../socket";
 import { nanoid } from "nanoid";
 
@@ -19,6 +19,7 @@ function CreateGame() {
     minPoints: "",
     maxPoints: "",
   });
+  const navigate = useNavigate();
 
   useEffect(() => {
     if (!trigger) return;
@@ -27,17 +28,17 @@ function CreateGame() {
     function errorMessageEvent(errorMessage) {
       alert(errorMessage);
       setQuestions([]);
-    };
+    }
 
     function createQuizEvent(message) {
       if (message === "success") {
         setIsQuizCreated(true);
         clearPage();
-        <Navigate to="/host" />
+        navigate("/host");
       } else {
         errorMessageEvent(message);
       }
-    };
+    }
 
     socket.emit("quiz-info", questions, input);
     socket.on("error-message", errorMessageEvent);
@@ -51,7 +52,7 @@ function CreateGame() {
 
   const { quizName, minPoints, maxPoints } = input;
 
-  const resetQuizCreated = () => setIsQuizCreated(false)
+  const resetQuizCreated = () => setIsQuizCreated(false);
 
   const incrementTrigger = () => setTrigger((prevState) => prevState + 1);
 

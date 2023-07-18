@@ -2,3 +2,16 @@
     color: white;
     margin-top: 12px;
 }
+
+.quiz {
+    background-color: #dad7cd;
+    border-radius: 8px;
+    width: 330px;
+    height: 70px;
+    margin-bottom: 30px;
+}
+
+.quiz h1 {
+    color: #333333;
+    margin-left: 3px; 
+}
