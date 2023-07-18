@@ -1,4 +1,5 @@
 import React, { useState, useEffect } from "react";
+import { Navigate } from "react-router-dom";
 import { socket } from "../../socket";
 import { nanoid } from "nanoid";
 
@@ -8,6 +9,7 @@ import QuestionForm from "../QuestionForm/QuestionForm";
 
 function CreateGame() {
   const [trigger, setTrigger] = useState(0);
+  const [isQuizCreated, setIsQuizCreated] = useState(false);
   const [questions, setQuestions] = useState([]);
   const [questionsArray, setQuestionsArray] = useState([
     { value: true, id: nanoid() },
@@ -20,14 +22,21 @@ function CreateGame() {
 
   useEffect(() => {
     if (!trigger) return;
+    if (questions.length === 0) return;
 
     function errorMessageEvent(errorMessage) {
       alert(errorMessage);
       setQuestions([]);
     };
 
-    function createQuizEvent(data) {
-      console.log(data);
+    function createQuizEvent(message) {
+      if (message === "success") {
+        setIsQuizCreated(true);
+        clearPage();
+        <Navigate to="/host" />
+      } else {
+        errorMessageEvent(message);
+      }
     };
 
     socket.emit("quiz-info", questions, input);
@@ -41,6 +50,8 @@ function CreateGame() {
   }, [questions]);
 
   const { quizName, minPoints, maxPoints } = input;
+
+  const resetQuizCreated = () => setIsQuizCreated(false)
 
   const incrementTrigger = () => setTrigger((prevState) => prevState + 1);
 
@@ -108,6 +119,8 @@ function CreateGame() {
             removeQuestion={removeQuestion}
             saveQuestionInfo={saveQuestionInfo}
             trigger={trigger}
+            isQuizCreated={isQuizCreated}
+            resetQuizCreated={resetQuizCreated}
           />
         ))}
       </div>

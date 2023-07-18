@@ -29,7 +29,14 @@ function CloseButton() {
   );
 }
 
-function QuestionForm({ id, removeQuestion, saveQuestionInfo, trigger }) {
+function QuestionForm({
+  id,
+  removeQuestion,
+  saveQuestionInfo,
+  trigger,
+  isQuizCreated,
+  resetQuizCreated,
+}) {
   const [input, setInput] = useState({
     question: "",
     shortAnswer: "",
@@ -39,7 +46,9 @@ function QuestionForm({ id, removeQuestion, saveQuestionInfo, trigger }) {
     answerFour: "",
     correctAnswer: "",
   });
-  const [questionTypeValue, setQuestionTypeValue] = useState({ value: "short-answer" });
+  const [questionTypeValue, setQuestionTypeValue] = useState({
+    value: "short-answer",
+  });
 
   useEffect(() => {
     if (!trigger) return;
@@ -47,6 +56,25 @@ function QuestionForm({ id, removeQuestion, saveQuestionInfo, trigger }) {
     const inputInfo = { questionType, ...input };
     saveQuestionInfo(inputInfo);
   }, [trigger]);
+
+  useEffect(() => {
+    if (!trigger) return;
+    if (isQuizCreated) {
+      setInput({
+        question: "",
+        shortAnswer: "",
+        answerOne: "",
+        answerTwo: "",
+        answerThree: "",
+        answerFour: "",
+        correctAnswer: "",
+      });
+      setQuestionTypeValue({ value: "short-answer" });
+      resetQuizCreated();
+    } else {
+      return;
+    }
+  }, [isQuizCreated]);
 
   const {
     question,
@@ -58,11 +86,12 @@ function QuestionForm({ id, removeQuestion, saveQuestionInfo, trigger }) {
     correctAnswer,
   } = input;
 
-  const handleSelectChange = (e) => setQuestionTypeValue({ value: e.target.value });
+  const handleSelectChange = (e) =>
+    setQuestionTypeValue({ value: e.target.value });
 
   function handleInputChange(e) {
     const { name, value } = e.target;
-    setInput(prevState => ({ ...prevState, [name]: value }));
+    setInput((prevState) => ({ ...prevState, [name]: value }));
   }
 
   function renderAction() {
