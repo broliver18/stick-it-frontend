@@ -20,10 +20,24 @@ function CreateGame() {
 
   useEffect(() => {
     if (!trigger) return;
-    socket.emit("quiz-info", questions, input);
-    socket.on("error-message-one", message => alert(message));
 
-    return () => socket.off("error-message", message => alert(message));
+    function errorMessageEvent(errorMessage) {
+      alert(errorMessage);
+      setQuestions([]);
+    };
+
+    function createQuizEvent(data) {
+      console.log(data);
+    };
+
+    socket.emit("quiz-info", questions, input);
+    socket.on("error-message", errorMessageEvent);
+    socket.on("create-quiz", createQuizEvent);
+
+    return () => {
+      socket.off("error-message", errorMessageEvent);
+      socket.off("create-quiz", createQuizEvent);
+    };
   }, [questions]);
 
   const { quizName, minPoints, maxPoints } = input;
@@ -43,14 +57,12 @@ function CreateGame() {
   function clearPage() {
     setTrigger(0);
     setQuestions([]);
-    setQuestionsArray([
-      { value: true, id: nanoid() }
-    ]);
+    setQuestionsArray([{ value: true, id: nanoid() }]);
     setInput({
       quizName: "",
       minPoints: "",
       maxPoints: "",
-    })
+    });
   }
 
   function removeQuestion(id) {
