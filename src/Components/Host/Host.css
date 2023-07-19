@@ -1,9 +1,22 @@
+#host {
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+}
+
+#host p {
+    margin-bottom: 12px;
+}
+
 #create-game-link {
     color: white;
-    margin-top: 12px;
 }
 
 .quiz {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
     background-color: #dad7cd;
     border-radius: 8px;
     width: 330px;
@@ -13,5 +26,29 @@
 
 .quiz h1 {
     color: #333333;
-    margin-left: 3px; 
+    margin-left: 7px;
+    transition: transform 0.1s; 
+}
+
+.svg-container {
+    position: relative;
+    right: 8px;
+    width: 35px;
+    height: 35px;
+    transition: transform 0.5s;
+}
+
+.quiz h1:hover, .svg-container:hover {
+    cursor: pointer;
+    transform: scale(1.05);
+}
+
+@media only screen and (max-width: 300px) {
+    #host p {
+        margin-bottom: 20px;
+    }
+
+    .quiz {
+        width: 225px;
+    }
 }
