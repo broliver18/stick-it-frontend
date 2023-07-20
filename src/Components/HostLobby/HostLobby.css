@@ -1,0 +1,58 @@
+#host-lobby {
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+}
+
+#host-lobby h1 {
+    margin-bottom: 40px;
+}
+
+#host-lobby h2 {
+    margin: 40px 0 15px 0;
+}
+
+#players-list {
+    margin-bottom: 25px;
+    width: 800px;
+    height: 500px;
+    background-color: #dad7cd;
+    border-radius: 5px;
+}
+
+#host-lobby button {
+    cursor: pointer;
+    background-color: #344e41;
+    border: none;
+    margin: 15px;
+    width: 225px;
+    height: 3rem;
+    border-radius: 5px;
+    font-weight: 600;
+}
+
+#host-lobby button:hover {
+    filter: brightness(110%);
+}
+
+@media only screen and (max-width: 450px) {
+    #host-lobby h1 {
+        font-size: 20px;
+    }
+
+    #host-lobby h2 {
+        font-size: 16px;
+    }
+
+    #players-list {
+        width: 250px;
+        height: 400px;
+    }
+
+    #host-lobby button {
+        width: 150px;
+        height: 2rem;
+    }
+}
+

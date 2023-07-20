@@ -1,5 +1,5 @@
 import React, { useState, useEffect } from "react";
-import { Link } from "react-router-dom";
+import { Link, useNavigate } from "react-router-dom";
 import { socket } from "../../socket";
 
 import "./Host.css";
@@ -8,6 +8,8 @@ import CloseButtonBlack from "../Svgs/CloseButtonBlack";
 
 function Host() {
   const [quizzes, setQuizzes] = useState([]);
+
+  const navigate = useNavigate();
 
   useEffect(() => {
     function getQuizzesEvent(quizzes) {
@@ -19,6 +21,8 @@ function Host() {
 
     return () => socket.off("get-all-quizzes", getQuizzesEvent);
   }, [deleteQuiz]);
+
+  const navigateToHostLobby = quizName => navigate(`/host/lobby/${quizName}`);
 
   // eslint-disable-next-line react-hooks/exhaustive-deps
   function deleteQuiz(id) {
@@ -40,7 +44,7 @@ function Host() {
         {quizzes.map((quiz) => {
           return (
             <div className="quiz" key={quiz._id}>
-              <h1>{quiz.quizName}</h1>
+              <h1 onClick={() => navigateToHostLobby(quiz.quizName)}>{quiz.quizName}</h1>
               <div onClick={() => deleteQuiz(quiz._id)} className="svg-container">
                 <CloseButtonBlack/>
               </div>
