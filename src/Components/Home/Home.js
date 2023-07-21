@@ -5,6 +5,7 @@ import { socket } from "../../socket";
 import "./Home.css";
 
 function Home() {
+  const [trigger, setTrigger] = useState(0);
   const [input, setInput] = useState({
     displayName: "",
     pin: "",
@@ -12,31 +13,40 @@ function Home() {
   const { displayName, pin } = input;
   const nameInputRef = useRef();
 
+  const navigate = useNavigate();
+
   useEffect(() => {
     nameInputRef.current.focus();
   }, []);
 
-  const navigate = useNavigate();
+  useEffect(() => {
+    if (!trigger) return;
+
+    function playerJoinEvent(gameFound) {
+      if (gameFound) {
+        navigate("/player/lobby");
+      } else {
+        alert("No game found with this pin.");
+      }
+    }
+
+      socket.emit("player-join", displayName, pin);
+      socket.on("game-found-status", playerJoinEvent);
+
+      setInput(prevState => ({
+        ...prevState,
+        displayName: "",
+        pin: "",
+      }));
+
+      return () => socket.off("game-found-status", playerJoinEvent);
+    }, [trigger])
+
+  const incrementTrigger = () => setTrigger((prevState) => prevState + 1);
 
   function handleChange(e) {
     const { name, value } = e.target;
     setInput(prevState => ({ ...prevState, [name]: value }));
-  }
-
-  function playerJoin() {
-    socket.emit("player-join", displayName, pin);
-    socket.on("game-found-status", (gameFound) => {
-      if (gameFound) {
-        navigate("/player/lobby");
-      } else {
-        alert("No game found with this pin.")
-      }
-    })
-    setInput(prevState => ({
-      ...prevState,
-      displayName: "",
-      pin: "",
-    }));
   }
 
   return (
@@ -52,7 +62,7 @@ function Home() {
         />
         <p>Game Pin</p>
         <input name="pin" value={pin} onChange={handleChange} />
-        <button onClick={playerJoin}>Join</button>
+        <button onClick={incrementTrigger}>Join</button>
         <Link id="host-link" to="/host">
           Click here to host a game
         </Link>
