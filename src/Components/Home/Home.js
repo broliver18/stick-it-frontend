@@ -25,19 +25,22 @@ function Home() {
     function playerJoinEvent(gameFound) {
       if (gameFound) {
         navigate("/player/lobby");
+        setInput(prevState => ({
+          ...prevState,
+          displayName: "",
+          pin: "",   
+        }));
       } else {
+        setInput(prevState => ({
+          ...prevState,
+          pin: "",   
+        }));
         alert("No game found with this pin.");
       }
     }
 
       socket.emit("player-join", displayName, pin);
       socket.on("game-found-status", playerJoinEvent);
-
-      setInput(prevState => ({
-        ...prevState,
-        displayName: "",
-        pin: "",
-      }));
 
       return () => socket.off("game-found-status", playerJoinEvent);
     }, [trigger])
