@@ -92,7 +92,7 @@ function CreateGame() {
   }
 
   return (
-    <div id="create-game">
+    <div id="create-game" className="component-container-top">
       <h1>Quiz Creator</h1>
       <div id="quiz-details">
         <label>Quiz Name</label>

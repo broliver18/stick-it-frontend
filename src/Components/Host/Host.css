@@ -1,12 +1,11 @@
-#host {
+.component-container-top {
     display: flex;
     flex-direction: column;
-    justify-content: center;
     align-items: center;
 }
 
 #host p {
-    margin-bottom: 12px;
+    margin-bottom: 10px;
 }
 
 #create-game-link {

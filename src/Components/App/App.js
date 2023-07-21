@@ -11,6 +11,7 @@ import Home from "../Home/Home";
 import Host from "../Host/Host";
 import CreateGame from "../CreateGame/CreateGame";
 import HostLobby from "../HostLobby/HostLobby";
+import PlayerLobby from "../PlayerLobby/PlayerLobby";
 
 const router = createBrowserRouter(
   createRoutesFromElements([
@@ -18,6 +19,7 @@ const router = createBrowserRouter(
     <Route path="/host" element={<Host />} />,
     <Route path="/create-game" element={<CreateGame />} />,
     <Route path="/host/lobby/:gameName" element={<HostLobby />} />,
+    <Route path="/player/lobby" element={<PlayerLobby />} />,
   ])
 );
 

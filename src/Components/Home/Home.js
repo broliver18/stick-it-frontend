@@ -1,5 +1,5 @@
 import React, { useState, useEffect, useRef } from "react";
-import { Link } from "react-router-dom";
+import { Link, useNavigate } from "react-router-dom";
 import { socket } from "../../socket";
 
 import "./Home.css";
@@ -10,12 +10,13 @@ function Home() {
     pin: "",
   });
   const { displayName, pin } = input;
-
   const nameInputRef = useRef();
 
   useEffect(() => {
     nameInputRef.current.focus();
   }, []);
+
+  const navigate = useNavigate();
 
   function handleChange(e) {
     const { name, value } = e.target;
@@ -23,6 +24,7 @@ function Home() {
   }
 
   function sendInfoToServer() {
+    navigate("/player/lobby");
     socket.emit("display-info", displayName, pin);
     setInput(prevState => ({
       ...prevState,
@@ -32,7 +34,7 @@ function Home() {
   }
 
   return (
-    <div id="home" className="component-container">
+    <div id="home" className="component-container-middle">
       <h1>Join a Game</h1>
       <div className="game-input-info">
         <p>Display Name</p>
