@@ -23,9 +23,15 @@ function Home() {
     setInput(prevState => ({ ...prevState, [name]: value }));
   }
 
-  function sendInfoToServer() {
-    navigate("/player/lobby");
-    socket.emit("display-info", displayName, pin);
+  function playerJoin() {
+    socket.emit("player-join", displayName, pin);
+    socket.on("game-found-status", (gameFound) => {
+      if (gameFound) {
+        navigate("/player/lobby");
+      } else {
+        alert("No game found with this pin.")
+      }
+    })
     setInput(prevState => ({
       ...prevState,
       displayName: "",
@@ -46,7 +52,7 @@ function Home() {
         />
         <p>Game Pin</p>
         <input name="pin" value={pin} onChange={handleChange} />
-        <button onClick={sendInfoToServer}>Join</button>
+        <button onClick={playerJoin}>Join</button>
         <Link id="host-link" to="/host">
           Click here to host a game
         </Link>

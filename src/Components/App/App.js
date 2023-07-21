@@ -18,7 +18,7 @@ const router = createBrowserRouter(
     <Route path="/" element={<Home />} />,
     <Route path="/host" element={<Host />} />,
     <Route path="/create-game" element={<CreateGame />} />,
-    <Route path="/host/lobby/:gameName" element={<HostLobby />} />,
+    <Route path="/host/lobby/:gameId" element={<HostLobby />} />,
     <Route path="/player/lobby" element={<PlayerLobby />} />,
   ])
 );

@@ -44,7 +44,7 @@ function Host() {
         {quizzes.map((quiz) => {
           return (
             <div className="quiz" key={quiz._id}>
-              <h1 onClick={() => navigateToHostLobby(quiz.quizName)}>{quiz.quizName}</h1>
+              <h1 onClick={() => navigateToHostLobby(quiz._id)}>{quiz.quizName}</h1>
               <div onClick={() => deleteQuiz(quiz._id)} className="svg-container">
                 <CloseButtonBlack/>
               </div>

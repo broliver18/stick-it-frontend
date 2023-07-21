@@ -30,6 +30,13 @@
     filter: brightness(110%);
 }
 
+@media only screen and (max-width: 1000px) {
+    #players-list {
+        width: 500px;
+        height: 550px;
+    }
+}
+
 @media only screen and (max-width: 450px) {
     #host-lobby h1 {
         font-size: 20px;
