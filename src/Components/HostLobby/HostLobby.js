@@ -27,8 +27,6 @@ function HostLobby() {
     return () => socket.off("update-player-lobby", getPlayersEvent);
   });
 
-
-
   return (
     <div id="host-lobby" className="component-container-top">
       <h2>Join the Game Using the Game Pin:</h2>

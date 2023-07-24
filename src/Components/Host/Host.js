@@ -12,6 +12,10 @@ function Host() {
   const navigate = useNavigate();
 
   useEffect(() => {
+    socket.emit("remove-existing-games");
+  }, []);
+
+  useEffect(() => {
     function getQuizzesEvent(quizzes) {
       setQuizzes(quizzes);
     }
