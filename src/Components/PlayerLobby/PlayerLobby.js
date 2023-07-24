@@ -1,10 +1,23 @@
-import React from "react";
+import React, { useEffect } from "react";
 import { useNavigate } from "react-router-dom";
 import { socket } from "../../socket";
 
 import "./PlayerLobby.css";
 
 function PlayerLobby() {
+  const navigate = useNavigate();
+
+  useEffect(() => {
+    function hostDisconnectEvent() {
+      navigate("/");
+      alert("The host has disconnected");
+    };
+
+    socket.on("host-disconnect", hostDisconnectEvent);
+
+    return () => socket.off("host-disconnect", hostDisconnectEvent);
+  })
+
   return (
     <div id="player-lobby" className="component-container-middle">
       <h1>Waiting for Host to Start Game</h1>

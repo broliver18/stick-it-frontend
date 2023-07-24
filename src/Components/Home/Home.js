@@ -24,6 +24,10 @@ function Home() {
 
     function playerJoinEvent(gameFound) {
       if (gameFound) {
+        if (!displayName) {
+          alert("Please enter a name");
+          return;
+        }
         navigate("/player/lobby");
         setInput(prevState => ({
           ...prevState,
