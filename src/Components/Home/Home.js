@@ -29,31 +29,35 @@ function Home() {
           return;
         }
         navigate("/player/lobby");
-        setInput(prevState => ({
+        setInput((prevState) => ({
           ...prevState,
           displayName: "",
-          pin: "",   
+          pin: "",
         }));
       } else {
-        setInput(prevState => ({
+        setInput((prevState) => ({
           ...prevState,
-          pin: "",   
+          pin: "",
         }));
         alert("No game found with this pin.");
       }
     }
 
-      socket.emit("player-join", displayName, pin);
-      socket.on("game-found-status", playerJoinEvent);
+    socket.emit("player-join", displayName, pin);
+    socket.on("game-found-status", playerJoinEvent);
 
-      return () => socket.off("game-found-status", playerJoinEvent);
-    }, [trigger])
+    return () => socket.off("game-found-status", playerJoinEvent);
+  }, [trigger]);
+
+  useEffect(() => {
+    socket.emit("player-disconnect");
+  }, []);
 
   const incrementTrigger = () => setTrigger((prevState) => prevState + 1);
 
   function handleChange(e) {
     const { name, value } = e.target;
-    setInput(prevState => ({ ...prevState, [name]: value }));
+    setInput((prevState) => ({ ...prevState, [name]: value }));
   }
 
   return (

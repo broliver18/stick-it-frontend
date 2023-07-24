@@ -18,6 +18,8 @@ function PlayerLobby() {
     return () => socket.off("host-disconnect", hostDisconnectEvent);
   })
 
+  const leaveLobby = () => navigate("/");
+
   return (
     <div id="player-lobby" className="component-container-middle">
       <h1>Waiting for Host to Start Game</h1>
@@ -25,7 +27,7 @@ function PlayerLobby() {
       <div className="spinner-container">
         <div className="loading-spinner"></div>
       </div>
-      <button className="button">Leave</button>
+      <button onClick={leaveLobby} className="button">Leave</button>
     </div>
   );
 }
