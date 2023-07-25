@@ -17,7 +17,7 @@ function PlayerLobby() {
       const searchQueryParams = { id: socket.id };
       const searchQueryString = createSearchParams(searchQueryParams);
       navigate({
-        pathName: "/player/game",
+        pathname: "/player/game",
         search: `?${searchQueryString}`,
       })
     }
