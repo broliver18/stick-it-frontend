@@ -1,5 +1,5 @@
 import React, { useState, useEffect } from "react";
-import { useNavigate, useParams } from "react-router-dom";
+import { useNavigate, useParams, createSearchParams } from "react-router-dom";
 import { socket } from "../../socket";
 
 import "./HostLobby.css";
@@ -7,8 +7,10 @@ import "./HostLobby.css";
 function HostLobby() {
   const [gamePin, setGamePin] = useState();
   const [playersInGame, setPlayersInGame] = useState([]);
+  const [trigger, setTrigger] = useState(0);
 
   let { gameId } = useParams();
+  const navigate = useNavigate();
 
   useEffect(() => {
     socket.emit("host-join", gameId);
@@ -27,6 +29,26 @@ function HostLobby() {
     return () => socket.off("update-player-lobby", getPlayersEvent);
   });
 
+  useEffect(() => {
+    if (!trigger) return;
+
+    function gameStartedEvent(id) {
+      const searchQueryParams = { id };
+      const searchQueryString = createSearchParams(searchQueryParams);
+      navigate({
+        pathname: "/host/game",
+        search: `?${searchQueryString}`,
+      })
+    }
+
+    socket.emit("start-game");
+    socket.on("game-started", gameStartedEvent);
+
+    return () => socket.off("game-started", gameStartedEvent);
+  }, [trigger]);
+
+  const incrementTrigger = () => setTrigger((prevState) => prevState + 1);
+
   return (
     <div id="host-lobby" className="component-container-top">
       <h2>Join the Game Using the Game Pin:</h2>
@@ -34,7 +56,7 @@ function HostLobby() {
       <div id="players-list" className="component-container-top">
         {playersInGame.map((player) => <p className="player-name" key={player.playerId}>{player.name}</p>)}
       </div>
-      <button className="button">Start Game</button>
+      <button onClick={incrementTrigger} className="button">Start Game</button>
     </div>
   );
 }
