@@ -4,9 +4,10 @@ import { socket } from "../../socket";
 import "./PlayerGame.css";
 
 function PlayerGame() {
+
     return (
         <div id="player-game">
-
+            
         </div>
     )
 }
