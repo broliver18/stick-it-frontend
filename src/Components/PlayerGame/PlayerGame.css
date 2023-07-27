@@ -4,3 +4,9 @@
     grid-template-columns: repeat(8, 1fr);
     gap: 45px;
 }
+
+#question-section {
+    padding: 15px;
+    margin-top: 55px;
+    border-radius: 5px;
+}

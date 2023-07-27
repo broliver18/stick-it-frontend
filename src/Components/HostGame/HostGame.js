@@ -1,29 +1,39 @@
 import React, { useState, useEffect } from "react";
-import { useSearchParams } from "react-router-dom";
+import { useNavigate, useSearchParams } from "react-router-dom";
 import { socket } from "../../socket";
 
 import "./HostGame.css";
 
 function HostGame() {
-    const [question, setQuestion] = useState('');
+  const [question, setQuestion] = useState("");
 
-    const [searchParams] = useSearchParams();
-    const hostId = searchParams.get("id");
+  const [searchParams] = useSearchParams();
+  const hostId = searchParams.get("id");
 
-    useEffect(() => {
-        const gameQuestionsEvent = (question) => setQuestion(question);
+  const navigate = useNavigate();
 
-        socket.emit("host-join-game", hostId);
-        socket.on("game-questions", gameQuestionsEvent);
+  useEffect(() => {
+    const gameQuestionsEvent = (question) => setQuestion(question);
+    function noGameFoundEvent() {
+        navigate("/host");
+        alert("No game found");
+      }
 
-        return () => socket.off("game-questions", gameQuestionsEvent);
-    }, []);
+    socket.emit("host-join-game", hostId);
+    socket.on("game-questions", gameQuestionsEvent);
+    socket.on("no-game-found", noGameFoundEvent);
 
-    return (
-        <div id="host-game" className="component-container-top">
-            <h1>{question}</h1>
-        </div>
-    )
+    return () => {
+      socket.off("game-questions", gameQuestionsEvent);
+      socket.off("no-game-found", noGameFoundEvent);
+    };
+  }, []);
+
+  return (
+    <div id="host-game" className="component-container-top">
+      <h1>{question}</h1>
+    </div>
+  );
 }
 
 export default HostGame;
