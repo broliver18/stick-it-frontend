@@ -5,8 +5,60 @@
     gap: 45px;
 }
 
-#question-section {
+#short-answer {
     padding: 15px;
-    margin-top: 55px;
+}
+
+#multiple-choice {
+    
+}
+
+#short-answer, #multiple-choice {
+    margin-top: 35px;
+}
+
+#short-answer h2, #multiple-choice h2 {
+    color: #344e41
+}
+
+.multiple-choice-answers {
+    display: grid;
+    grid-template-columns: repeat(2, 1fr);
+    gap: 15px;
+}
+
+.multiple-choice-answers div {
+    cursor: pointer;
+    width: 200px;
+    height: 100px;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    background-color: #a3b18a;
     border-radius: 5px;
+}
+
+.multiple-choice-answers div h4 {
+    color: white;
+}
+
+#short-answer input{
+    width: 350px;
+    height: 1.5rem;
+    border-radius: 5px;
+    background-color: white;
+    color: black;
+    margin-bottom: 5px;
+    border: 1px solid lightgray;
+}
+
+#short-answer button {
+    cursor: pointer;
+    background-color: #344e41;
+    border: none;
+    margin: 15px;
+    width: 150px;
+    height: 2.5rem;
+    border-radius: 20px;
+    font-weight: 600;
 }
