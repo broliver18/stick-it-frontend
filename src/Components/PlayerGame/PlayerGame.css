@@ -2,7 +2,8 @@
     margin-top: 15px;
     display: grid;
     grid-template-columns: repeat(8, 1fr);
-    gap: 45px;
+    row-gap: 20px;
+    column-gap: 30px;
 }
 
 #short-answer {
@@ -10,11 +11,11 @@
 }
 
 #multiple-choice {
-    
+    padding: 0;
 }
 
 #short-answer, #multiple-choice {
-    margin-top: 35px;
+    margin: 20px 0 0 0;
 }
 
 #short-answer h2, #multiple-choice h2 {
@@ -36,6 +37,10 @@
     align-items: center;
     background-color: #a3b18a;
     border-radius: 5px;
+}
+
+.multiple-choice-answers div:hover {
+    background-color: #344e41;
 }
 
 .multiple-choice-answers div h4 {
@@ -61,4 +66,25 @@
     height: 2.5rem;
     border-radius: 20px;
     font-weight: 600;
+}
+
+#short-answer button:hover {
+    filter: brightness(110%);
+}
+
+#score {
+    position: relative;
+    bottom: 175px;
+    left: 325px;
+    border: 2px solid #344e41;
+    border-radius: 5px;
+    padding: 8px;
+}
+
+#score h2 {
+    margin-bottom: 5px;
+}
+
+#score h1 {
+    margin-top: 0;
 }
