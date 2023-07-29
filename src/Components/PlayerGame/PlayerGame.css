@@ -47,6 +47,32 @@
     color: white;
 }
 
+.message-container {
+   display: flex;
+   flex-direction: column;
+   justify-content: center;
+   align-items: center;
+   height: 80px;
+   padding: 80px 0 80px 0;
+   margin: 25px 0 0 0;
+}
+
+#correct-message h2, #correct-message h4 {
+    color: #344e41
+}
+
+#correct-message h2 {
+    margin-bottom: 0;
+}
+
+#correct-message h4 {
+    margin-top: 10px;
+}
+
+#incorrect-message h2 {
+    color: rgb(113, 7, 7);
+}
+
 #short-answer input{
     width: 350px;
     height: 1.5rem;
