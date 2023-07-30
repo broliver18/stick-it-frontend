@@ -112,7 +112,7 @@ function CreateGame() {
           onChange={handleChange}
         />
       </div>
-      <div className="container">
+      <div className="form-container">
         {questionsArray.map((question) => (
           <QuestionForm
             key={question.id}

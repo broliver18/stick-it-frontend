@@ -105,14 +105,14 @@ function PlayerGame() {
     if (isQuestionAnswered) {
       if (isCorrect) {
         return (
-          <div id="correct-message" className="message-container">
+          <div id="correct-message" className="data-container">
             <h2>You answered correctly!</h2>
             <h4>Flip a card to see how many points you'll get</h4>
           </div>
         );
       } else {
         return (
-          <div id="incorrect-message" className="message-container">
+          <div id="incorrect-message" className="data-container">
             <h2>Sorry, that was incorrect!</h2>
           </div>
         );
@@ -120,7 +120,7 @@ function PlayerGame() {
     } else {
       if (questionInfo.questionType === "short-answer") {
         return (
-          <div id="short-answer" className="component-container-top">
+          <div id="short-answer" className="data-container">
             <h2>{questionInfo.question}</h2>
             <input name="answer" value={input.answer} onChange={handleChange} />
             <button onClick={checkShortAnswer}>Answer Question</button>
@@ -130,9 +130,9 @@ function PlayerGame() {
         const { question, answerOne, answerTwo, answerThree, answerFour } =
           questionInfo;
         return (
-          <div id="multiple-choice" className="component-container-top">
+          <div id="multiple-choice" className="data-container">
             <h2>{question}</h2>
-            <div className="multiple-choice-answers">
+            <div id="multiple-choice-answers">
               <div onClick={() => checkMultipleChoice(1)} id="answer-one">
                 <h4>{answerOne}</h4>
               </div>
@@ -168,7 +168,7 @@ function PlayerGame() {
           );
         })}
       </div>
-      {renderAction()}
+      <div className="question-message-container">{renderAction()}</div>
       <div id="score" className="component-container-top">
         <h2>Total Score:</h2>
         <h1>{score}</h1>

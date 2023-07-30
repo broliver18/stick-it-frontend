@@ -18,7 +18,7 @@
     width: 40px;
  }
 
-.container {
+.form-container {
     display: flex;
     justify-content: center;
     flex-wrap: wrap;
