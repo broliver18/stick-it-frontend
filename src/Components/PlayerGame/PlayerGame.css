@@ -7,7 +7,7 @@
 }
 
 .question-message-container {
-    margin: 30px 30px 0 0;
+    margin: 10px 30px 0 0;
     display: flex;
     justify-content: center;
     align-items: center;
@@ -18,10 +18,17 @@
 .data-container {
     display: flex;
     flex-direction: column;
-    justify-content: center;
     align-items: center;
     width: 100%;
     height: 100%;
+}
+
+#short-answer, #correct-message, #incorrect-message {
+    justify-content: center;
+}
+
+#multiple-choice {
+    justify-content: flex-start;
 }
 
 #short-answer h2, #multiple-choice h2 {
@@ -96,11 +103,12 @@
 
 #score {
     position: relative;
-    bottom: 185px;
+    bottom: 200px;
     left: 300px;
     border: 2px solid #344e41;
     border-radius: 5px;
     padding: 8px;
+    margin-bottom: -125px;
 }
 
 #score h2 {
