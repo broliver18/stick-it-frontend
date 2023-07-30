@@ -12,10 +12,10 @@ function PlayerGame() {
   const [quizInfo, setQuizInfo] = useState({});
   const [input, setInput] = useState({ answer: "" });
   const [cardPoints, setCardPoints] = useState(new Array(24).fill(0));
-  const [isQuestionAnswered, setIsQuestionAnswered] = useState(true);
-  const [isCorrect, setIsCorrect] = useState(true);
+  const [isQuestionAnswered, setIsQuestionAnswered] = useState(false);
+  const [isCorrect, setIsCorrect] = useState(false);
   const [score, setScore] = useState(0);
-  const [trigger, setTrigger] = useState(2);
+  const [trigger, setTrigger] = useState(0);
 
   const [searchParams] = useSearchParams();
   const playerId = searchParams.get("id");
@@ -23,7 +23,10 @@ function PlayerGame() {
   const navigate = useNavigate();
 
   useEffect(() => {
-    const getQuizInfoEvent = (info) => setQuizInfo(info);
+    function getQuizInfoEvent(info) {
+      setQuizInfo(info);
+      updateCardPoints(info.minPoints, info.maxPoints);
+    }
 
     socket.emit("player-join-game", playerId);
     socket.on("get-quiz-title", getQuizInfoEvent);
@@ -56,8 +59,26 @@ function PlayerGame() {
     setInput((prevState) => ({ ...prevState, [name]: value }));
   }
 
+  function updateCardPoints(minPoints, maxPoints) {
+    const newCardPoints = Array.from(
+      { length: 24 },
+      () => Math.floor(Math.random() * (maxPoints - minPoints + 1)) + minPoints
+    );
+    setCardPoints(newCardPoints);
+    console.log(newCardPoints);
+  }
+
+  function updateScore(points) {
+    setScore((prevState) => prevState + points);
+    const { minPoints, maxPoints } = quizInfo;
+    setIsQuestionAnswered(false);
+    updateCardPoints(minPoints, maxPoints);
+  }
+
   function checkMultipleChoice(num) {
     setIsQuestionAnswered(true);
+    setInput("");
+    setTrigger((prevState) => prevState + 1);
     if (num === questionInfo.correctAnswer) {
       setIsCorrect(true);
     } else {
@@ -70,13 +91,13 @@ function PlayerGame() {
 
   function checkShortAnswer() {
     setIsQuestionAnswered(true);
+    setInput("");
+    setTrigger((prevState) => prevState + 1);
     if (input.answer === questionInfo.shortAnswer) {
       setIsCorrect(true);
     } else {
       setIsCorrect(false);
-      setTimeout(() => {
-        setIsQuestionAnswered(false);
-      }, 2000);
+      setIsQuestionAnswered(false);
     }
   }
 
@@ -102,7 +123,7 @@ function PlayerGame() {
           <div id="short-answer" className="component-container-top">
             <h2>{questionInfo.question}</h2>
             <input name="answer" value={input.answer} onChange={handleChange} />
-            <button>Answer Question</button>
+            <button onClick={checkShortAnswer}>Answer Question</button>
           </div>
         );
       } else {
@@ -112,16 +133,16 @@ function PlayerGame() {
           <div id="multiple-choice" className="component-container-top">
             <h2>{question}</h2>
             <div className="multiple-choice-answers">
-              <div id="answer-one">
+              <div onClick={() => checkMultipleChoice(1)} id="answer-one">
                 <h4>{answerOne}</h4>
               </div>
-              <div id="answer-two">
+              <div onClick={() => checkMultipleChoice(2)} id="answer-two">
                 <h4>{answerTwo}</h4>
               </div>
-              <div id="answer-three">
+              <div onClick={() => checkMultipleChoice(3)} id="answer-three">
                 <h4>{answerThree}</h4>
               </div>
-              <div id="answer-four">
+              <div onClick={() => checkMultipleChoice(4)} id="answer-four">
                 <h4>{answerFour}</h4>
               </div>
             </div>
@@ -135,8 +156,16 @@ function PlayerGame() {
     <div id="player-game" className="component-container-top">
       <h1>{quizInfo.name}</h1>
       <div className="grid-container">
-        {cardPoints.map((point) => {
-          return <Card point={point} key={nanoid()} />;
+        {cardPoints.map((points) => {
+          return (
+            <Card
+              key={nanoid()}
+              points={points}
+              isQuestionAnswered={isQuestionAnswered}
+              isCorrect={isCorrect}
+              updateScore={updateScore}
+            />
+          );
         })}
       </div>
       {renderAction()}
