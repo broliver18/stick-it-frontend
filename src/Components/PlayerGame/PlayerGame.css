@@ -111,6 +111,13 @@
     margin-bottom: -125px;
 }
 
+#question-number {
+    position: relative;
+    bottom: 260px;
+    left: 300px;
+    margin-bottom: -100px;
+}
+
 #score h2 {
     margin-bottom: 5px;
 }

@@ -16,19 +16,15 @@ function Card({ points, isQuestionAnswered, isCorrect, updateScore }) {
     setSavedTimeoutId((prev) => {
       if (prev !== 0) clearTimeout(prev);
       return setTimeout(() => {
-        setIsFlipped(false);
-      }, 2000);
-    });
+        setIsFlipped(false)
+      }, 2000)
+    })
   }
 
   return (
-    <div
-      onClick={flipCard}
-      onTransitionEnd={() => {
-        if (!isFlipped) updateScore(points);
-      }}
-      className="flip-card"
-    >
+    <div onClick={flipCard} onTransitionEnd={() => {
+      if (!isFlipped) updateScore(points);
+    }} className="flip-card">
       <div
         className={isFlipped ? "flip-card-inner flipped" : "flip-card-inner"}
       >

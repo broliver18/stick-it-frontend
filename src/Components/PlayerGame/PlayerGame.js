@@ -14,6 +14,7 @@ function PlayerGame() {
   const [cardPoints, setCardPoints] = useState(new Array(24).fill(0));
   const [isQuestionAnswered, setIsQuestionAnswered] = useState(false);
   const [isCorrect, setIsCorrect] = useState(false);
+  const [questionNum, setQuestionNum] = useState(1);
   const [score, setScore] = useState(0);
   const [trigger, setTrigger] = useState(0);
 
@@ -29,9 +30,9 @@ function PlayerGame() {
     }
 
     socket.emit("player-join-game", playerId);
-    socket.on("get-quiz-title", getQuizInfoEvent);
+    socket.on("get-quiz-info", getQuizInfoEvent);
 
-    return () => socket.off("get-quiz-title", getQuizInfoEvent);
+    return () => socket.off("get-quiz-info", getQuizInfoEvent);
   }, []);
 
   useEffect(() => {
@@ -68,10 +69,12 @@ function PlayerGame() {
   }
 
   function updateScore(points) {
+    if (!isQuestionAnswered || !isCorrect) return;
     setScore((prevState) => prevState + points);
     const { minPoints, maxPoints } = quizInfo;
     setIsQuestionAnswered(false);
     updateCardPoints(minPoints, maxPoints);
+    setQuestionNum((prevState) => prevState + 1);
   }
 
   function checkMultipleChoice(num) {
@@ -84,6 +87,7 @@ function PlayerGame() {
       setIsCorrect(false);
       setTimeout(() => {
         setIsQuestionAnswered(false);
+        setQuestionNum((prevState) => prevState + 1);
       }, 2000);
     }
   }
@@ -98,6 +102,7 @@ function PlayerGame() {
       setIsCorrect(false);
       setTimeout(() => {
         setIsQuestionAnswered(false);
+        setQuestionNum((prevState) => prevState + 1);
       }, 2000);
     }
   }
@@ -173,6 +178,9 @@ function PlayerGame() {
       <div id="score" className="component-container-top">
         <h2>Total Score:</h2>
         <h1>{score}</h1>
+      </div>
+      <div id="question-number">
+        <h2>Question {questionNum}/{quizInfo.numberOfQuestions}</h2>
       </div>
     </div>
   );
