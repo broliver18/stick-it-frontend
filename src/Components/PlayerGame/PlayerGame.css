@@ -7,13 +7,11 @@
 }
 
 .question-message-container {
-    position: absolute;
-    bottom: 0;
     margin: 30px 30px 0 0;
     display: flex;
     justify-content: center;
     align-items: center;
-    width: 500px;
+    width: 450px;
     height: 300px;
 }
 
@@ -31,7 +29,6 @@
 }
 
 #multiple-choice-answers {
-    margin-bottom: 20px;
     display: grid;
     grid-template-columns: repeat(2, 1fr);
     gap: 15px;
@@ -98,9 +95,9 @@
 }
 
 #score {
-    position: absolute;
-    bottom: 75px;
-    right: 325px;
+    position: relative;
+    bottom: 185px;
+    left: 300px;
     border: 2px solid #344e41;
     border-radius: 5px;
     padding: 8px;

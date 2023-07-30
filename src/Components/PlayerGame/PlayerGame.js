@@ -65,7 +65,6 @@ function PlayerGame() {
       () => Math.floor(Math.random() * (maxPoints - minPoints + 1)) + minPoints
     );
     setCardPoints(newCardPoints);
-    console.log(newCardPoints);
   }
 
   function updateScore(points) {
@@ -91,13 +90,15 @@ function PlayerGame() {
 
   function checkShortAnswer() {
     setIsQuestionAnswered(true);
-    setInput("");
+    setInput({ answer: "" });
     setTrigger((prevState) => prevState + 1);
     if (input.answer === questionInfo.shortAnswer) {
       setIsCorrect(true);
     } else {
       setIsCorrect(false);
-      setIsQuestionAnswered(false);
+      setTimeout(() => {
+        setIsQuestionAnswered(false);
+      }, 2000);
     }
   }
 
