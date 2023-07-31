@@ -8,6 +8,10 @@ function PlayerLobby() {
   const navigate = useNavigate();
 
   useEffect(() => {
+    socket.emit("end-game-player");
+  }, []);
+
+  useEffect(() => {
     function hostDisconnectEvent() {
       navigate("/");
       alert("The host has disconnected");

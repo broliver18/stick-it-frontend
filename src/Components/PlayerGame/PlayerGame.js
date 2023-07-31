@@ -33,11 +33,20 @@ function PlayerGame() {
       updateCardPoints(info.minPoints, info.maxPoints);
     }
 
+    function noGameFoundEvent() {
+      navigate("/");
+      alert("No game found");
+    }
+
     socket.emit("player-join-game", playerId);
     socket.on("get-quiz-info", getQuizInfoEvent);
+    socket.on("no-game-found", noGameFoundEvent);
 
-    return () => socket.off("get-quiz-info", getQuizInfoEvent);
-  }, [playerId]);
+    return () => {
+      socket.off("get-quiz-info", getQuizInfoEvent);
+      socket.off("no-game-found", noGameFoundEvent);
+    };
+  }, [navigate, playerId]);
 
   useEffect(() => {
     if (trigger === quizInfo.numberOfQuestions) return;
@@ -61,14 +70,14 @@ function PlayerGame() {
   }, [navigate, playerId, questionNum, quizInfo.numberOfQuestions]);
 
   useEffect(() => {
-    function noGameFoundEvent() {
+    function hostDisconnectEvent() {
       navigate("/");
-      alert("No game found");
+      alert("The host has disconnected");
     }
 
-    socket.on("no-game-found", noGameFoundEvent);
+    socket.on("host-disconnect", hostDisconnectEvent);
 
-    return () => socket.off("no-game-found", noGameFoundEvent);
+    return () => socket.off("host-disconnect", hostDisconnectEvent);
   });
 
   function handleChange(e) {

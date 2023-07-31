@@ -27,7 +27,7 @@ function HostGame() {
       socket.off("game-questions", getQuizTitleEvent);
       socket.off("no-game-found", noGameFoundEvent);
     };
-  }, []);
+  }, [hostId, navigate]);
 
   return (
     <div id="host-game" className="component-container-top">
