@@ -1,0 +1,49 @@
+#rankings {
+    display: flex;
+    justify-content: space-around;
+    margin: 15px 0 25px 0;
+    width: 800px;
+    height: 650px;
+    border-radius: 5px;
+    background-color: #a3b18a;
+}
+
+#host-game button {
+    cursor: pointer;
+    background-color: #344e41;
+    border: none;
+    margin: 15px;
+    width: 225px;
+    height: 3rem;
+    border-radius: 5px;
+    font-weight: 600;
+    font-size: 20px;  
+}
+
+#name h2, #scores h2 {
+    color: #344e41;
+}
+
+#host-game button:hover {
+    filter: brightness(110%);
+}
+
+@media only screen and (max-width: 1000px) {
+    #rankings {
+        width: 500px;
+        height: 600px;
+    }
+}
+
+@media only screen and (max-width: 450px) {
+    #rankings {
+        width: 250px;
+        height: 450px;
+    }
+
+    #host-game button {
+        width: 150px;
+        height: 2rem;
+        font-size: 16;
+    }
+}

@@ -32,6 +32,15 @@ function HostGame() {
   return (
     <div id="host-game" className="component-container-top">
       <h1>{quizTitle}</h1>
+      <div id="rankings">
+        <div id="name">
+          <h2>Names</h2>
+        </div>
+        <div id="scores">
+          <h2>Scores</h2>
+        </div>
+      </div>
+      <button>End Game</button>
     </div>
   );
 }

@@ -41,6 +41,10 @@
     font-weight: 600;
 }
 
+#finished-game button:hover {
+    filter: brightness(110%);
+}
+
 @media only screen and (max-width: 450px) {
     #score-message h1 {
         font-size: 22px;

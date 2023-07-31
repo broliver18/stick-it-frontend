@@ -9,7 +9,7 @@
 #players-list {
     margin-bottom: 25px;
     width: 800px;
-    height: 500px;
+    height: 600px;
     background-color: #dad7cd;
     border-radius: 5px;
 }
@@ -43,12 +43,12 @@
 }
 
 @media only screen and (max-width: 450px) {
-    #host-lobby h1 {
-        font-size: 20px;
+    #host-lobby h2 {
+        font-size: 18px;
     }
 
-    #host-lobby h2 {
-        font-size: 16px;
+    #host-lobby h1 {
+        margin: 10px 0 35px 0
     }
 
     #players-list {
