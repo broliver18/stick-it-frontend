@@ -33,7 +33,6 @@ function CreateGame() {
     function createQuizEvent(message) {
       if (message === "success") {
         setIsQuizCreated(true);
-        clearPage();
         navigate("/host");
       } else {
         errorMessageEvent(message);
@@ -64,17 +63,6 @@ function CreateGame() {
       ...prevState,
       { value: true, id: nanoid() },
     ]);
-  }
-
-  function clearPage() {
-    setTrigger(0);
-    setQuestions([]);
-    setQuestionsArray([{ value: true, id: nanoid() }]);
-    setInput({
-      quizName: "",
-      minPoints: "",
-      maxPoints: "",
-    });
   }
 
   function removeQuestion(id) {

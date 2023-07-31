@@ -17,7 +17,7 @@ function HostLobby() {
     socket.on("show-game-pin", (gamePin) => setGamePin(gamePin));
 
     return () => socket.off("show-game-pin", (gamePin) => setGamePin(gamePin));
-  }, []);
+  }, [gameId]);
 
   useEffect(() => {
     function getPlayersEvent(players) {
@@ -45,7 +45,7 @@ function HostLobby() {
     socket.on("game-started", gameStartedEvent);
 
     return () => socket.off("game-started", gameStartedEvent);
-  }, [trigger]);
+  }, [navigate, trigger]);
 
   const incrementTrigger = () => setTrigger((prevState) => prevState + 1);
 
