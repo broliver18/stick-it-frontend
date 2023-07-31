@@ -1,5 +1,9 @@
 import React, { useState, useEffect } from "react";
-import { useNavigate, useSearchParams } from "react-router-dom";
+import {
+  useNavigate,
+  createSearchParams,
+  useSearchParams,
+} from "react-router-dom";
 import { socket } from "../../socket";
 import { nanoid } from "nanoid";
 
@@ -33,16 +37,28 @@ function PlayerGame() {
     socket.on("get-quiz-info", getQuizInfoEvent);
 
     return () => socket.off("get-quiz-info", getQuizInfoEvent);
-  }, []);
+  }, [playerId]);
 
   useEffect(() => {
+    if (trigger === quizInfo.numberOfQuestions) return;
     const questionEvent = (questionData) => setQuestionInfo(questionData);
 
     socket.emit("get-question", trigger);
     socket.on("question", questionEvent);
 
     return () => socket.off("question", questionEvent);
-  }, [trigger]);
+  }, [navigate, playerId, quizInfo.numberOfQuestions, trigger]);
+
+  useEffect(() => {
+    if (questionNum > quizInfo.numberOfQuestions) {
+      const searchQueryParams = { id: playerId };
+      const searchQueryString = createSearchParams(searchQueryParams);
+      navigate({
+        pathname: "/player/finished-game",
+        search: `?${searchQueryString}`,
+      });
+    }
+  }, [navigate, playerId, questionNum, quizInfo.numberOfQuestions]);
 
   useEffect(() => {
     function noGameFoundEvent() {
@@ -180,7 +196,9 @@ function PlayerGame() {
         <h1>{score}</h1>
       </div>
       <div id="question-number">
-        <h2>Question {questionNum}/{quizInfo.numberOfQuestions}</h2>
+        <h2>
+          Question {questionNum}/{quizInfo.numberOfQuestions}
+        </h2>
       </div>
     </div>
   );

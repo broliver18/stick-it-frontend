@@ -5,7 +5,6 @@ import {
   createRoutesFromElements,
   Route,
 } from "react-router-dom";
-import { socket } from "../../socket";
 
 import Home from "../Home/Home";
 import Host from "../Host/Host";
@@ -14,6 +13,7 @@ import HostLobby from "../HostLobby/HostLobby";
 import PlayerLobby from "../PlayerLobby/PlayerLobby";
 import PlayerGame from "../PlayerGame/PlayerGame";
 import HostGame from "../HostGame/HostGame";
+import FinishedGame from "../FinishedGame/FinishedGame";
 
 const router = createBrowserRouter(
   createRoutesFromElements([
@@ -24,6 +24,7 @@ const router = createBrowserRouter(
     <Route path="/player/lobby" element={<PlayerLobby />} />,
     <Route path="/player/game" element={<PlayerGame />} />,
     <Route path="/host/game" element={<HostGame />} />,
+    <Route path="/player/finished-game" element={<FinishedGame />} />,
   ])
 );
 
