@@ -49,3 +49,14 @@
 .flip-card-back h4 {
     color: #fff;
 }
+
+@media only screen and (max-width: 450px) {
+    .flip-card {
+        height: 80px;
+        width: 50px;
+    }
+
+    .flip-card-front h4, .flip-card-back h4 {
+        font-size: 10px;
+    }
+}

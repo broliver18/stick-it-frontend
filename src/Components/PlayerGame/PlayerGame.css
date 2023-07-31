@@ -125,3 +125,51 @@
 #score h1 {
     margin-top: 0;
 }
+
+@media only screen and (max-width: 450px) {
+    .grid-container {
+        margin-top: 5px;
+        grid-template-columns: repeat(6, 1fr);
+        gap: 10px;
+    }
+
+    #short-answer input {
+        width: 250px;
+    }
+
+    #short-answer h2, #multiple-choice h2 {
+        font-size: 20px; 
+    }
+
+    .question-message-container {
+        width: 350px;
+        height: 250px;
+        margin: 10px 0 20px 0;
+    }
+
+    #multiple-choice {
+        justify-content: center;
+    }
+
+    #multiple-choice-answers {
+        gap: 10px;
+    }
+
+    #multiple-choice-answers div {
+        width: 150px;
+        height: 80px;
+    }
+
+    #score {
+        position: static;
+        height: 100px;
+        margin-top: 0;
+        border: none;
+    }
+    
+    #question-number {
+        position: relative;
+        bottom: 25px;
+        left: 0;
+    }
+}
