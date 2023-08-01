@@ -208,7 +208,7 @@ function PlayerGame() {
         <h2>Total Score:</h2>
         <h1>{score}</h1>
       </div>
-      <div id="question-number">
+      <div id="question-number" className="component-container-middle">
         <h2>
           Question {questionNum}/{quizInfo.numberOfQuestions}
         </h2>
