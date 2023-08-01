@@ -29,6 +29,17 @@ function FinishedGame() {
     navigate("/");
   }, [navigate, trigger]);
 
+  useEffect(() => {
+    function hostDisconnectEvent() {
+      navigate("/");
+      alert("The host has ended the game");
+    }
+
+    socket.on("host-disconnect", hostDisconnectEvent);
+
+    return () => socket.off("host-disconnect", hostDisconnectEvent);
+  });
+
   const incrementTrigger = () => setTrigger((prevState) => prevState + 1);
 
   return (
