@@ -3,7 +3,7 @@
     justify-content: space-around;
     margin: 15px 0 25px 0;
     width: 800px;
-    height: 650px;
+    height: 600px;
     border-radius: 5px;
     background-color: #a3b18a;
 }
@@ -31,7 +31,7 @@
 @media only screen and (max-width: 1000px) {
     #rankings {
         width: 500px;
-        height: 600px;
+        height: 500px;
     }
 }
 
@@ -45,5 +45,9 @@
         width: 150px;
         height: 2rem;
         font-size: 16;
+    }
+
+    #name h2, #scores h2 {
+        font-size: 18px;
     }
 }

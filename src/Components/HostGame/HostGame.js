@@ -6,6 +6,7 @@ import "./HostGame.css";
 
 function HostGame() {
   const [quizTitle, setQuizTitle] = useState("");
+  const [players, setPlayers] = useState([]);
 
   const [searchParams] = useSearchParams();
   const hostId = searchParams.get("id");
@@ -28,6 +29,14 @@ function HostGame() {
       socket.off("no-game-found", noGameFoundEvent);
     };
   }, [hostId, navigate]);
+
+  useEffect(() => {
+    const getPlayersRankedEvent = (sortedPlayers) => setPlayers(sortedPlayers);
+
+    socket.on("player-rankings", getPlayersRankedEvent);
+
+    return () => socket.off("player-rankings", getPlayersRankedEvent);
+  });
 
   return (
     <div id="host-game" className="component-container-top">

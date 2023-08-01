@@ -52,7 +52,7 @@ function PlayerGame() {
     if (trigger === quizInfo.numberOfQuestions) return;
     const questionEvent = (questionData) => setQuestionInfo(questionData);
 
-    socket.emit("get-question", trigger);
+    socket.emit("get-question", trigger, playerId);
     socket.on("question", questionEvent);
 
     return () => socket.off("question", questionEvent);
@@ -68,6 +68,10 @@ function PlayerGame() {
       });
     }
   }, [navigate, playerId, questionNum, quizInfo.numberOfQuestions]);
+
+  useEffect(() => {
+    socket.emit("player-score", score, playerId);
+  }, [playerId, score]);
 
   useEffect(() => {
     function hostDisconnectEvent() {
