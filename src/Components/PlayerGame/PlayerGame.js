@@ -21,6 +21,7 @@ function PlayerGame() {
   const [questionNum, setQuestionNum] = useState(1);
   const [score, setScore] = useState(0);
   const [trigger, setTrigger] = useState(0);
+  const [readyToNavigate, setReadyToNavigate] = useState(false);
 
   const [searchParams] = useSearchParams();
   const playerId = searchParams.get("id");
@@ -59,15 +60,22 @@ function PlayerGame() {
   }, [navigate, playerId, quizInfo.numberOfQuestions, trigger]);
 
   useEffect(() => {
-    if (questionNum > quizInfo.numberOfQuestions) {
+    let timeout;
+
+    if (readyToNavigate) {
       const searchQueryParams = { id: playerId };
       const searchQueryString = createSearchParams(searchQueryParams);
-      navigate({
-        pathname: "/player/finished-game",
-        search: `?${searchQueryString}`,
-      });
+
+      timeout = setTimeout(() => {
+        navigate({
+          pathname: "/player/finished-game",
+          search: `?${searchQueryString}`,
+        });
+      }, 1000);
     }
-  }, [navigate, playerId, questionNum, quizInfo.numberOfQuestions]);
+
+    return () => clearTimeout(timeout);
+  }, [navigate, playerId, readyToNavigate, quizInfo.numberOfQuestions]);
 
   useEffect(() => {
     socket.emit("player-score", score, playerId);
@@ -101,9 +109,13 @@ function PlayerGame() {
     if (!isQuestionAnswered || !isCorrect) return;
     setScore((prevState) => prevState + points);
     const { minPoints, maxPoints } = quizInfo;
-    setIsQuestionAnswered(false);
     updateCardPoints(minPoints, maxPoints);
-    setQuestionNum((prevState) => prevState + 1);
+    if (questionNum === quizInfo.numberOfQuestions) {
+      setReadyToNavigate(true);
+    } else {
+      setQuestionNum((prevState) => prevState + 1);
+      setIsQuestionAnswered(false);
+    }
   }
 
   function checkMultipleChoice(num) {
@@ -115,8 +127,12 @@ function PlayerGame() {
     } else {
       setIsCorrect(false);
       setTimeout(() => {
-        setIsQuestionAnswered(false);
-        setQuestionNum((prevState) => prevState + 1);
+        if (questionNum === quizInfo.numberOfQuestions) {
+          setReadyToNavigate(true);
+        } else {
+          setQuestionNum((prevState) => prevState + 1);
+          setIsQuestionAnswered(false);
+        }
       }, 2000);
     }
   }
@@ -130,8 +146,12 @@ function PlayerGame() {
     } else {
       setIsCorrect(false);
       setTimeout(() => {
-        setIsQuestionAnswered(false);
-        setQuestionNum((prevState) => prevState + 1);
+        if (questionNum === quizInfo.numberOfQuestions) {
+          setReadyToNavigate(true);
+        } else {
+          setQuestionNum((prevState) => prevState + 1);
+          setIsQuestionAnswered(false);
+        }
       }, 2000);
     }
   }
