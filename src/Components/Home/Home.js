@@ -79,7 +79,7 @@ function Home() {
   }
 
   return (
-    <div id="home" className="component-container-middle">
+    <div id="home" className="container-middle">
       <h1>Join a Game</h1>
       <div className="game-input-info">
         <p>Display Name</p>

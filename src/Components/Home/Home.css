@@ -6,7 +6,7 @@ body {
     background-color: #588157;
 }
 
-.component-container-middle {
+.container-middle {
     position: relative;
     transform: translateY(50%);
     display: flex;

@@ -51,10 +51,10 @@ function HostLobby() {
   const incrementTrigger = () => setTrigger((prevState) => prevState + 1);
 
   return (
-    <div id="host-lobby" className="component-container-top">
+    <div id="host-lobby" className="container-top">
       <h2>Join the Game Using the Game Pin:</h2>
       <h1>{gamePin}</h1>
-      <div id="players-list" className="component-container-top">
+      <div id="players-list" className="container-top">
         {playersInGame.map((player) => <p className="player-name" key={player.playerId}>{player.name}</p>)}
       </div>
       <button onClick={incrementTrigger} className="button">Start Game</button>

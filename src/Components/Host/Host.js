@@ -36,7 +36,7 @@ function Host() {
   }
 
   return (
-    <div id="host" className="component-container-top">
+    <div id="host" className="container-top">
       <h1>Start a Game</h1>
       <p>
         Choose a Game Below or{" "}

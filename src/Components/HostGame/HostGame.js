@@ -54,7 +54,7 @@ function HostGame() {
   const incrementTrigger = () => setTrigger((prevState) => prevState + 1);
 
   return (
-    <div id="host-game" className="component-container-top">
+    <div id="host-game" className="container-top">
       <h1>{quizTitle}</h1>
       <div id="rankings">
         <div id="names-container">

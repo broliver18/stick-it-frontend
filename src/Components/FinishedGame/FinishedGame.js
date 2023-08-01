@@ -43,7 +43,7 @@ function FinishedGame() {
   const incrementTrigger = () => setTrigger((prevState) => prevState + 1);
 
   return (
-    <div id="finished-game" className="component-container-middle">
+    <div id="finished-game" className="container-middle">
       <div id="score-message" className="center">
         <h1>Congrats on Finishing the Game!</h1>
         <p>Don't leave this page until everyone finishes to see your ranking</p>

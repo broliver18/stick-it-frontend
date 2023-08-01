@@ -188,7 +188,7 @@ function PlayerGame() {
   }
 
   return (
-    <div id="player-game" className="component-container-top">
+    <div id="player-game" className="container-top">
       <h1>{quizInfo.name}</h1>
       <div className="grid-container">
         {cardPoints.map((points) => {
@@ -204,11 +204,11 @@ function PlayerGame() {
         })}
       </div>
       <div className="question-message-container">{renderAction()}</div>
-      <div id="score" className="component-container-top">
+      <div id="score" className="container-top">
         <h2>Total Score:</h2>
         <h1>{score}</h1>
       </div>
-      <div id="question-number" className="component-container-middle">
+      <div id="question-number" className="container-middle">
         <h2>
           Question {questionNum}/{quizInfo.numberOfQuestions}
         </h2>
