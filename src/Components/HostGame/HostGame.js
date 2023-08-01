@@ -42,11 +42,21 @@ function HostGame() {
     <div id="host-game" className="component-container-top">
       <h1>{quizTitle}</h1>
       <div id="rankings">
-        <div id="name">
-          <h2>Names</h2>
+        <div id="names-container">
+          <h2>Name</h2>
+          <div id="names">
+            {players.map((player, index) => {
+              return <p key={index}>{index + 1}: {player.name}</p>
+            })}
+          </div>
         </div>
-        <div id="scores">
-          <h2>Scores</h2>
+        <div id="scores-container">
+          <h2>Score</h2>
+          <div id="scores">
+            {players.map((player, index) => {
+              return <p key={index}>{player.gameData.score}</p>
+            })}
+          </div>
         </div>
       </div>
       <button>End Game</button>
