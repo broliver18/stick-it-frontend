@@ -7,6 +7,7 @@ import "./HostGame.css";
 function HostGame() {
   const [quizTitle, setQuizTitle] = useState("");
   const [players, setPlayers] = useState([]);
+  const [trigger, setTrigger] = useState(0);
 
   const [searchParams] = useSearchParams();
   const hostId = searchParams.get("id");
@@ -31,12 +32,26 @@ function HostGame() {
   }, [hostId, navigate]);
 
   useEffect(() => {
+    if (!trigger) return;
+
+    const endGameEvent = () => navigate("/");
+    
+    socket.emit("end-game-host")
+    socket.on("host-disconnect", endGameEvent);
+
+    return () => socket.off("host-disconnect", endGameEvent);
+
+  }, [navigate, trigger])
+
+  useEffect(() => {
     const getPlayersRankedEvent = (sortedPlayers) => setPlayers(sortedPlayers);
 
     socket.on("player-rankings", getPlayersRankedEvent);
 
     return () => socket.off("player-rankings", getPlayersRankedEvent);
   });
+
+  const incrementTrigger = () => setTrigger((prevState) => prevState + 1);
 
   return (
     <div id="host-game" className="component-container-top">
@@ -59,7 +74,7 @@ function HostGame() {
           </div>
         </div>
       </div>
-      <button>End Game</button>
+      <button onClick={incrementTrigger}>End Game</button>
     </div>
   );
 }

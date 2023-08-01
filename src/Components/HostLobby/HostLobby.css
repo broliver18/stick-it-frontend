@@ -12,6 +12,7 @@
     height: 525px;
     background-color: #dad7cd;
     border-radius: 5px;
+    overflow-y: sroll;
 }
 
 .player-name{

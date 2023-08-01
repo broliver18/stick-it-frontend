@@ -6,6 +6,7 @@
     height: 600px;
     border-radius: 5px;
     background-color: #a3b18a;
+    overflow-y: scroll;
 }
 
 #host-game button {
@@ -46,7 +47,7 @@
 }
 
 #scores p {
-    margin: 4px;
+    margin: 5px;
 }
 
 #names-container h2, #scores-container h2 {
