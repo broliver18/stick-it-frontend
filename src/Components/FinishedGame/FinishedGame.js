@@ -46,7 +46,6 @@ function FinishedGame() {
     <div id="finished-game" className="container-middle">
       <div id="score-message" className="center">
         <h1>Congrats on Finishing the Game!</h1>
-        <p>Don't leave this page until everyone finishes to see your ranking</p>
         <div id="final-score" className="center">
           <h2>Final Score:</h2>
           <h1>{finalScore}</h1>

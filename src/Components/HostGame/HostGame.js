@@ -33,13 +33,9 @@ function HostGame() {
 
   useEffect(() => {
     if (!trigger) return;
-
-    const endGameEvent = () => navigate("/");
     
     socket.emit("end-game-host")
-    socket.on("host-disconnect", endGameEvent);
-
-    return () => socket.off("host-disconnect", endGameEvent);
+    navigate("/");
 
   }, [navigate, trigger])
 

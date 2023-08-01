@@ -9,12 +9,8 @@
     margin: 0;
 }
 
-#score-message p {
-    margin: 10px 0 25px 0;
-}
-
 #final-score {
-    margin-top: 15px;
+    margin-top: 25px;
     border: 2px solid #344e41;
     border-radius: 5px;
     width: 140px;
@@ -48,10 +44,6 @@
 @media only screen and (max-width: 450px) {
     #score-message h1 {
         font-size: 22px;
-    }
-
-    #score-message p {
-        font-size: 10px;
     }
 
     #final-score h1 {
