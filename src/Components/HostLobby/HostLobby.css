@@ -15,6 +15,10 @@
     overflow-y: sroll;
 }
 
+#players-list::-webkit-scrollbar {
+    display: none;
+}
+
 .player-name{
     margin: 5px 0 1px 0;
     color: #333333;

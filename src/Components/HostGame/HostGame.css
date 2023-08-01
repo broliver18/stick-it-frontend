@@ -9,6 +9,10 @@
     overflow-y: scroll;
 }
 
+#rankings::-webkit-scrollbar {
+    display: none;
+}
+
 #host-game button {
     cursor: pointer;
     background-color: #344e41;

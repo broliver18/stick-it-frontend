@@ -22,6 +22,14 @@ function Home() {
   useEffect(() => {
     if (!trigger) return;
 
+    function nameAlreadyExistsEvent() {
+      alert("Another player is already using this name");
+      setInput((prevState) => ({
+        ...prevState,
+        displayName: "",
+      }));
+    }
+
     function playerJoinEvent(gameFound) {
       if (gameFound) {
         if (!displayName) {
@@ -45,8 +53,12 @@ function Home() {
 
     socket.emit("player-join", displayName, pin);
     socket.on("game-found-status", playerJoinEvent);
+    socket.on("name-already-exists", nameAlreadyExistsEvent);
 
-    return () => socket.off("game-found-status", playerJoinEvent);
+    return () => {
+      socket.off("game-found-status", playerJoinEvent);
+      socket.off("name-already-exists", nameAlreadyExistsEvent);
+    };
   }, [trigger]);
 
   useEffect(() => {
