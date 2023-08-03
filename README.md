@@ -10,6 +10,7 @@ The host's screen will display the current rankings for all users playing which 
 This app can be used by people of all ages but will likely be more entertaining for younger users (age 12 and under). The self-paced nature of the game allows teachers to create a fun game in which students of all abilities can take their time to answer without feeling pressured. Additionally, the point system allows for an added layer of excitement and unpredictability due to not knowing how many points are behind each card.
 
 ## Links
+Server repo: https://github.com/broliver18/stick-it-backend/tree/main
 
 ## Features
 - Utilizes Socket.io as a WebSocket to facilitate data broadcast between host and users
