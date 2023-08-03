@@ -47,4 +47,4 @@ Server repo: https://github.com/broliver18/stick-it-backend/tree/main
 - CSS
 
 ## Screenshots
-![Screenshot #1](images/Screenshot 2023-08-03 at 2.22.36 PM.png)
+![Screenshot #1](./images)
