@@ -34,6 +34,7 @@ This app can be used by people of all ages but will likely be more entertaining 
 
 ## Technologies
 - Node.js
+- Express
 - Socket.io
 - MongoDB
 - Mongoose
