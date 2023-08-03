@@ -48,3 +48,10 @@ Server repo: https://github.com/broliver18/stick-it-backend/tree/main
 
 ## Screenshots
 ![Screenshot 2023-08-03 at 2 22 36 PM](https://github.com/broliver18/stick-it-frontend/assets/99209406/fd3f08e5-f411-4ff9-8bce-51ac5a16d5ca)
+![Screenshot 2023-08-03 at 2 23 06 PM](https://github.com/broliver18/stick-it-frontend/assets/99209406/caa10d65-a0a1-4820-a0fb-cbcb00ee56f4)
+![Screenshot 2023-08-03 at 2 23 51 PM](https://github.com/broliver18/stick-it-frontend/assets/99209406/47a78087-cc27-4a80-b51d-00b12d562f4d)
+![Screenshot 2023-08-03 at 2 42 23 PM](https://github.com/broliver18/stick-it-frontend/assets/99209406/ff25182f-f448-4a8a-ba63-279cb2230202)
+![Screenshot 2023-08-03 at 2 27 25 PM](https://github.com/broliver18/stick-it-frontend/assets/99209406/c3cff0ce-ec11-4fa6-a2f7-2db5bd152275)
+![Screenshot 2023-08-03 at 2 29 17 PM](https://github.com/broliver18/stick-it-frontend/assets/99209406/179cc3b6-8726-4ad6-881a-3497fc7e44ef)
+![Screenshot 2023-08-03 at 2 30 11 PM](https://github.com/broliver18/stick-it-frontend/assets/99209406/313b6efa-8680-4592-9f01-b3f510a37bc6)
+![Screenshot 2023-08-03 at 2 30 41 PM](https://github.com/broliver18/stick-it-frontend/assets/99209406/04e27b05-f007-45fe-8282-5bf6d6e0fb4f)
