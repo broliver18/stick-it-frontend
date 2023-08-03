@@ -45,3 +45,6 @@ Server repo: https://github.com/broliver18/stick-it-backend/tree/main
 - JavaScript
 - HTML
 - CSS
+
+## Screenshots
+
