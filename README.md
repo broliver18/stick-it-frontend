@@ -1,4 +1,4 @@
-#Stick-It
+# Stick-It
 
 ## Description
 This app was intended for teachers to use with their students and works similarly to Kahoot. The teacher can create quizzes with both multiple-choice and short-answer questions. They can then host a game for that quiz which the students can join via generated PIN. 
