@@ -11,7 +11,7 @@ This app can be used by people of all ages but will likely be more entertaining 
 
 ## Links
 - Server repo: https://github.com/broliver18/stick-it-backend/tree/main
-- Video: https://www.linkedin.com/feed/update/urn:li:activity:7093214003165843456/
+- Video demonstration: https://www.linkedin.com/feed/update/urn:li:activity:7093214003165843456/
 
 ## Features
 - Utilizes Socket.io as a WebSocket to facilitate data broadcast between host and users
