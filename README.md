@@ -38,8 +38,7 @@ This app can be used by people of all ages but will likely be more entertaining 
 - Node.js
 - Express
 - Socket.io
-- MongoDB
-- Mongoose
+- MongoDB/Mongoose
 - React.js
 - React Router V6
 - Nanoid
