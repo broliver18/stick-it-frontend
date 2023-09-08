@@ -14,7 +14,7 @@ function HostLogin() {
 
   useEffect(() => {
     emailInputRef.current.focus();
-  })
+  });
 
   function handleChange(e) {
     const { name, value } = e.target;
@@ -27,7 +27,12 @@ function HostLogin() {
         <h1>Login</h1>
         <div className="login-signup-container">
           <label>Email</label>
-          <input name="email" value={email} onChange={handleChange} ref={emailInputRef}/>
+          <input
+            name="email"
+            value={email}
+            onChange={handleChange}
+            ref={emailInputRef}
+          />
           <label>Password</label>
           <input name="password" value={password} onChange={handleChange} />
           <div className="button-container">
