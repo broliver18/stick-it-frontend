@@ -8,6 +8,8 @@ import {
 
 import Home from "../Home/Home";
 import Host from "../Host/Host";
+import HostLogin from "../HostLogin/HostLogin";
+import HostRegister from "../HostRegister/HostRegister";
 import CreateGame from "../CreateGame/CreateGame";
 import HostLobby from "../HostLobby/HostLobby";
 import PlayerLobby from "../PlayerLobby/PlayerLobby";
@@ -19,6 +21,8 @@ const router = createBrowserRouter(
   createRoutesFromElements([
     <Route path="/" element={<Home />} />,
     <Route path="/host" element={<Host />} />,
+    <Route path="/host-login" element={<HostLogin />} />,
+    <Route path="host-register" element={<HostRegister />} />,
     <Route path="/create-game" element={<CreateGame />} />,
     <Route path="/host/lobby/:gameId" element={<HostLobby />} />,
     <Route path="/player/lobby" element={<PlayerLobby />} />,

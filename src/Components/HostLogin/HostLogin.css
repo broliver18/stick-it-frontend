@@ -1,0 +1,39 @@
+.login {
+    background-color: #dad7cd;
+}
+
+.login-signup-form {
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+}
+
+.login-signup-form input {
+    width: 15rem;
+    height: 2rem;
+    border-radius: 5px;
+    border: none;
+    color: black;
+}
+
+.button-container {
+    margin-top: 16px;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+}
+
+.login-signup-form button {
+    cursor: pointer;
+    width: 15.4rem;
+    padding: 6px 0;
+    line-height: 23px;
+    border-radius: 5px;
+    border: none;
+    background-color: #333333;
+}
+
+.login-signup-form button:hover {
+    filter: brightness(108%);
+}

@@ -92,7 +92,7 @@ function Home() {
         <p>Game Pin</p>
         <input name="pin" value={pin} onChange={handleChange} />
         <button onClick={incrementTrigger}>Join</button>
-        <Link id="host-link" to="/host">
+        <Link className="link" to="/host-login">
           Click here to host a game
         </Link>
       </div>

@@ -22,6 +22,10 @@ body {
     align-items: center;
 }
 
+label {
+    margin: 5px;
+}
+
 p {
     margin-bottom: 5px;
 }
@@ -55,11 +59,11 @@ input:focus {
     filter: brightness(108%);
 }
 
-#host-link {
+.link {
     margin-top: 12px;
     text-decoration: none;
 }
 
-#host-link:hover {
+.link:hover {
     text-decoration: underline;
 }
