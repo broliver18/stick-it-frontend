@@ -75,7 +75,7 @@ function QuestionForm({
         <>
           <div className="same-row">
             <div className="column">
-              <label>Answer 1</label>
+              <label htmlFor="answer-one">Answer 1</label>
               <input
                 id="answer-one"
                 name="answerOne"
@@ -85,7 +85,7 @@ function QuestionForm({
               />
             </div>
             <div className="column">
-              <label>Answer 2</label>
+              <label htmlFor="answer-two">Answer 2</label>
               <input
                 id="answer-two"
                 name="answerTwo"
@@ -97,7 +97,7 @@ function QuestionForm({
           </div>
           <div className="same-row">
             <div className="column">
-              <label>Answer 3</label>
+              <label htmlFor="answer-three">Answer 3</label>
               <input
                 id="answer-three"
                 name="answerThree"
@@ -107,7 +107,7 @@ function QuestionForm({
               />
             </div>
             <div className="column">
-              <label>Answer 4</label>
+              <label htmlFor="answer-four">Answer 4</label>
               <input
                 id="answer-four"
                 name="answerFour"
@@ -117,7 +117,7 @@ function QuestionForm({
               />
             </div>
           </div>
-          <label>Correct Answer (1-4)</label>
+          <label htmlFor="correct-answer">Correct Answer (1-4)</label>
           <input
             id="correct-answer"
             name="correctAnswer"
@@ -130,7 +130,7 @@ function QuestionForm({
     } else {
       return (
         <>
-          <label>Answer</label>
+          <label htmlFor="short-answer">Answer</label>
           <input
             id="short-answer"
             name="shortAnswer"
@@ -149,15 +149,16 @@ function QuestionForm({
         <CloseButtonGreen />
       </div>
       <form>
-        <label>Question Type</label>
+        <label htmlFor="question-type">Question Type</label>
         <select id="question-type" onChange={handleSelectChange}>
           <option value="short-answer">Short Answer</option>
           <option value="multiple-choice">Multiple Choice</option>
         </select>
-        <label>Question</label>
+        <label htmlFor="question">Question</label>
         <input
           id="question"
           name="question"
+          type="text"
           value={question}
           onChange={handleInputChange}
         />

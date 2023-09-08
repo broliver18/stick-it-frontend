@@ -177,7 +177,7 @@ function PlayerGame() {
         return (
           <div id="short-answer" className="data-container">
             <h2>{questionInfo.question}</h2>
-            <input name="answer" value={input.answer} onChange={handleChange} />
+            <input name="answer" type="text" value={input.answer} onChange={handleChange} />
             <button onClick={checkShortAnswer}>Answer Question</button>
           </div>
         );

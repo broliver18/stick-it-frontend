@@ -12,9 +12,11 @@ function HostLogin() {
   const { email, password } = input;
   const emailInputRef = useRef();
 
+  const navigate = useNavigate();
+
   useEffect(() => {
     emailInputRef.current.focus();
-  });
+  }, []);
 
   function handleChange(e) {
     const { name, value } = e.target;
@@ -26,15 +28,24 @@ function HostLogin() {
       <div className="container-top form">
         <h1>Login</h1>
         <div className="login-signup-container">
-          <label>Email</label>
+          <label htmlFor="email">Email</label>
           <input
+            id="email"
             name="email"
+            type="text"
             value={email}
             onChange={handleChange}
+            autoComplete="email"
             ref={emailInputRef}
           />
-          <label>Password</label>
-          <input name="password" value={password} onChange={handleChange} />
+          <label htmlFor="password">Password</label>
+          <input
+            id="password"
+            name="password"
+            type="text"
+            value={password}
+            onChange={handleChange}
+          />
           <div className="button-container">
             <button>Sign In</button>
             <Link className="link signup" to="/host-register">

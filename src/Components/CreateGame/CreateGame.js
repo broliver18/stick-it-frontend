@@ -83,19 +83,29 @@ function CreateGame() {
     <div id="create-game" className="container-top">
       <h1>Quiz Creator</h1>
       <div id="quiz-details">
-        <label>Quiz Name</label>
-        <input name="quizName" value={quizName} onChange={handleChange} />
-        <label>Minimum Points</label>
+        <label htmlFor="quizName">Quiz Name</label>
         <input
+          id="quizName"
+          name="quizName"
+          type="text"
+          value={quizName}
+          onChange={handleChange}
+        />
+        <label htmlFor="minPoints">Minimum Points</label>
+        <input
+          id="minPoints"
           className="smaller"
           name="minPoints"
+          type="text"
           value={minPoints}
           onChange={handleChange}
         />
-        <label>Maximum Points</label>
+        <label htmlFor="maxPoints">Maximum Points</label>
         <input
+          id="maxPoints"
           className="smaller"
           name="maxPoints"
+          type="text"
           value={maxPoints}
           onChange={handleChange}
         />

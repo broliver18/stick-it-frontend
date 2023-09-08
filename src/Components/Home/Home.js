@@ -82,15 +82,23 @@ function Home() {
     <div id="home" className="container-middle">
       <h1>Join a Game</h1>
       <div className="game-input-info">
-        <label>Display Name</label>
+        <label htmlFor="display-name">Display Name</label>
         <input
+          id="display-name"
           name="displayName"
+          type="text"
           value={displayName}
           onChange={handleChange}
           ref={nameInputRef}
         />
-        <label>Game Pin</label>
-        <input name="pin" value={pin} onChange={handleChange} />
+        <label htmlFor="pin">Game Pin</label>
+        <input
+          id="pin"
+          name="pin"
+          type="text"
+          value={pin}
+          onChange={handleChange}
+        />
         <button onClick={incrementTrigger}>Join</button>
         <Link className="link" to="/host-login">
           Click here to host a game

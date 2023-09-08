@@ -15,11 +15,11 @@ function HostRegister() {
 
   useEffect(() => {
     emailInputRef.current.focus();
-  });
+  }, []);
 
   function handleChange(e) {
     const { name, value } = e.target;
-    setInput((prevState) => ({ ...prevState, [name]: value}));
+    setInput((prevState) => ({ ...prevState, [name]: value }));
   }
 
   return (
@@ -27,17 +27,32 @@ function HostRegister() {
       <div className="container-top form">
         <h1>Sign Up</h1>
         <div className="login-signup-container">
-          <label>Email</label>
+          <label htmlFor="email">Email</label>
           <input
+            id="email"
             name="email"
+            type="text"
             value={email}
             onChange={handleChange}
+            autoComplete="email"
             ref={emailInputRef}
           />
-          <label>Password</label>
-          <input name="password" value={password} onChange={handleChange} />
-          <label>Confirm Password</label>
-          <input name="confirmPassword" value={confirmPassword} onChange={handleChange} />
+          <label htmlFor="password">Password</label>
+          <input
+            id="password"
+            name="password"
+            type="text"
+            value={password}
+            onChange={handleChange}
+          />
+          <label htmlFor="confirm-password">Confirm Password</label>
+          <input
+            id="confirm-password"
+            name="confirmPassword"
+            type="text"
+            value={confirmPassword}
+            onChange={handleChange}
+          />
           <div className="button-container">
             <button>Sign Up</button>
           </div>
