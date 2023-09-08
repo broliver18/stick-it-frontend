@@ -82,14 +82,14 @@ function Home() {
     <div id="home" className="container-middle">
       <h1>Join a Game</h1>
       <div className="game-input-info">
-        <p>Display Name</p>
+        <label>Display Name</label>
         <input
           name="displayName"
           value={displayName}
           onChange={handleChange}
           ref={nameInputRef}
         />
-        <p>Game Pin</p>
+        <label>Game Pin</label>
         <input name="pin" value={pin} onChange={handleChange} />
         <button onClick={incrementTrigger}>Join</button>
         <Link className="link" to="/host-login">

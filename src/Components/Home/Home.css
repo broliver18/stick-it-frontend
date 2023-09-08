@@ -22,14 +22,6 @@ body {
     align-items: center;
 }
 
-label {
-    margin: 5px;
-}
-
-p {
-    margin-bottom: 5px;
-}
-
 .game-input-info input {
     width: 20rem;
     height: 2rem;
@@ -37,10 +29,6 @@ p {
     border: none;
     background-color: white;
     color: black;
-}
-
-input:focus {
-    outline: none;
 }
 
 .game-input-info button {
@@ -66,4 +54,16 @@ input:focus {
 
 .link:hover {
     text-decoration: underline;
+}
+
+label {
+    margin: 16px 0 5px 0;
+}
+
+p {
+    margin-bottom: 5px;
+}
+
+input:focus {
+    outline: none;
 }
