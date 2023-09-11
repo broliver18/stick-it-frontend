@@ -34,7 +34,7 @@ function HostGame() {
   useEffect(() => {
     if (!trigger) return;
     
-    socket.emit("end-game-host")
+    socket.emit("host-end-game")
     navigate("/");
 
   }, [navigate, trigger])

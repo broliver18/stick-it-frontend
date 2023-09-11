@@ -16,7 +16,7 @@ function FinishedGame() {
   useEffect(() => {
     const getFinalScoreEvent = (score) => setFinalScore(score);
 
-    socket.emit("get-final-score", playerId);
+    socket.emit("get-player-final-score", playerId);
     socket.on("player-final-score", getFinalScoreEvent);
 
     return () => socket.off("player-final-score", getFinalScoreEvent);
@@ -25,7 +25,7 @@ function FinishedGame() {
   useEffect(() => {
     if (!trigger) return;
     
-    socket.emit("end-game-player")
+    socket.emit("player-end-game")
     navigate("/");
   }, [navigate, trigger]);
 

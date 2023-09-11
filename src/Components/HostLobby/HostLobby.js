@@ -13,7 +13,7 @@ function HostLobby() {
   const navigate = useNavigate();
 
   useEffect(() => {
-    socket.emit("end-game-host");
+    socket.emit("host-end-game");
     socket.emit("host-join", gameId);
     socket.on("show-game-pin", (gamePin) => setGamePin(gamePin));
 
