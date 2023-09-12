@@ -3,11 +3,11 @@ import { useNavigate } from "react-router-dom";
 import { socket } from "../../socket";
 import { nanoid } from "nanoid";
 
-import "./CreateGame.css";
+import "./CreateQuiz.css";
 
 import QuestionForm from "../QuestionForm/QuestionForm";
 
-function CreateGame() {
+function CreateQuiz() {
   const [trigger, setTrigger] = useState(0);
   const [isQuizCreated, setIsQuizCreated] = useState(false);
   const [questions, setQuestions] = useState([]);
@@ -131,4 +131,4 @@ function CreateGame() {
   );
 }
 
-export default CreateGame;
+export default CreateQuiz;

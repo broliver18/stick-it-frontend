@@ -23,7 +23,7 @@ function Home() {
     if (!trigger) return;
 
     function noNameEvent() {
-      alert("Please enter a name");
+      alert("Please enter a name.");
       setInput((prevState) => ({
         ...prevState,
         displayName: "",
@@ -31,7 +31,7 @@ function Home() {
     }
 
     function nameAlreadyExistsEvent() {
-      alert("Another player is already using this name");
+      alert("Another player is already using this name.");
       setInput((prevState) => ({
         ...prevState,
         displayName: "",

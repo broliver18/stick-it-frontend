@@ -36,7 +36,7 @@ function PlayerGame() {
 
     function noGameFoundEvent() {
       navigate("/");
-      alert("No game found");
+      alert("No game found.");
     }
 
     socket.emit("player-join-game", playerId);
@@ -84,7 +84,7 @@ function PlayerGame() {
   useEffect(() => {
     function hostDisconnectEvent() {
       navigate("/");
-      alert("The host has disconnected");
+      alert("The host was disconnected.");
     }
 
     socket.on("host-disconnect", hostDisconnectEvent);

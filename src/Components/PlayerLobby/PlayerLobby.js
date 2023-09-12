@@ -14,7 +14,7 @@ function PlayerLobby() {
   useEffect(() => {
     function hostDisconnectEvent() {
       navigate("/");
-      alert("The host has disconnected");
+      alert("The host was disconnected.");
     }
 
     function gameStartedPlayerEvent() {

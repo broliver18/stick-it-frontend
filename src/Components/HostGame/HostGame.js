@@ -18,7 +18,7 @@ function HostGame() {
     const getQuizTitleEvent = (title) => setQuizTitle(title);
     function noGameFoundEvent() {
         navigate("/host");
-        alert("No game found");
+        alert("No game found.");
       }
 
     socket.emit("host-join-game", hostId);

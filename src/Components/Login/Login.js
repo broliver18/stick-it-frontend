@@ -2,9 +2,9 @@ import React, { useState, useEffect, useRef } from "react";
 import { Link, useNavigate } from "react-router-dom";
 import { socket } from "../../socket";
 
-import "./HostLogin.css";
+import "./Login.css";
 
-function HostLogin() {
+function Login() {
   const [input, setInput] = useState({
     email: "",
     password: "",
@@ -48,7 +48,7 @@ function HostLogin() {
           />
           <div className="button-container">
             <button>Sign In</button>
-            <Link className="link signup" to="/host-register">
+            <Link className="link signup" to="/register-user">
               Click here to sign up
             </Link>
           </div>
@@ -58,4 +58,4 @@ function HostLogin() {
   );
 }
 
-export default HostLogin;
+export default Login;

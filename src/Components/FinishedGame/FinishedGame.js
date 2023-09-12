@@ -32,7 +32,7 @@ function FinishedGame() {
   useEffect(() => {
     function hostDisconnectEvent() {
       navigate("/");
-      alert("The host has ended the game");
+      alert("The host has ended the game.");
     }
 
     socket.on("host-disconnect", hostDisconnectEvent);

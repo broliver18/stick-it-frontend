@@ -2,9 +2,9 @@ import React, { useState, useEffect, useRef } from "react";
 import { Link } from "react-router-dom";
 import { socket } from "../../socket";
 
-import "./HostRegister.css";
+import "./Register.css";
 
-function HostRegister() {
+function Register() {
   const [input, setInput] = useState({
     email: "",
     password: "",
@@ -62,4 +62,4 @@ function HostRegister() {
   );
 }
 
-export default HostRegister;
+export default Register;

@@ -8,9 +8,9 @@ import {
 
 import Home from "../Home/Home";
 import Host from "../Host/Host";
-import HostLogin from "../HostLogin/HostLogin";
-import HostRegister from "../HostRegister/HostRegister";
-import CreateGame from "../CreateGame/CreateGame";
+import Login from "../Login/Login";
+import Register from "../Register/Register";
+import CreateQuiz from "../CreateQuiz/CreateQuiz";
 import HostLobby from "../HostLobby/HostLobby";
 import PlayerLobby from "../PlayerLobby/PlayerLobby";
 import PlayerGame from "../PlayerGame/PlayerGame";
@@ -21,9 +21,9 @@ const router = createBrowserRouter(
   createRoutesFromElements([
     <Route path="/" element={<Home />} />,
     <Route path="/host" element={<Host />} />,
-    <Route path="/host-login" element={<HostLogin />} />,
-    <Route path="host-register" element={<HostRegister />} />,
-    <Route path="/create-game" element={<CreateGame />} />,
+    <Route path="/login" element={<Login />} />,
+    <Route path="register-user" element={<Register />} />,
+    <Route path="/create-quiz" element={<CreateQuiz />} />,
     <Route path="/host/lobby/:gameId" element={<HostLobby />} />,
     <Route path="/player/lobby" element={<PlayerLobby />} />,
     <Route path="/player/game" element={<PlayerGame />} />,
