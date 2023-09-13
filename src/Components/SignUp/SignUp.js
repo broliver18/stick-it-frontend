@@ -2,9 +2,9 @@ import React, { useState, useEffect, useRef } from "react";
 import { Link } from "react-router-dom";
 import { socket } from "../../socket";
 
-import "./Register.css";
+import "./SignUp.css";
 
-function Register() {
+function SignUp() {
   const [input, setInput] = useState({
     email: "",
     password: "",
@@ -23,11 +23,11 @@ function Register() {
   }
 
   return (
-    <div id="sign-up" className="container-middle">
-      <div className="container-top form">
+    <div id="sign-up" className="container-top">
+      <div id= "sign-up-form" className="container-top form">
         <h1>Sign Up</h1>
         <div className="login-signup-container">
-          <label htmlFor="email">Email</label>
+          <label className="heavy" htmlFor="email">Email</label>
           <input
             id="email"
             name="email"
@@ -37,7 +37,7 @@ function Register() {
             autoComplete="email"
             ref={emailInputRef}
           />
-          <label htmlFor="password">Password</label>
+          <label className="heavy" htmlFor="password">Password</label>
           <input
             id="password"
             name="password"
@@ -45,7 +45,7 @@ function Register() {
             value={password}
             onChange={handleChange}
           />
-          <label htmlFor="confirm-password">Confirm Password</label>
+          <label className="heavy" htmlFor="confirm-password">Confirm Password</label>
           <input
             id="confirm-password"
             name="confirmPassword"
@@ -55,6 +55,12 @@ function Register() {
           />
           <div className="button-container">
             <button>Sign Up</button>
+            <p>
+              Already have an account? <span />
+              <Link className="blue-label" to="/login">
+                Log in
+              </Link>{" "}
+            </p>
           </div>
         </div>
       </div>
@@ -62,4 +68,4 @@ function Register() {
   );
 }
 
-export default Register;
+export default SignUp;

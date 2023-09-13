@@ -100,7 +100,7 @@ function Home() {
           onChange={handleChange}
         />
         <button onClick={incrementTrigger}>Join</button>
-        <Link className="link" to="/host-login">
+        <Link className="link" to="/login">
           Click here to host a game
         </Link>
       </div>

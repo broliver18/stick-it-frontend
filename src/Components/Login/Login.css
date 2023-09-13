@@ -1,7 +1,17 @@
+#login-form {
+    height: 400px;
+}
+
 .form {
     background-color: #dad7cd;
     padding: 0 25px 25px 25px;
     border-radius: 10px;
+    width: 350px;
+    margin-top: 20px;
+}
+
+.heavy {
+    font-weight: 550;
 }
 
 .login-signup-container {
@@ -11,8 +21,8 @@
 }
 
 .login-signup-container input {
-    width: 15rem;
-    height: 2rem;
+    width: 21rem;
+    height: 2.2rem;
     border-radius: 5px;
     border: none;
     color: black;
@@ -20,7 +30,7 @@
 
 .login-signup-container button {
     cursor: pointer;
-    width: 15.4rem;
+    width: 21.4rem;
     padding: 6px 0;
     line-height: 23px;
     font-weight: 700;
@@ -30,7 +40,7 @@
 }
 
 .login-signup-container button:hover {
-    filter: brightness(108%);
+    filter: brightness(110%);
 }
 
 .button-container {
@@ -41,6 +51,24 @@
     align-items: center;
 }
 
-.form h1, .login-signup-container label, .signup {
+.blue-label {
+    color: #1267ce;
+}
+
+.form h1, .login-signup-container label, .button-container p {
     color: #3a5a40;
+}
+
+@media only screen and (max-width: 450px) {
+    .form {
+        width: 250px;
+    }
+
+    .login-signup-container input {
+        width: 14.4rem;
+    }
+
+    .login-signup-container button {
+        width: 14.5rem;
+    }
 }
