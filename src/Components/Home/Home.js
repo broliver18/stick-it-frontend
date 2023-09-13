@@ -81,7 +81,7 @@ function Home() {
   return (
     <div id="home" className="container-middle">
       <h1>Join a Game</h1>
-      <div className="game-input-info">
+      <form className="game-input-info">
         <label htmlFor="display-name">Display Name</label>
         <input
           id="display-name"
@@ -103,7 +103,7 @@ function Home() {
         <Link className="link" to="/login">
           Click here to host a game
         </Link>
-      </div>
+      </form>
     </div>
   );
 }

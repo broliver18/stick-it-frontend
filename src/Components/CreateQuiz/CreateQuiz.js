@@ -82,7 +82,7 @@ function CreateQuiz() {
   return (
     <div id="create-game" className="container-top">
       <h1>Quiz Creator</h1>
-      <div id="quiz-details">
+      <form id="quiz-details">
         <label htmlFor="quizName">Quiz Name</label>
         <input
           id="quizName"
@@ -109,7 +109,7 @@ function CreateQuiz() {
           value={maxPoints}
           onChange={handleChange}
         />
-      </div>
+      </form>
       <div className="form-container">
         {questionsArray.map((question) => (
           <QuestionForm

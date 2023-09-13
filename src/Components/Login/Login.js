@@ -27,8 +27,10 @@ function Login() {
     <div id="login" className="container-top">
       <div id="login-form" className="container-top form">
         <h1>Log In</h1>
-        <div className="login-signup-container">
-          <label className="heavy" htmlFor="email">Email</label>
+        <form className="login-signup-container">
+          <label className="heavy" htmlFor="email">
+            Email
+          </label>
           <input
             id="email"
             name="email"
@@ -38,7 +40,9 @@ function Login() {
             autoComplete="email"
             ref={emailInputRef}
           />
-          <label className="heavy" htmlFor="password">Password</label>
+          <label className="heavy" htmlFor="password">
+            Password
+          </label>
           <input
             id="password"
             name="password"
@@ -55,7 +59,7 @@ function Login() {
               </Link>{" "}
             </p>
           </div>
-        </div>
+        </form>
       </div>
     </div>
   );

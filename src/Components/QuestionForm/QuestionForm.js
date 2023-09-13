@@ -72,7 +72,7 @@ function QuestionForm({
   function renderAction() {
     if (questionTypeValue.value === "multiple-choice") {
       return (
-        <>
+        <form>
           <div className="same-row">
             <div className="column">
               <label htmlFor="answer-one">Answer 1</label>
@@ -125,7 +125,7 @@ function QuestionForm({
             value={correctAnswer}
             onChange={handleInputChange}
           />
-        </>
+        </form>
       );
     } else {
       return (

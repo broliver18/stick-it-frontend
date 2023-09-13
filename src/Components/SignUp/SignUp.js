@@ -26,7 +26,7 @@ function SignUp() {
     <div id="sign-up" className="container-top">
       <div id= "sign-up-form" className="container-top form">
         <h1>Sign Up</h1>
-        <div className="login-signup-container">
+        <form className="login-signup-container">
           <label className="heavy" htmlFor="email">Email</label>
           <input
             id="email"
@@ -62,7 +62,7 @@ function SignUp() {
               </Link>{" "}
             </p>
           </div>
-        </div>
+        </form>
       </div>
     </div>
   );

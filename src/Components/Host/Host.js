@@ -40,7 +40,7 @@ function Host() {
       <h1>Start a Game</h1>
       <p>
         Choose a Game Below or{" "}
-        <Link id="create-game-link" to="/create-game">
+        <Link id="create-game-link" to="/create-quiz">
           Create your Own!
         </Link>
       </p>
