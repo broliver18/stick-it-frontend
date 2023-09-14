@@ -81,28 +81,28 @@ function CreateQuiz() {
 
   return (
     <div id="create-game" className="container-top">
-      <h1>Quiz Creator</h1>
+      <h1>Create Quiz</h1>
       <form id="quiz-details">
-        <label htmlFor="quizName">Quiz Name</label>
+        <label htmlFor="quiz-name">Quiz Name</label>
         <input
-          id="quizName"
+          id="quiz-name"
           name="quizName"
           type="text"
           value={quizName}
           onChange={handleChange}
         />
-        <label htmlFor="minPoints">Minimum Points</label>
+        <label htmlFor="min-points">Minimum Points</label>
         <input
-          id="minPoints"
+          id="min-points"
           className="smaller"
           name="minPoints"
           type="text"
           value={minPoints}
           onChange={handleChange}
         />
-        <label htmlFor="maxPoints">Maximum Points</label>
+        <label htmlFor="max-points">Maximum Points</label>
         <input
-          id="maxPoints"
+          id="max-points"
           className="smaller"
           name="maxPoints"
           type="text"

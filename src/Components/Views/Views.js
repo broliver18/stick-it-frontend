@@ -19,6 +19,7 @@ import FinishedGame from "../FinishedGame/FinishedGame";
 
 const router = createBrowserRouter(
   createRoutesFromElements([
+    <Route path="*" element={<Home />} />,
     <Route path="/" element={<Home />} />,
     <Route path="/host" element={<Host />} />,
     <Route path="/login" element={<Login />} />,
