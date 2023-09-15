@@ -1,65 +1,56 @@
-import React, { useState, useEffect, useRef } from "react";
-import { Link, useNavigate } from "react-router-dom";
-import { socket } from "../../socket";
+import React from "react";
+import { Formik, Form, Field, ErrorMessage } from "formik";
+import * as Yup from "yup";
+import { Link } from "react-router-dom";
 
 import "./Login.css";
 
 function Login() {
-  const [input, setInput] = useState({
-    email: "",
-    password: "",
-  });
-  const { email, password } = input;
-  const emailInputRef = useRef();
-
-  const navigate = useNavigate();
-
-  useEffect(() => {
-    emailInputRef.current.focus();
-  }, []);
-
-  function handleChange(e) {
-    const { name, value } = e.target;
-    setInput((prevState) => ({ ...prevState, [name]: value }));
-  }
-
   return (
     <div id="login" className="container-top">
       <div id="login-form" className="container-top form">
         <h1>Log In</h1>
-        <form className="login-signup-container">
-          <label className="heavy" htmlFor="email">
-            Email
-          </label>
-          <input
-            id="email"
-            name="email"
-            type="text"
-            value={email}
-            onChange={handleChange}
-            autoComplete="email"
-            ref={emailInputRef}
-          />
-          <label className="heavy" htmlFor="password">
-            Password
-          </label>
-          <input
-            id="password"
-            name="password"
-            type="text"
-            value={password}
-            onChange={handleChange}
-          />
-          <div className="button-container">
-            <button>Log In</button>
-            <p>
-              Don't have an account? <span />
-              <Link className="blue-label" to="/sign-up">
-                Sign up
-              </Link>{" "}
-            </p>
-          </div>
-        </form>
+        <Formik
+          initialValues={{ email: "", password: "" }}
+          validationSchema={Yup.object({
+            email: Yup.string()
+              .email("Invalid email address")
+              .required("Email required"),
+            password: Yup.string()
+              .required("Password required")
+              .min(8, "The password is too short"),
+          })}
+          onSubmit={(values, actions) => {
+            alert(JSON.stringify(values, null, 2));
+            actions.resetForm();
+          }}
+        >
+          {({ handleSubmit, isSubmitting }) => (
+            <Form className="login-signup-container" onSubmit={handleSubmit}>
+              <label className="heavy" htmlFor="email">
+                Email
+              </label>
+              <Field id="email" name="email" type="email" />
+              <ErrorMessage className="error" name="email" component="div" />
+              <label className="heavy" htmlFor="password">
+                Password
+              </label>
+              <Field id="password" name="password" type="password" />
+              <ErrorMessage className="error" name="password" component="div" />
+              <div className="button-container">
+                <button type="submit" disabled={isSubmitting}>
+                  Log In
+                </button>
+                <p>
+                  Don't have an account? <span />
+                  <Link className="blue-label" to="/sign-up">
+                    Sign up
+                  </Link>{" "}
+                </p>
+              </div>
+            </Form>
+          )}
+        </Formik>
       </div>
     </div>
   );

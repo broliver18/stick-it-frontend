@@ -7,11 +7,17 @@
     padding: 0 25px 25px 25px;
     border-radius: 10px;
     width: 350px;
-    margin-top: 20px;
+    margin-top: 90px;
 }
 
 .heavy {
     font-weight: 550;
+}
+
+.error {
+    margin-top: 2px;
+    color: #d41010;
+    font-size: 14px;
 }
 
 .login-signup-container {
@@ -56,7 +62,7 @@
 }
 
 .form h1, .login-signup-container label, .button-container p {
-    color: #3a5a40;
+    color: black;
 }
 
 @media only screen and (max-width: 450px) {
