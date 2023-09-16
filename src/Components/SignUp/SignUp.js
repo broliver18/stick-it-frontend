@@ -26,7 +26,7 @@ function SignUp() {
           onSubmit={(values, actions) => {
             actions.resetForm();
             const vals = { ...values };
-            fetch("http://localhost:4000/auth/register", {
+            fetch("http://localhost:4000/auth/sign-up", {
               method: "POST",
               credentials: "include",
               headers: {

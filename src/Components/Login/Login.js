@@ -17,8 +17,7 @@ function Login() {
               .required("Email required")
               .email("Invalid email address"),
             password: Yup.string()
-              .required("Password required")
-              .min(8, "The password is too short"),
+              .required("Password required"),
           })}
           onSubmit={(values, actions) => {
             actions.resetForm();

@@ -34,7 +34,7 @@ function Host() {
       socket.emit("delete-quiz", id)
     }
   }
-
+  
   return (
     <div id="host" className="container-top">
       <h1>Start a Game</h1>

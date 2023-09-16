@@ -3,11 +3,11 @@
  }
 
  #create-game label {
-    margin: 7px;
+    margin-right: 10px;
  }
 
  #create-game input {
-    margin-right: 10px;
+    margin: 10px 10px 0 0;
     color: black;
     border: lightgray;
     border-radius: 3px;
