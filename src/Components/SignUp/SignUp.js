@@ -11,8 +11,14 @@ function SignUp() {
       <div id="sign-up-form" className="container-top form">
         <h1>Sign Up</h1>
         <Formik
-          initialValues={{ email: "", password: "", confirmPassword: "" }}
+          initialValues={{
+            name: "",
+            email: "",
+            password: "",
+            confirmPassword: "",
+          }}
           validationSchema={Yup.object({
+            name: Yup.string().required("Name required"),
             email: Yup.string()
               .required("Email required")
               .email("Invalid email address"),
@@ -51,6 +57,11 @@ function SignUp() {
         >
           {({ handleSubmit, isSubmitting }) => (
             <Form className="login-signup-container" onSubmit={handleSubmit}>
+              <label className="heavy" htmlFor="name">
+                Name
+              </label>
+              <Field id="name" name="name" type="text" autoComplete="name" />
+              <ErrorMessage className="error" name="name" component="div" />
               <label className="heavy" htmlFor="email">
                 Email
               </label>
@@ -81,7 +92,7 @@ function SignUp() {
               />
               <div className="button-container">
                 <button type="submit" disabled={isSubmitting}>
-                  Log In
+                  Sign Up
                 </button>
                 <p>
                   Don't have an account? <span />
