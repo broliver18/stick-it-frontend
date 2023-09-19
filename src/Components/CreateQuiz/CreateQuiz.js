@@ -3,9 +3,9 @@ import { useNavigate } from "react-router-dom";
 import { socket } from "../../socket";
 import { nanoid } from "nanoid";
 
-import "./CreateQuiz.css";
-
 import QuestionForm from "../QuestionForm/QuestionForm";
+
+import "./CreateQuiz.css";
 
 function CreateQuiz() {
   const [trigger, setTrigger] = useState(0);

@@ -1,11 +1,16 @@
-import React from "react";
+import React, { useContext } from "react";
 import { Formik, Form, Field, ErrorMessage } from "formik";
 import * as Yup from "yup";
-import { Link } from "react-router-dom";
+import { Link, useNavigate } from "react-router-dom";
+
+import { AccountContext } from "../AccountContext/AccountContext"
 
 import "./Login.css";
 
 function Login() {
+  const navigate = useNavigate();
+  const { setUser } = useContext(AccountContext);
+
   return (
     <div id="login" className="container-top">
       <div id="login-form" className="container-top form">
@@ -41,7 +46,8 @@ function Login() {
               })
               .then((data) => {
                 if (!data) return;
-                console.log(data);
+                setUser({ ...data })
+                navigate("/host");
               });
           }}
         >

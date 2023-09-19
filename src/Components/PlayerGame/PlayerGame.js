@@ -7,9 +7,9 @@ import {
 import { socket } from "../../socket";
 import { nanoid } from "nanoid";
 
-import "./PlayerGame.css";
-
 import Card from "../Card/Card";
+
+import "./PlayerGame.css";
 
 function PlayerGame() {
   const [questionInfo, setQuestionInfo] = useState({});
