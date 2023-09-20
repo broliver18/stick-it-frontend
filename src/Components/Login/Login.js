@@ -16,7 +16,7 @@ function Login() {
   function errorHandler() {
     if (error) {
       return (
-        <p id="login-error">{error}</p>
+        <p className="error">{error}</p>
       )
     }
   };
