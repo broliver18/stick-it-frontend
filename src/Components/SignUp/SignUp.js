@@ -3,7 +3,7 @@ import { Formik, Form, Field, ErrorMessage } from "formik";
 import * as Yup from "yup";
 import { Link, useNavigate } from "react-router-dom";
 
-import { AccountContext } from "../AccountContext/AccountContext";
+import { AccountContext } from "../Contexts/AccountContext";
 
 import "./SignUp.css";
 
@@ -56,7 +56,7 @@ function SignUp() {
               })
               .then((data) => {
                 if (!data) return;
-                setUser({ ...data })
+                setUser({ ...data });
                 navigate("/host");
               });
           }}

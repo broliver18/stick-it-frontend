@@ -2,13 +2,12 @@ import React, { useState, useEffect } from "react";
 import { Link, useNavigate } from "react-router-dom";
 import { socket } from "../../socket";
 
-import "./Host.css";
-
 import CloseButtonBlack from "../Svgs/CloseButtonBlack";
+
+import "./Host.css";
 
 function Host() {
   const [quizzes, setQuizzes] = useState([]);
-
   const navigate = useNavigate();
 
   useEffect(() => {

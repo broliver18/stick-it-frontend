@@ -1,15 +1,25 @@
-import React, { useContext } from "react";
+import React, { useState, useContext } from "react";
 import { Formik, Form, Field, ErrorMessage } from "formik";
 import * as Yup from "yup";
 import { Link, useNavigate } from "react-router-dom";
 
-import { AccountContext } from "../AccountContext/AccountContext"
+import { AccountContext } from "../Contexts/AccountContext";
 
 import "./Login.css";
 
 function Login() {
+  const [error, setError] = useState(null);
+
   const navigate = useNavigate();
   const { setUser } = useContext(AccountContext);
+
+  function errorHandler() {
+    if (error) {
+      return (
+        <p id="login-error">{error}</p>
+      )
+    }
+  };
 
   return (
     <div id="login" className="container-top">
@@ -21,8 +31,7 @@ function Login() {
             email: Yup.string()
               .required("Email required")
               .email("Invalid email address"),
-            password: Yup.string()
-              .required("Password required"),
+            password: Yup.string().required("Password required"),
           })}
           onSubmit={(values, actions) => {
             actions.resetForm();
@@ -46,8 +55,12 @@ function Login() {
               })
               .then((data) => {
                 if (!data) return;
-                setUser({ ...data })
-                navigate("/host");
+                setUser({ ...data });
+                if (data.status) {
+                  setError(data.status);
+                } else if (data.loggedIn) {
+                  navigate("/host");
+                }   
               });
           }}
         >
@@ -68,6 +81,7 @@ function Login() {
               </label>
               <Field id="password" name="password" type="password" />
               <ErrorMessage className="error" name="password" component="div" />
+              {errorHandler()}
               <div className="button-container">
                 <button type="submit" disabled={isSubmitting}>
                   Log In

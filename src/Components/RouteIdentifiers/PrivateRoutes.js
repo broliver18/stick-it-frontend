@@ -1,7 +1,7 @@
 import { useContext } from "react";
 import { Outlet, Navigate } from "react-router-dom";
 
-import { AccountContext } from "../AccountContext/AccountContext";
+import { AccountContext } from "../Contexts/AccountContext";
 
 function useAuth() {
   const { user } = useContext(AccountContext);

@@ -14,7 +14,7 @@
     font-weight: 550;
 }
 
-.error {
+.error, #login-error {
     margin-top: 2px;
     color: #d41010;
     font-size: 14px;
