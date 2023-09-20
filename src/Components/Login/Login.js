@@ -59,6 +59,7 @@ function Login() {
                 if (data.status) {
                   setError(data.status);
                 } else if (data.loggedIn) {
+                  sessionStorage.setItem("loggedIn", true);
                   navigate("/host");
                 }   
               });

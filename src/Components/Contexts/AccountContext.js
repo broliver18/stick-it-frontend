@@ -1,35 +1,17 @@
-import { createContext, useState, useEffect } from "react";
-import {useNavigate} from "react-router-dom";
+import { useState, useEffect, createContext } from "react";
 
 export const AccountContext = createContext();
 
 function UserProvider({ children }) {
-  const [user, setUser] = useState({ loggedIn: null });
-  const navigate = useNavigate();
+  const [user, setUser] = useState({ loggedIn: false });
 
   useEffect(() => {
-    fetch("http://localhost:4000/auth/login", {
-      credentials: "include",
-    })
-      .catch((error) => {
-        setUser({ loggedIn: false });
-        return;
+    const loggedInUser = sessionStorage.getItem("loggedIn");
+    if (loggedInUser) {
+      setUser({
+        loggedIn: true,
       })
-      .then((res) => {
-        if (!res || !res.ok || res.status >= 400) {
-          setUser({ loggedIn: false });
-          return;
-        }
-        return res.json();
-      })
-      .then((data) => {
-        if (!data) {
-          setUser({ loggedIn: false });
-          return;
-        }
-        setUser({ ...data });
-        navigate("/host");
-      });
+    }
     // eslint-disable-next-line react-hooks/exhaustive-deps
   }, []);
 

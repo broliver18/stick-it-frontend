@@ -57,6 +57,7 @@ function SignUp() {
               .then((data) => {
                 if (!data) return;
                 setUser({ ...data });
+                sessionStorage.setItem("loggedIn", true);
                 navigate("/host");
               });
           }}

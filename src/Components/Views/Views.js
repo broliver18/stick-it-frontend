@@ -20,15 +20,15 @@ function Views() {
   return (
     <Routes>
       <Route path="/" element={loggedIn ? <Navigate to="/host" /> : <Home />} />
-      <Route path="/login" element={<Login />} />
-      <Route path="/sign-up" element={<SignUp />} />
+      <Route path="/login" element={loggedIn ? <Navigate to="/host" /> : <Login />} />
+      <Route path="/sign-up" element={loggedIn ? <Navigate to="/host" /> : <SignUp />} />
       <Route path="/player/lobby" element={<PlayerLobby />} />
       <Route path="/player/game" element={<PlayerGame />} />
       <Route path="/player/finished-game" element={<FinishedGame />} />
       <Route path="/host" element={!loggedIn ? <Navigate to="/" /> : <Host />} />
-      <Route path="/create-quiz" element={<CreateQuiz />} />
-      <Route path="/host/lobby/:gameId" element={<HostLobby />} />
-      <Route path="/host/game" element={<HostGame />} />
+      <Route path="/create-quiz" element={!loggedIn ? <Navigate to="/" /> : <CreateQuiz />} />
+      <Route path="/host/lobby/:gameId" element={!loggedIn ? <Navigate to="/" /> : <HostLobby />} />
+      <Route path="/host/game" element={!loggedIn ? <Navigate to="/" /> : <HostGame />} />
       <Route path="*" element={<Home />} />
     </Routes>
   );
