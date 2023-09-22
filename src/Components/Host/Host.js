@@ -25,7 +25,7 @@ function Host() {
     return () => socket.off("get-all-quizzes", getQuizzesEvent);
   }, [deleteQuiz]);
 
-  const navigateToHostLobby = quizName => navigate(`/host/lobby/${quizName}`);
+  const navigateToHostLobby = quizId => navigate(`/host/lobby/${quizId}`);
 
   // eslint-disable-next-line react-hooks/exhaustive-deps
   function deleteQuiz(id) {
