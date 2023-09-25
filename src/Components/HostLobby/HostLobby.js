@@ -9,20 +9,20 @@ function HostLobby() {
   const [playersInGame, setPlayersInGame] = useState([]);
   const [trigger, setTrigger] = useState(0);
 
-  let { gameId } = useParams();
+  let { quizId } = useParams();
   const navigate = useNavigate();
 
   useEffect(() => {
-    socket.emit("host-join", gameId);
+    socket.emit("host-join", quizId);
     socket.on("show-game-pin", (gamePin) => setGamePin(gamePin));
     socket.emit("host-end-game");
 
     return () => socket.off("show-game-pin", (gamePin) => setGamePin(gamePin));
-  }, [gameId]);
+  }, [quizId]);
 
   useEffect(() => {
     function getPlayersEvent(players) {
-        setPlayersInGame(players);
+      setPlayersInGame(players);
     }
 
     socket.on("update-player-lobby", getPlayersEvent);
@@ -39,7 +39,7 @@ function HostLobby() {
       navigate({
         pathname: "/host/game",
         search: `?${searchQueryString}`,
-      })
+      });
     }
 
     socket.emit("start-game");
@@ -51,14 +51,24 @@ function HostLobby() {
   const incrementTrigger = () => setTrigger((prevState) => prevState + 1);
 
   return (
-    <div id="host-lobby" className="container-top">
-      <h2>Join the Game Using the Game Pin:</h2>
-      <h1>{gamePin}</h1>
-      <div id="players-list" className="container-top">
-        {playersInGame.map((player) => <p className="player-name" key={player.playerId}>{player.name}</p>)}
-      </div>
-      <button onClick={incrementTrigger} className="button">Start Game</button>
-    </div>
+    <>
+      {gamePin && (
+        <div id="host-lobby" className="container-top">
+          <h2>Join the Game Using the Game Pin:</h2>
+          <h1>{gamePin}</h1>
+          <div id="players-list" className="container-top">
+            {playersInGame.map((player) => (
+              <p className="player-name" key={player.playerId}>
+                {player.name}
+              </p>
+            ))}
+          </div>
+          <button onClick={incrementTrigger} className="button">
+            Start Game
+          </button>
+        </div>
+      )}
+    </>
   );
 }
 

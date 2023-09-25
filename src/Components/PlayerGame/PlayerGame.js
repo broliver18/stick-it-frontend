@@ -177,7 +177,12 @@ function PlayerGame() {
         return (
           <div id="short-answer" className="data-container">
             <h2>{questionInfo.question}</h2>
-            <input name="answer" type="text" value={input.answer} onChange={handleChange} />
+            <input
+              name="answer"
+              type="text"
+              value={input.answer}
+              onChange={handleChange}
+            />
             <button onClick={checkShortAnswer}>Answer Question</button>
           </div>
         );
@@ -208,32 +213,36 @@ function PlayerGame() {
   }
 
   return (
-    <div id="player-game" className="container-top">
-      <h1>{quizInfo.name}</h1>
-      <div className="grid-container">
-        {cardPoints.map((points) => {
-          return (
-            <Card
-              key={nanoid()}
-              points={points}
-              isQuestionAnswered={isQuestionAnswered}
-              isCorrect={isCorrect}
-              updateScore={updateScore}
-            />
-          );
-        })}
-      </div>
-      <div className="question-message-container">{renderAction()}</div>
-      <div id="score" className="container-top">
-        <h2>Total Score:</h2>
-        <h1>{score}</h1>
-      </div>
-      <div id="question-number" className="container-middle">
-        <h2>
-          Question {questionNum}/{quizInfo.numberOfQuestions}
-        </h2>
-      </div>
-    </div>
+    <>
+      {quizInfo && (
+        <div id="player-game" className="container-top">
+          <h1>{quizInfo.name}</h1>
+          <div className="grid-container">
+            {cardPoints.map((points) => {
+              return (
+                <Card
+                  key={nanoid()}
+                  points={points}
+                  isQuestionAnswered={isQuestionAnswered}
+                  isCorrect={isCorrect}
+                  updateScore={updateScore}
+                />
+              );
+            })}
+          </div>
+          <div className="question-message-container">{renderAction()}</div>
+          <div id="score" className="container-top">
+            <h2>Total Score:</h2>
+            <h1>{score}</h1>
+          </div>
+          <div id="question-number" className="container-middle">
+            <h2>
+              Question {questionNum}/{quizInfo.numberOfQuestions}
+            </h2>
+          </div>
+        </div>
+      )}
+    </>
   );
 }
 
