@@ -7,11 +7,11 @@
  }
 
  #create-game input {
-    margin: 10px 10px 0 0;
+    margin: 1px 10px 10px 0;
     color: black;
     border: lightgray;
     border-radius: 3px;
-    height: 1.2rem;
+    height: 1.3rem;
  }
 
  .smaller {

@@ -8,7 +8,7 @@ function PlayerLobby() {
   const navigate = useNavigate();
 
   useEffect(() => {
-    socket.emit("player-end-game");
+    socket.emit("player-leave-game");
   }, []);
 
   useEffect(() => {

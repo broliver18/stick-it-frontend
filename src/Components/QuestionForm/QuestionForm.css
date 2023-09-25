@@ -20,8 +20,6 @@
 }
  
 .question-form input {
-     margin-left: 6px;
-     height: 1.5rem;
      border-radius: 5px;
      background-color: white;
      color: black;
@@ -30,7 +28,6 @@
 }
  
 .question-form select {
-    margin-left: 6px;
      background-color: white;
      color: black;
      border: 1px solid lightgray;

@@ -12,7 +12,6 @@ function UserProvider({ children }) {
         loggedIn: true,
       })
     }
-    // eslint-disable-next-line react-hooks/exhaustive-deps
   }, []);
 
   return (

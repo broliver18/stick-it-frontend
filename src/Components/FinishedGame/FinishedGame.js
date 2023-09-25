@@ -25,7 +25,7 @@ function FinishedGame() {
   useEffect(() => {
     if (!trigger) return;
     
-    socket.emit("player-end-game")
+    socket.emit("player-leave-game")
     navigate("/");
   }, [navigate, trigger]);
 

@@ -1,6 +1,5 @@
 import React, { useState, useEffect } from "react";
 import { useNavigate } from "react-router-dom";
-import { socket } from "../../socket";
 import { nanoid } from "nanoid";
 
 import QuestionForm from "../QuestionForm/QuestionForm";
@@ -19,37 +18,38 @@ function CreateQuiz() {
     minPoints: "",
     maxPoints: "",
   });
-  const navigate = useNavigate();
 
   useEffect(() => {
     if (!trigger) return;
     if (questions.length === 0) return;
 
-    function errorMessageEvent(errorMessage) {
-      alert(errorMessage);
-      setQuestions([]);
-    }
-
-    function createQuizEvent(message) {
-      if (message === "success") {
-        setIsQuizCreated(true);
-        navigate("/host");
-      } else {
-        errorMessageEvent(message);
-      }
-    }
-
-    socket.emit("quiz-info", questions, input);
-    socket.on("error-message", errorMessageEvent);
-    socket.on("create-quiz", createQuizEvent);
-
-    return () => {
-      socket.off("error-message", errorMessageEvent);
-      socket.off("create-quiz", createQuizEvent);
-    };
+    fetch("http://localhost:4000/profile/quiz", {
+      method: "POST",
+      credentials: "include",
+      headers: {
+        "Content-Type": "application/json",
+      },
+      body: JSON.stringify({
+        quizDetails: input,
+        questions,
+      }),
+    })
+      .catch((error) => console.log(error))
+      .then((res) => res.json())
+      .then((message) => {
+        if (message === "success") {
+          setIsQuizCreated(true);
+          navigate("/host");
+        } else {
+          alert(message);
+          setQuestions([]);
+        }
+      });
   }, [questions]);
 
   const { quizName, minPoints, maxPoints } = input;
+
+  const navigate = useNavigate();
 
   const resetQuizCreated = () => setIsQuizCreated(false);
 

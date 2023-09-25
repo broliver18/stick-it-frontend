@@ -8,6 +8,7 @@ import "./Host.css";
 
 function Host() {
   const [quizzes, setQuizzes] = useState([]);
+  const [trigger, setTrigger] = useState(0);
   const navigate = useNavigate();
 
   useEffect(() => {
@@ -15,25 +16,33 @@ function Host() {
   }, []);
 
   useEffect(() => {
-    function getQuizzesEvent(quizzes) {
-      setQuizzes(quizzes);
-    }
+    fetch("http://localhost:4000/profile/quizzes", {
+      credentials: "include",
+      headers: {
+        "Content-Type": "application/json",
+      },
+    })
+      .catch((error) => console.log(error))
+      .then((res) => res.json())
+      .then((data) => setQuizzes(data));
+  }, [trigger]);
 
-    socket.emit("initialize-quizzes");
-    socket.on("get-all-quizzes", getQuizzesEvent);
+  const navigateToHostLobby = (quizId) => navigate(`/host/lobby/${quizId}`);
 
-    return () => socket.off("get-all-quizzes", getQuizzesEvent);
-  }, [deleteQuiz]);
-
-  const navigateToHostLobby = quizId => navigate(`/host/lobby/${quizId}`);
-
-  // eslint-disable-next-line react-hooks/exhaustive-deps
   function deleteQuiz(id) {
     if (window.confirm("Are you sure you want to delete this quiz?")) {
-      socket.emit("delete-quiz", id)
+      fetch("http://localhost:4000/profile/quiz", {
+        method: "DELETE",
+        credentials: "include",
+        headers: {
+          "Content-Type": "application/json",
+        },
+        body: JSON.stringify({ gameId: id }),
+      }).catch((error) => console.log(error));
     }
+    setTrigger((prevState) => prevState + 1);
   }
-  
+
   return (
     <div id="host" className="container-top">
       <h1>Start a Game</h1>
@@ -47,9 +56,14 @@ function Host() {
         {quizzes.map((quiz) => {
           return (
             <div className="quiz" key={quiz._id}>
-              <h1 onClick={() => navigateToHostLobby(quiz._id)}>{quiz.quizName}</h1>
-              <div onClick={() => deleteQuiz(quiz._id)} className="svg-container">
-                <CloseButtonBlack/>
+              <h1 onClick={() => navigateToHostLobby(quiz._id)}>
+                {quiz.quizName}
+              </h1>
+              <div
+                onClick={() => deleteQuiz(quiz._id)}
+                className="svg-container"
+              >
+                <CloseButtonBlack />
               </div>
             </div>
           );

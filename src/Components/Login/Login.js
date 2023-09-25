@@ -15,11 +15,9 @@ function Login() {
 
   function errorHandler() {
     if (error) {
-      return (
-        <p className="error">{error}</p>
-      )
+      return <p className="error">{error}</p>;
     }
-  };
+  }
 
   return (
     <div id="login" className="container-top">
@@ -61,7 +59,7 @@ function Login() {
                 } else if (data.loggedIn) {
                   sessionStorage.setItem("loggedIn", true);
                   navigate("/host");
-                }   
+                }
               });
           }}
         >

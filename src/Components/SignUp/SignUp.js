@@ -1,4 +1,4 @@
-import React, { useContext } from "react";
+import React, { useState, useContext } from "react";
 import { Formik, Form, Field, ErrorMessage } from "formik";
 import * as Yup from "yup";
 import { Link, useNavigate } from "react-router-dom";
@@ -8,8 +8,16 @@ import { AccountContext } from "../Contexts/AccountContext";
 import "./SignUp.css";
 
 function SignUp() {
+  const [error, setError] = useState(null);
+
   const navigate = useNavigate();
   const { setUser } = useContext(AccountContext);
+
+  function errorHandler() {
+    if (error) {
+      return <p className="error">{error}</p>;
+    }
+  }
 
   return (
     <div id="sign-up" className="container-top">
@@ -57,8 +65,12 @@ function SignUp() {
               .then((data) => {
                 if (!data) return;
                 setUser({ ...data });
-                sessionStorage.setItem("loggedIn", true);
-                navigate("/host");
+                if (data.status) {
+                  setError(data.status);
+                } else if (data.loggedIn) {
+                  sessionStorage.setItem("loggedIn", true);
+                  navigate("/host");
+                }
               });
           }}
         >
@@ -97,6 +109,7 @@ function SignUp() {
                 name="confirmPassword"
                 component="div"
               />
+              {errorHandler()}
               <div className="button-container">
                 <button type="submit" disabled={isSubmitting}>
                   Sign Up
