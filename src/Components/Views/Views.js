@@ -27,7 +27,7 @@ function Views() {
       <Route path="/player/finished-game" element={<FinishedGame />} />
       <Route path="/host" element={!loggedIn ? <Navigate to="/" /> : <Host />} />
       <Route path="/create-quiz" element={!loggedIn ? <Navigate to="/" /> : <CreateQuiz />} />
-      <Route path="/host/lobby/:gameId" element={!loggedIn ? <Navigate to="/" /> : <HostLobby />} />
+      <Route path="/host/lobby/:quizId" element={!loggedIn ? <Navigate to="/" /> : <HostLobby />} />
       <Route path="/host/game" element={!loggedIn ? <Navigate to="/" /> : <HostGame />} />
       <Route path="*" element={<Home />} />
     </Routes>

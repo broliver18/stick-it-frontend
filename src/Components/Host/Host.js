@@ -37,7 +37,7 @@ function Host() {
         headers: {
           "Content-Type": "application/json",
         },
-        body: JSON.stringify({ gameId: id }),
+        body: JSON.stringify({ quizId: id }),
       }).catch((error) => console.log(error));
     }
     setTrigger((prevState) => prevState + 1);
