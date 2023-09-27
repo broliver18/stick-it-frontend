@@ -1,11 +1,14 @@
-import Views from "../Views/Views"; 
-import UserProvider from "../Contexts/AccountContext";
+import Views from "../Views/Views";
+import HostProvider from "../Contexts/AccountContext";
+import PlayerProvider from "../Contexts/PlayerContext";
 
 function App() {
   return (
-    <UserProvider>
-      <Views />
-    </UserProvider>
+    <HostProvider>
+      <PlayerProvider>
+        <Views />
+      </PlayerProvider>
+    </HostProvider>
   );
 }
 

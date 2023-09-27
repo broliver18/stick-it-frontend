@@ -2,7 +2,7 @@ import { useState, useEffect, createContext } from "react";
 
 export const AccountContext = createContext();
 
-function UserProvider({ children }) {
+function HostProvider({ children }) {
   const [user, setUser] = useState({ loggedIn: false });
 
   useEffect(() => {
@@ -21,4 +21,4 @@ function UserProvider({ children }) {
   );
 }
 
-export default UserProvider;
+export default HostProvider;

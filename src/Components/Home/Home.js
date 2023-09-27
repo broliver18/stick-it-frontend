@@ -1,6 +1,8 @@
-import React, { useState, useEffect, useRef } from "react";
+import React, { useState, useEffect, useRef, useContext } from "react";
 import { Link, useNavigate } from "react-router-dom";
 import { socket } from "../../socket";
+
+import { GameContext } from "../Contexts/PlayerContext";
 
 import "./Home.css";
 
@@ -10,10 +12,11 @@ function Home() {
     displayName: "",
     pin: "",
   });
+
   const { displayName, pin } = input;
   const nameInputRef = useRef();
-
   const navigate = useNavigate();
+  const { setIsPlaying } = useContext(GameContext);
 
   useEffect(() => {
     nameInputRef.current.focus();
@@ -40,6 +43,7 @@ function Home() {
 
     function playerJoinEvent(gameFound) {
       if (gameFound) {
+        setIsPlaying(true);
         navigate("/player/lobby");
         setInput((prevState) => ({
           ...prevState,

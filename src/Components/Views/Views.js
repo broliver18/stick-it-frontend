@@ -12,9 +12,11 @@ import CreateQuiz from "../CreateQuiz/CreateQuiz";
 import HostLobby from "../HostLobby/HostLobby";
 import HostGame from "../HostGame/HostGame";
 import { AccountContext } from "../Contexts/AccountContext";
+import { GameContext } from "../Contexts/PlayerContext";
 
 function Views() {
   const { user } = useContext(AccountContext);
+  const { isPlaying } = useContext(GameContext);
   const loggedIn = user.loggedIn;
   
   return (
@@ -22,9 +24,9 @@ function Views() {
       <Route path="/" element={loggedIn ? <Navigate to="/host" /> : <Home />} />
       <Route path="/login" element={loggedIn ? <Navigate to="/host" /> : <Login />} />
       <Route path="/sign-up" element={loggedIn ? <Navigate to="/host" /> : <SignUp />} />
-      <Route path="/player/lobby" element={<PlayerLobby />} />
-      <Route path="/player/game" element={<PlayerGame />} />
-      <Route path="/player/finished-game" element={<FinishedGame />} />
+      <Route path="/player/lobby" element={!isPlaying ? <Navigate to="/" /> : <PlayerLobby />} />
+      <Route path="/player/game" element={!isPlaying ? <Navigate to="/" /> : <PlayerGame />} />
+      <Route path="/player/finished-game" element={!isPlaying ? <Navigate to="/" /> : <FinishedGame />} />
       <Route path="/host" element={!loggedIn ? <Navigate to="/" /> : <Host />} />
       <Route path="/create-quiz" element={!loggedIn ? <Navigate to="/" /> : <CreateQuiz />} />
       <Route path="/host/lobby/:quizId" element={!loggedIn ? <Navigate to="/" /> : <HostLobby />} />
