@@ -141,7 +141,7 @@ function PlayerGame() {
     setIsQuestionAnswered(true);
     setInput({ answer: "" });
     setTrigger((prevState) => prevState + 1);
-    if (input.answer === questionInfo.shortAnswer) {
+    if (input.answer.toLowerCase() === questionInfo.shortAnswer.toLowerCase()) {
       setIsCorrect(true);
     } else {
       setIsCorrect(false);

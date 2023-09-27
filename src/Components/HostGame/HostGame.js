@@ -54,7 +54,7 @@ function HostGame() {
         <div id="host-game" className="container-top">
           <h1>{quizTitle}</h1>
           <div id="rankings">
-            <div id="names-container">
+            <div id="names-container" className="container-top">
               <h2>Name</h2>
               <div id="names">
                 {players.map((player, index) => {
