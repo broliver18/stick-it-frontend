@@ -1,3 +1,7 @@
+#host-game h1 {
+    text-align: center;
+}
+
 #rankings {
     display: flex;
     justify-content: space-around;

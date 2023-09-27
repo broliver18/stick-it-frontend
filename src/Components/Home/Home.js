@@ -100,6 +100,7 @@ function Home() {
           id="pin"
           name="pin"
           type="text"
+          autoComplete="off"
           value={pin}
           onChange={handleChange}
         />

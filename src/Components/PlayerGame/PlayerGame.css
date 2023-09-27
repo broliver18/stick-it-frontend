@@ -1,3 +1,7 @@
+#player-game h1 {
+    text-align: center;
+}
+
 .grid-container {
     margin-top: 15px;
     display: grid;
@@ -32,6 +36,7 @@
 }
 
 #short-answer h2, #multiple-choice h2 {
+    text-align: center;
     color: #344e41
 }
 

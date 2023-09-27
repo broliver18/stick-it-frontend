@@ -180,6 +180,7 @@ function PlayerGame() {
             <input
               name="answer"
               type="text"
+              autoComplete="off"
               value={input.answer}
               onChange={handleChange}
             />
