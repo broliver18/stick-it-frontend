@@ -1,17 +1,21 @@
+#create-game {
+    padding: 0 20px 0 20px;
+}
+
+#create-game label {
+    margin-right: 10px;
+ }
+ 
  #quiz-details {
     margin: 15px 0;
  }
 
- #create-game label {
-    margin-right: 10px;
- }
-
  #create-game input {
-    margin: 1px 10px 10px 0;
+    margin: 1px 20px 10px 0;
     color: black;
     border: lightgray;
     border-radius: 3px;
-    height: 1.3rem;
+    height: 1.4rem;
  }
 
  .smaller {
@@ -43,6 +47,8 @@
 .buttons button:hover {
     filter: brightness(110%);
 }
+
+
 
 @media only screen and (max-width: 450px) {
     #quiz-details {
