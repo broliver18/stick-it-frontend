@@ -2,7 +2,7 @@ import React, { useState, useEffect } from "react";
 import { Link, useNavigate } from "react-router-dom";
 import { socket } from "../../socket";
 
-import CloseButtonBlack from "../Svgs/CloseButtonBlack";
+import TrashCan from "../Svgs/TrashCan";
 
 import "./Host.css";
 
@@ -43,32 +43,56 @@ function Host() {
     setTrigger((prevState) => prevState + 1);
   }
 
+  function renderAction() {
+    if (quizzes.length >= 1) {
+      return (
+        <div id="saved-quizzes">
+          {quizzes.map((quiz) => {
+            return (
+              <div className="quiz" key={quiz._id}>
+                <div
+                  onClick={() => deleteQuiz(quiz._id)}
+                  className="svg-container"
+                >
+                  <TrashCan />
+                </div>
+                <div className="quiz-details">
+                  <h1>{quiz.quizName}</h1>
+                  <h4>
+                    {quiz.questions.length}{" "}
+                    {quiz.questions.length === 1 ? "question" : "questions"}
+                  </h4>
+                </div>
+                <button onClick={() => navigateToHostLobby(quiz._id)}>
+                  Play
+                </button>
+              </div>
+            );
+          })}
+        </div>
+      );
+    } else {
+      return (
+        <div id="no-quizzes-message" className="container-middle">
+          <h1>No Quizzes Yet!</h1>
+        </div>
+      );
+    }
+  }
+
   return (
     <div id="host" className="container-top">
+      <div className="header">
+        
+      </div>
       <h1>Start a Game</h1>
       <p>
-        Choose a Game Below or{" "}
+        Select a Game Below or{" "}
         <Link id="create-game-link" to="/create-quiz">
           Create your Own!
         </Link>
       </p>
-      <div id="saved-quizzes">
-        {quizzes.map((quiz) => {
-          return (
-            <div className="quiz" key={quiz._id}>
-              <h1 onClick={() => navigateToHostLobby(quiz._id)}>
-                {quiz.quizName}
-              </h1>
-              <div
-                onClick={() => deleteQuiz(quiz._id)}
-                className="svg-container"
-              >
-                <CloseButtonBlack />
-              </div>
-            </div>
-          );
-        })}
-      </div>
+      {renderAction()}
     </div>
   );
 }
