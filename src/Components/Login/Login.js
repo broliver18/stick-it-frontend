@@ -58,6 +58,7 @@ function Login() {
                   setError(data.status);
                 } else if (data.loggedIn) {
                   sessionStorage.setItem("loggedIn", true);
+                  sessionStorage.setItem("username", data.username)
                   navigate("/host");
                 }
               });

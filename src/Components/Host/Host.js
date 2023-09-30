@@ -1,7 +1,8 @@
-import React, { useState, useEffect } from "react";
+import React, { useState, useEffect, useContext } from "react";
 import { Link, useNavigate } from "react-router-dom";
 import { socket } from "../../socket";
 
+import { AccountContext } from "../Contexts/AccountContext";
 import TrashCan from "../Svgs/TrashCan";
 
 import "./Host.css";
@@ -9,7 +10,9 @@ import "./Host.css";
 function Host() {
   const [quizzes, setQuizzes] = useState([]);
   const [trigger, setTrigger] = useState(0);
+
   const navigate = useNavigate();
+  const { user } = useContext(AccountContext)
 
   useEffect(() => {
     socket.emit("remove-existing-games");
@@ -81,18 +84,23 @@ function Host() {
   }
 
   return (
-    <div id="host" className="container-top">
+    <div id="host">
       <div className="header">
-        
+        <div className="header-details">
+          <h3>Welcome {user.username}</h3>
+          <h4>Logout</h4>
+        </div>
       </div>
-      <h1>Start a Game</h1>
-      <p>
-        Select a Game Below or{" "}
-        <Link id="create-game-link" to="/create-quiz">
-          Create your Own!
-        </Link>
-      </p>
-      {renderAction()}
+      <div className="container-top body">
+        <h1>Start a Game</h1>
+        <p>
+          Select a Game Below or{" "}
+          <Link id="create-game-link" to="/create-quiz">
+            Create your Own!
+          </Link>
+        </p>
+        {renderAction()}
+      </div>
     </div>
   );
 }
