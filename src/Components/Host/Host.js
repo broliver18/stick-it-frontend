@@ -12,7 +12,7 @@ function Host() {
   const [trigger, setTrigger] = useState(0);
 
   const navigate = useNavigate();
-  const { user } = useContext(AccountContext)
+  const { user } = useContext(AccountContext);
 
   useEffect(() => {
     socket.emit("remove-existing-games");
@@ -61,10 +61,13 @@ function Host() {
                 </div>
                 <div className="quiz-details">
                   <h1>{quiz.quizName}</h1>
-                  <h4>
-                    {quiz.questions.length}{" "}
-                    {quiz.questions.length === 1 ? "question" : "questions"}
-                  </h4>
+                  <div className="quiz-functions">
+                    <h4>
+                      {quiz.questions.length}{" "}
+                      {quiz.questions.length === 1 ? "question" : "questions"}
+                    </h4>
+                    <h5>Edit</h5>
+                  </div>
                 </div>
                 <button onClick={() => navigateToHostLobby(quiz._id)}>
                   Play

@@ -114,10 +114,22 @@
     background-color: transparent;
 }
 
-.quiz-details h4 {
+.quiz-functions {
+    display: flex;
+    align-items: center;
     width: 150px;
     margin: 2px 0 2px 9px;
+}
+
+.quiz-functions h4 {
+    margin: 0;
     color: gray;
+}
+
+.quiz-functions h5 {
+    margin: 0 0 0 8px;
+    color: #3a5a40;
+    cursor: pointer;
 }
 
 .svg-container {
