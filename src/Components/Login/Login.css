@@ -61,7 +61,11 @@
     color: #1267ce;
 }
 
-.form h1, .login-signup-container label, .button-container p {
+#forgot-password-link {
+    margin: 8px 0 0 0;
+}
+
+.form h1, .login-signup-container label, .button-container p, #forgot-password-link {
     color: black;
 }
 

@@ -1,7 +1,7 @@
 import React, { useState, useContext } from "react";
+import { Link, useNavigate } from "react-router-dom";
 import { Formik, Form, Field, ErrorMessage } from "formik";
 import * as Yup from "yup";
-import { Link, useNavigate } from "react-router-dom";
 
 import { AccountContext } from "../Contexts/AccountContext";
 
@@ -58,7 +58,7 @@ function Login() {
                   setError(data.status);
                 } else if (data.loggedIn) {
                   sessionStorage.setItem("loggedIn", true);
-                  sessionStorage.setItem("username", data.username)
+                  sessionStorage.setItem("username", data.username);
                   navigate("/host");
                 }
               });
@@ -82,6 +82,13 @@ function Login() {
               <Field id="password" name="password" type="password" />
               <ErrorMessage className="error" name="password" component="div" />
               {errorHandler()}
+              <p id="forgot-password-link">
+                Forgot Password? <span />
+                <Link className="blue-label" to="/reset-password/link">
+                  Reset your password
+                </Link>
+              </p>
+              
               <div className="button-container">
                 <button type="submit" disabled={isSubmitting}>
                   Log In

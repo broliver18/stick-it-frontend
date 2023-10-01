@@ -88,7 +88,7 @@ function Host() {
       <div className="header">
         <div className="header-details">
           <h3>Welcome {user.username}</h3>
-          <h4>Logout</h4>
+          <h4>Log Out</h4>
         </div>
       </div>
       <div className="container-top body">
