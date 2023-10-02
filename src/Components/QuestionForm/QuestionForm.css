@@ -71,7 +71,7 @@
 #close-button {
     cursor: pointer;
     position: absolute;
-    transform: translate(190px, -10px);
+    transform: translate(198px, -10px);
     width: 25px;
     height: 25px;
 }
