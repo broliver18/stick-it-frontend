@@ -11,6 +11,7 @@ import PlayerGame from "../PlayerGame/PlayerGame";
 import FinishedGame from "../FinishedGame/FinishedGame";
 import Host from "../Host/Host";
 import CreateQuiz from "../CreateQuiz/CreateQuiz";
+import EditQuiz from "../EditQuiz/EditQuiz";
 import HostLobby from "../HostLobby/HostLobby";
 import HostGame from "../HostGame/HostGame";
 import { AccountContext } from "../Contexts/AccountContext";
@@ -32,7 +33,8 @@ function Views() {
       <Route path="/player/game" element={!isPlaying ? <Navigate to="/" /> : <PlayerGame />} />
       <Route path="/player/finished-game" element={!isPlaying ? <Navigate to="/" /> : <FinishedGame />} />
       <Route path="/host" element={!loggedIn ? <Navigate to="/" /> : <Host />} />
-      <Route path="/create-quiz" element={!loggedIn ? <Navigate to="/" /> : <CreateQuiz />} />
+      <Route path="/host/create-quiz" element={!loggedIn ? <Navigate to="/" /> : <CreateQuiz />} />
+      <Route path="/host/edit-quiz/:quizId" element={!loggedIn ? <Navigate to="/" /> : <EditQuiz />} />
       <Route path="/host/lobby/:quizId" element={!loggedIn ? <Navigate to="/" /> : <HostLobby />} />
       <Route path="/host/game" element={!loggedIn ? <Navigate to="/" /> : <HostGame />} />
       <Route path="*" element={<Home />} />

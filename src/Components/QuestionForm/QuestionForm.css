@@ -16,7 +16,7 @@
      margin: 5px 0 5px 1px;
      font-size: 14px;
      font-weight: 500;
-     color: #3a5a40;
+     color: black;
 }
  
 #question-form input {
@@ -47,9 +47,13 @@
      justify-content: space-between;
 }
  
- .column {
+.column {
      display: flex;
      flex-direction: column;
+}
+
+.last-row {
+    margin-top: 5px;
 }
 
 #correct-answer {

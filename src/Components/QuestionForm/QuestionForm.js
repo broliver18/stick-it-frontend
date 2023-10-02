@@ -1,11 +1,12 @@
 import React, { useState, useEffect } from "react";
 
-import "./QuestionForm.css";
-
 import CloseButtonGreen from "../Svgs/CloseButtonGreen";
+
+import "./QuestionForm.css";
 
 function QuestionForm({
   id,
+  questionData,
   removeQuestion,
   saveQuestionInfo,
   trigger,
@@ -13,16 +14,16 @@ function QuestionForm({
   resetQuizCreated,
 }) {
   const [input, setInput] = useState({
-    question: "",
-    shortAnswer: "",
-    answerOne: "",
-    answerTwo: "",
-    answerThree: "",
-    answerFour: "",
-    correctAnswer: "",
+    question: questionData.question,
+    shortAnswer: questionData.shortAnswer,
+    answerOne: questionData.answerOne,
+    answerTwo: questionData.answerTwo,
+    answerThree: questionData.answerThree,
+    answerFour: questionData.answerFour,
+    correctAnswer: questionData.correctAnswer,
   });
   const [questionTypeValue, setQuestionTypeValue] = useState({
-    value: "short-answer",
+    value: questionData.questionType,
   });
 
   useEffect(() => {
@@ -117,14 +118,16 @@ function QuestionForm({
               />
             </div>
           </div>
-          <label htmlFor="correct-answer">Correct Answer (1-4)</label>
-          <input
-            id="correct-answer"
-            name="correctAnswer"
-            type="text"
-            value={correctAnswer}
-            onChange={handleInputChange}
-          />
+          <div className="last-row column">
+            <label htmlFor="correct-answer">Correct Answer (1-4)</label>
+            <input
+              id="correct-answer"
+              name="correctAnswer"
+              type="text"
+              value={correctAnswer}
+              onChange={handleInputChange}
+            />
+          </div>
         </div>
       );
     } else {
@@ -145,6 +148,7 @@ function QuestionForm({
 
   return (
     <div id="question-form">
+      {console.log(questionData.question)}
       <div id="close-button" onClick={() => removeQuestion(id)}>
         <CloseButtonGreen />
       </div>

@@ -1,12 +1,12 @@
 import React, { useState, useEffect } from "react";
-import { useNavigate } from "react-router-dom";
+import { useNavigate, useParams } from "react-router-dom";
 import { nanoid } from "nanoid";
 
 import QuestionForm from "../QuestionForm/QuestionForm";
 
-import "./CreateQuiz.css";
+import "./EditQuiz.css";
 
-function CreateQuiz() {
+function EditQuiz() {
   const [trigger, setTrigger] = useState(0);
   const [isQuizCreated, setIsQuizCreated] = useState(false);
   const [questions, setQuestions] = useState([]);
@@ -34,6 +34,31 @@ function CreateQuiz() {
 
   const { quizName, minPoints, maxPoints } = input;
   const navigate = useNavigate();
+  const { quizId } = useParams();
+
+  useEffect(() => {
+    fetch(`http://localhost:4000/profile/quiz/${quizId}`, {
+      credentials: "include",
+      headers: {
+        "Content-Type": "application/json",
+      },
+    })
+      .catch((error) => console.log(error))
+      .then((res) => res.json())
+      .then((data) => {
+        setInput({
+          quizName: data.quizName,
+          minPoints: data.minPoints,
+          maxPoints: data.maxPoints,
+        });
+        const questionFormData = data.questions.map((question) => ({
+          id: nanoid(),
+          value: true,
+          question,
+        }));
+        setQuestionsArray([...questionFormData]);
+      });
+  }, []);
 
   useEffect(() => {
     if (!trigger) return;
@@ -106,7 +131,7 @@ function CreateQuiz() {
 
   return (
     <div id="create-game" className="container-top">
-      <h1>Create Quiz</h1>
+      <h1>Edit Quiz</h1>
       <form id="quiz-details">
         <label htmlFor="quiz-name">Quiz Name</label>
         <input
@@ -135,26 +160,28 @@ function CreateQuiz() {
           onChange={handleChange}
         />
       </form>
-      <div className="form-container">
-        {questionsArray.map((questionInfo) => (
-          <QuestionForm
-            key={questionInfo.id}
-            id={questionInfo.id}
-            questionData={questionInfo.question}
-            removeQuestion={removeQuestion}
-            saveQuestionInfo={saveQuestionInfo}
-            trigger={trigger}
-            isQuizCreated={isQuizCreated}
-            resetQuizCreated={resetQuizCreated}
-          />
-        ))}
-      </div>
+      {input.quizName && (
+        <div className="form-container">
+          {questionsArray.map((questionInfo) => (
+            <QuestionForm
+              key={questionInfo.id}
+              id={questionInfo.id}
+              questionData={questionInfo.question}
+              removeQuestion={removeQuestion}
+              saveQuestionInfo={saveQuestionInfo}
+              trigger={trigger}
+              isQuizCreated={isQuizCreated}
+              resetQuizCreated={resetQuizCreated}
+            />
+          ))}
+        </div>
+      )}
       <div className="buttons">
         <button onClick={addQuestion}>Add Question</button>
-        <button onClick={incrementTrigger}>Create Quiz</button>
+        <button onClick={incrementTrigger}>Save Quiz</button>
       </div>
     </div>
   );
 }
 
-export default CreateQuiz;
+export default EditQuiz;

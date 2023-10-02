@@ -31,6 +31,7 @@ function Host() {
   }, [trigger]);
 
   const navigateToHostLobby = (quizId) => navigate(`/host/lobby/${quizId}`);
+  const navigateToEditQuiz = (quizId) => navigate(`/host/edit-quiz/${quizId}`);
 
   function deleteQuiz(id) {
     if (window.confirm("Are you sure you want to delete this quiz?")) {
@@ -66,7 +67,7 @@ function Host() {
                       {quiz.questions.length}{" "}
                       {quiz.questions.length === 1 ? "question" : "questions"}
                     </h4>
-                    <h5>Edit</h5>
+                    <h5 onClick={() => navigateToEditQuiz(quiz._id)}>Edit</h5>
                   </div>
                 </div>
                 <button onClick={() => navigateToHostLobby(quiz._id)}>
@@ -98,7 +99,7 @@ function Host() {
         <h1>Start a Game</h1>
         <p>
           Select a Game Below or{" "}
-          <Link id="create-game-link" to="/create-quiz">
+          <Link id="create-game-link" to="/host/create-quiz">
             Create your Own!
           </Link>
         </p>
