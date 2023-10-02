@@ -3,6 +3,7 @@ import { useNavigate, useParams } from "react-router-dom";
 import { nanoid } from "nanoid";
 
 import QuestionForm from "../QuestionForm/QuestionForm";
+import BackButton from "../Svgs/BackButton";
 
 import "./EditQuiz.css";
 
@@ -64,8 +65,8 @@ function EditQuiz() {
     if (!trigger) return;
     if (questions.length === 0) return;
 
-    fetch("http://localhost:4000/profile/quiz", {
-      method: "POST",
+    fetch(`http://localhost:4000/profile/quiz/${quizId}`, {
+      method: "PUT",
       credentials: "include",
       headers: {
         "Content-Type": "application/json",
@@ -80,9 +81,10 @@ function EditQuiz() {
       .then((message) => {
         if (message === "success") {
           setIsQuizCreated(true);
+          alert("Quiz saved successfully!");
           navigate("/host");
         } else {
-          alert(message);
+          alert("Sorry, something went wrong.");
           setQuestions([]);
         }
       });
@@ -90,10 +92,24 @@ function EditQuiz() {
 
   const resetQuizCreated = () => setIsQuizCreated(false);
 
-  const incrementTrigger = () => setTrigger((prevState) => prevState + 1);
-
   const saveQuestionInfo = (input) =>
     setQuestions((prevState) => [...prevState, input]);
+
+  function incrementTrigger() {
+    if (window.confirm("Are you sure you want to save changes?")) {
+      setTrigger((prevState) => prevState + 1);
+    }
+  }
+
+  function navigateBack() {
+    if (
+      window.confirm(
+        "All unsaved changes will be lost. Are you sure you want to proceed?"
+      )
+    ) {
+      navigate("/host");
+    }
+  }
 
   function addQuestion() {
     setQuestionsArray((prevState) => [
@@ -131,6 +147,9 @@ function EditQuiz() {
 
   return (
     <div id="create-game" className="container-top">
+      <div onClick={navigateBack} id="back-button">
+        <BackButton />
+      </div>
       <h1>Edit Quiz</h1>
       <form id="quiz-details">
         <label htmlFor="quiz-name">Quiz Name</label>

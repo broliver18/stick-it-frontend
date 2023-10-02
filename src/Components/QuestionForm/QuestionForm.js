@@ -1,6 +1,6 @@
 import React, { useState, useEffect } from "react";
 
-import CloseButtonGreen from "../Svgs/CloseButtonGreen";
+import CloseButton from "../Svgs/CloseButton";
 
 import "./QuestionForm.css";
 
@@ -150,7 +150,7 @@ function QuestionForm({
     <div id="question-form">
       {console.log(questionData.question)}
       <div id="close-button" onClick={() => removeQuestion(id)}>
-        <CloseButtonGreen />
+        <CloseButton />
       </div>
       <form>
         <label htmlFor="question-type">Question Type</label>

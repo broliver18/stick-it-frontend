@@ -3,6 +3,7 @@ import { useNavigate } from "react-router-dom";
 import { nanoid } from "nanoid";
 
 import QuestionForm from "../QuestionForm/QuestionForm";
+import BackButton from "../Svgs/BackButton";
 
 import "./CreateQuiz.css";
 
@@ -70,6 +71,16 @@ function CreateQuiz() {
   const saveQuestionInfo = (input) =>
     setQuestions((prevState) => [...prevState, input]);
 
+  function navigateBack() {
+    if (
+      window.confirm(
+        "All unsaved changes will be lost. Are you sure you want to proceed?"
+      )
+    ) {
+      navigate("/host");
+    }
+  }
+
   function addQuestion() {
     setQuestionsArray((prevState) => [
       ...prevState,
@@ -106,6 +117,9 @@ function CreateQuiz() {
 
   return (
     <div id="create-game" className="container-top">
+      <div onClick={navigateBack} id="back-button">
+        <BackButton />
+      </div>
       <h1>Create Quiz</h1>
       <form id="quiz-details">
         <label htmlFor="quiz-name">Quiz Name</label>

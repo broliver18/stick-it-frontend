@@ -9,7 +9,7 @@ function HostLobby() {
   const [playersInGame, setPlayersInGame] = useState([]);
   const [trigger, setTrigger] = useState(0);
 
-  let { quizId } = useParams();
+  const { quizId } = useParams();
   const navigate = useNavigate();
 
   useEffect(() => {

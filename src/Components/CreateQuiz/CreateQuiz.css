@@ -2,25 +2,35 @@
     padding: 0 20px 0 20px;
 }
 
+#back-button {
+    position: absolute;
+    top: 20px;
+    left: 20px;
+    width: 35px;
+    height: 35px;
+    margin: 0;
+    cursor: pointer;
+}
+
 #create-game label {
     margin-right: 8px;
- }
+}
  
- #quiz-details {
+#quiz-details {
     margin: 15px 0;
- }
+}
 
- #create-game input {
+#create-game input {
     margin: 1px 20px 10px 0;
     color: black;
     border: lightgray;
     border-radius: 3px;
     height: 1.4rem;
- }
+}
 
- .smaller {
+.smaller {
     width: 40px;
- }
+}
 
 .form-container {
     display: flex;
