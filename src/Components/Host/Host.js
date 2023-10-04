@@ -12,7 +12,7 @@ function Host() {
   const [trigger, setTrigger] = useState(0);
 
   const navigate = useNavigate();
-  const { user } = useContext(AccountContext);
+  const { user, setUser } = useContext(AccountContext);
 
   useEffect(() => {
     socket.emit("remove-existing-games");
@@ -45,6 +45,25 @@ function Host() {
       }).catch((error) => console.log(error));
     }
     setTrigger((prevState) => prevState + 1);
+  }
+
+  function logout() {
+    fetch("http://localhost:4000/auth/logout", {
+      credentials: "include",
+      headers: {
+        "Content-Type": "appication/json",
+      },
+    })
+      .catch((error) => console.log(error))
+      .then((res) => res.json())
+      .then((data) => {
+        if (data === "success") {
+          sessionStorage.removeItem("loggedIn");
+          sessionStorage.removeItem("username");
+          setUser({ loggedIn: false, username: "" });
+          navigate("/");
+        }
+      });
   }
 
   function renderAction() {
@@ -92,7 +111,7 @@ function Host() {
       <div className="header">
         <div className="header-details">
           <h3>Welcome {user.username}</h3>
-          <h4>Log Out</h4>
+          <h4 onClick={logout}>Log Out</h4>
         </div>
       </div>
       <div className="container-top body">
