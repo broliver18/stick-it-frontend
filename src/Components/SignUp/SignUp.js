@@ -111,7 +111,7 @@ function SignUp() {
                 component="div"
               />
               {errorHandler()}
-              <div className="button-container">
+              <div className="button-container signup-button">
                 <button type="submit" disabled={isSubmitting}>
                   Sign Up
                 </button>

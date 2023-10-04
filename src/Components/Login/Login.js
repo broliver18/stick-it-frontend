@@ -47,6 +47,7 @@ function Login() {
               })
               .then((res) => {
                 if (!res || !res.ok || res.status > 400) {
+                  setError("The email or password is incorrect.");
                   return;
                 }
                 return res.json();
@@ -54,9 +55,7 @@ function Login() {
               .then((data) => {
                 if (!data) return;
                 setUser({ ...data });
-                if (data.status) {
-                  setError(data.status);
-                } else if (data.loggedIn) {
+                if (data.loggedIn) {
                   sessionStorage.setItem("loggedIn", true);
                   sessionStorage.setItem("username", data.username);
                   navigate("/host");
@@ -89,7 +88,7 @@ function Login() {
                 </Link>
               </p>
               
-              <div className="button-container">
+              <div className="button-container login-button">
                 <button type="submit" disabled={isSubmitting}>
                   Log In
                 </button>

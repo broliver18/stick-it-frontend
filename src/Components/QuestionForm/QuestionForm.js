@@ -148,7 +148,6 @@ function QuestionForm({
 
   return (
     <div id="question-form">
-      {console.log(questionData.question)}
       <div id="close-button" onClick={() => removeQuestion(id)}>
         <CloseButton />
       </div>
