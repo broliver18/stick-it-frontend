@@ -47,7 +47,13 @@ function Login() {
               })
               .then((res) => {
                 if (!res || !res.ok || res.status > 400) {
-                  setError("The email or password is incorrect.");
+                  if (res.status === 401) {
+                    setError("The email or password is incorrect.");
+                  } else {
+                    setError(
+                      "Can't connect right now, please try again later."
+                    );
+                  }
                   return;
                 }
                 return res.json();
@@ -87,7 +93,7 @@ function Login() {
                   Reset your password
                 </Link>
               </p>
-              
+
               <div className="button-container login-button">
                 <button type="submit" disabled={isSubmitting}>
                   Log In
