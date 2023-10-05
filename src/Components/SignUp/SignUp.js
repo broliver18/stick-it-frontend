@@ -116,12 +116,7 @@ function SignUp() {
                 <button type="submit" disabled={isSubmitting}>
                   Sign Up
                 </button>
-                <p>
-                  Don't have an account? <span />
-                  <Link className="blue-label" to="/login">
-                    Log in
-                  </Link>{" "}
-                </p>
+
               </div>
               {errorHandler()}
             </Form>
@@ -143,8 +138,8 @@ function SignUp() {
           </div>
         </div>
         <p className="black">
-          Don't have an account? <span />
-          <Link className="blue-label" to="/sign-up">
+          Already have an account? <span />
+          <Link className="blue-label" to="/login">
             Sign up
           </Link>{" "}
         </p>
