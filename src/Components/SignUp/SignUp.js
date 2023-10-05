@@ -4,6 +4,8 @@ import { Formik, Form, Field, ErrorMessage } from "formik";
 import * as Yup from "yup";
 
 import { AccountContext } from "../Contexts/AccountContext";
+import GoogleIcon from "../Svgs/GoogleIcon";
+import FacebookIcon from "../Svgs/FacebookIcon";
 
 import "./SignUp.css";
 
@@ -15,7 +17,7 @@ function SignUp() {
 
   function errorHandler() {
     if (error) {
-      return <p className="error">{error}</p>;
+      return <p className="server-error">{error}</p>;
     }
   }
 
@@ -69,7 +71,7 @@ function SignUp() {
                   setError(data.status);
                 } else if (data.loggedIn) {
                   sessionStorage.setItem("loggedIn", true);
-                  sessionStorage.setItem("username", data.username)
+                  sessionStorage.setItem("username", data.username);
                   navigate("/host");
                 }
               });
@@ -81,7 +83,7 @@ function SignUp() {
                 Name
               </label>
               <Field id="name" name="name" type="text" autoComplete="name" />
-              <ErrorMessage className="error" name="name" component="div" />
+              <ErrorMessage className="client-error" name="name" component="div" />
               <label className="heavy" htmlFor="email">
                 Email
               </label>
@@ -91,12 +93,12 @@ function SignUp() {
                 type="email"
                 autoComplete="email"
               />
-              <ErrorMessage className="error" name="email" component="div" />
+              <ErrorMessage className="client-error" name="email" component="div" />
               <label className="heavy" htmlFor="password">
                 Password
               </label>
               <Field id="password" name="password" type="password" />
-              <ErrorMessage className="error" name="password" component="div" />
+              <ErrorMessage className="client-error" name="password" component="div" />
               <label className="heavy" htmlFor="confirm-password">
                 Confirm Password
               </label>
@@ -106,11 +108,10 @@ function SignUp() {
                 type="password"
               />
               <ErrorMessage
-                className="error"
+                className="cient-error"
                 name="confirmPassword"
                 component="div"
               />
-              {errorHandler()}
               <div className="button-container signup-button">
                 <button type="submit" disabled={isSubmitting}>
                   Sign Up
@@ -122,9 +123,31 @@ function SignUp() {
                   </Link>{" "}
                 </p>
               </div>
+              {errorHandler()}
             </Form>
           )}
         </Formik>
+        <p className="heavy black">or use</p>
+        <div className="oauth-buttons">
+          <div className="google oauth">
+            <div className="oauth-logo-container">
+              <GoogleIcon />
+            </div>
+            <h3>Google</h3>
+          </div>
+          <div className="facebook oauth">
+            <div className="oauth-logo-container">
+              <FacebookIcon />
+            </div>
+            <h3>Facebook</h3>
+          </div>
+        </div>
+        <p className="black">
+          Don't have an account? <span />
+          <Link className="blue-label" to="/sign-up">
+            Sign up
+          </Link>{" "}
+        </p>
       </div>
     </div>
   );

@@ -4,6 +4,8 @@ import { Formik, Form, Field, ErrorMessage } from "formik";
 import * as Yup from "yup";
 
 import { AccountContext } from "../Contexts/AccountContext";
+import GoogleIcon from "../Svgs/GoogleIcon";
+import FacebookIcon from "../Svgs/FacebookIcon";
 
 import "./Login.css";
 
@@ -15,7 +17,7 @@ function Login() {
 
   function errorHandler() {
     if (error) {
-      return <p className="error">{error}</p>;
+      return <h4 className="server-error">{error}</h4>;
     }
   }
 
@@ -48,7 +50,7 @@ function Login() {
               .then((res) => {
                 if (!res || !res.ok || res.status > 400) {
                   if (res.status === 401) {
-                    setError("The email or password is incorrect.");
+                    setError("The email, or password is incorrect.");
                   } else {
                     setError(
                       "Can't connect right now, please try again later."
@@ -80,34 +82,48 @@ function Login() {
                 type="email"
                 autoComplete="email"
               />
-              <ErrorMessage className="error" name="email" component="div" />
+              <ErrorMessage className="client-error" name="email" component="div" />
               <label className="heavy" htmlFor="password">
                 Password
               </label>
               <Field id="password" name="password" type="password" />
-              <ErrorMessage className="error" name="password" component="div" />
-              {errorHandler()}
+              <ErrorMessage className="client-error" name="password" component="div" />
               <p id="forgot-password-link">
                 Forgot Password? <span />
                 <Link className="blue-label" to="/reset-password/link">
                   Reset your password
                 </Link>
               </p>
-
               <div className="button-container login-button">
                 <button type="submit" disabled={isSubmitting}>
                   Log In
                 </button>
-                <p>
-                  Don't have an account? <span />
-                  <Link className="blue-label" to="/sign-up">
-                    Sign up
-                  </Link>{" "}
-                </p>
               </div>
+              {errorHandler()}
             </Form>
           )}
         </Formik>
+        <p className="heavy black">or use</p>
+        <div className="oauth-buttons">
+          <div className="google oauth">
+            <div className="oauth-logo-container">
+              <GoogleIcon />
+            </div>
+            <h3>Google</h3>
+          </div>
+          <div className="facebook oauth">
+            <div className="oauth-logo-container">
+              <FacebookIcon />
+            </div>
+            <h3>Facebook</h3>
+          </div>
+        </div>
+        <p className="black">
+          Don't have an account? <span />
+          <Link className="blue-label" to="/sign-up">
+            Sign up
+          </Link>{" "}
+        </p>
       </div>
     </div>
   );

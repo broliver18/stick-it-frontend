@@ -6,7 +6,7 @@ import * as Yup from "yup";
 import "./ResetLink.css";
 
 function ResetLink() {
-  const [isEmailVerified, setIsEmailVerified] = useState(true);
+  const [isEmailVerified, setIsEmailVerified] = useState(false);
   const [emailError, setEmailError] = useState(null);
   const [codeError, setCodeError] = useState(null);
 

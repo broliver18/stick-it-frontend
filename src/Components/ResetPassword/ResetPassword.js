@@ -17,7 +17,8 @@ function ResetPassword() {
   return (
     <div className="reset-password container-top">
       <div id="reset-password" className="container-top form">
-        <h1>Sign Up</h1>
+        <h1>Reset Password</h1>
+        <h4>Do not refresh page</h4>
         <Formik
           initialValues={{
             newPassword: "",
