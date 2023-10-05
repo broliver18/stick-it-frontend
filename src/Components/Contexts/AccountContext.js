@@ -6,8 +6,8 @@ function HostProvider({ children }) {
   const [user, setUser] = useState({ loggedIn: false, username: "" });
 
   useEffect(() => {
-    const loggedInUser = sessionStorage.getItem("loggedIn");
-    const username = sessionStorage.getItem("username");
+    const loggedInUser = localStorage.getItem("loggedIn");
+    const username = localStorage.getItem("username");
     if (loggedInUser) {
       setUser({
         loggedIn: true,

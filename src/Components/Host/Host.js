@@ -58,8 +58,8 @@ function Host() {
       .then((res) => res.json())
       .then((data) => {
         if (data === "success") {
-          sessionStorage.removeItem("loggedIn");
-          sessionStorage.removeItem("username");
+          localStorage.removeItem("loggedIn");
+          localStorage.removeItem("username");
           setUser({ loggedIn: false, username: "" });
           navigate("/");
         }

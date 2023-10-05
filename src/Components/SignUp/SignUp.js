@@ -70,8 +70,8 @@ function SignUp() {
                 if (data.status) {
                   setError(data.status);
                 } else if (data.loggedIn) {
-                  sessionStorage.setItem("loggedIn", true);
-                  sessionStorage.setItem("username", data.username);
+                  localStorage.setItem("loggedIn", true);
+                  localStorage.setItem("username", data.username);
                   navigate("/host");
                 }
               });

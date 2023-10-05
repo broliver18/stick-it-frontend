@@ -64,8 +64,8 @@ function Login() {
                 if (!data) return;
                 setUser({ ...data });
                 if (data.loggedIn) {
-                  sessionStorage.setItem("loggedIn", true);
-                  sessionStorage.setItem("username", data.username);
+                  localStorage.setItem("loggedIn", true);
+                  localStorage.setItem("username", data.username);
                   navigate("/host");
                 }
               });
