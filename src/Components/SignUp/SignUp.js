@@ -140,7 +140,7 @@ function SignUp() {
         <p className="black">
           Already have an account? <span />
           <Link className="blue-label" to="/login">
-            Sign up
+            Log in
           </Link>{" "}
         </p>
       </div>
