@@ -41,7 +41,7 @@ function SignUp() {
               .required("Password required")
               .min(8, "The password is too short"),
             confirmPassword: Yup.string()
-              .required("Confirm password required")
+              .required("Confirm Password required")
               .oneOf([Yup.ref("password"), null], "Passwords must match"),
           })}
           onSubmit={(values, actions) => {
@@ -55,9 +55,7 @@ function SignUp() {
               },
               body: JSON.stringify(vals),
             })
-              .catch((error) => {
-                return error;
-              })
+              .catch((error) => console.log(error))
               .then((res) => {
                 if (!res || !res.ok || res.status > 400) {
                   return;
@@ -108,7 +106,7 @@ function SignUp() {
                 type="password"
               />
               <ErrorMessage
-                className="cient-error"
+                className="client-error"
                 name="confirmPassword"
                 component="div"
               />

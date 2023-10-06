@@ -32,7 +32,7 @@ function Views() {
       <Route path="/player/lobby" element={!isPlaying ? <Navigate to="/" /> : <PlayerLobby />} />
       <Route path="/player/game" element={!isPlaying ? <Navigate to="/" /> : <PlayerGame />} />
       <Route path="/player/finished-game" element={!isPlaying ? <Navigate to="/" /> : <FinishedGame />} />
-      <Route path="/host" element={!loggedIn ? <Navigate to="/" /> : <Host />} />
+      <Route path="/host" element={<Host />} />
       <Route path="/host/create-quiz" element={!loggedIn ? <Navigate to="/" /> : <CreateQuiz />} />
       <Route path="/host/edit-quiz/:quizId" element={!loggedIn ? <Navigate to="/" /> : <EditQuiz />} />
       <Route path="/host/lobby/:quizId" element={!loggedIn ? <Navigate to="/" /> : <HostLobby />} />

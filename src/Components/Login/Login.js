@@ -1,4 +1,4 @@
-import React, { useState, useContext } from "react";
+import React, { useState, useEffect, useContext } from "react";
 import { Link, useNavigate } from "react-router-dom";
 import { Formik, Form, Field, ErrorMessage } from "formik";
 import * as Yup from "yup";
@@ -14,6 +14,9 @@ function Login() {
 
   const navigate = useNavigate();
   const { setUser } = useContext(AccountContext);
+
+  const googleLogin = () =>
+    (window.location.href = "http://localhost:4000/auth/google");
 
   function errorHandler() {
     if (error) {
@@ -44,9 +47,7 @@ function Login() {
               },
               body: JSON.stringify(vals),
             })
-              .catch((error) => {
-                return error;
-              })
+              .catch((error) => console.log(error))
               .then((res) => {
                 if (!res || !res.ok || res.status > 400) {
                   if (res.status === 401) {
@@ -82,12 +83,20 @@ function Login() {
                 type="email"
                 autoComplete="email"
               />
-              <ErrorMessage className="client-error" name="email" component="div" />
+              <ErrorMessage
+                className="client-error"
+                name="email"
+                component="div"
+              />
               <label className="heavy" htmlFor="password">
                 Password
               </label>
               <Field id="password" name="password" type="password" />
-              <ErrorMessage className="client-error" name="password" component="div" />
+              <ErrorMessage
+                className="client-error"
+                name="password"
+                component="div"
+              />
               <p id="forgot-password-link">
                 Forgot Password? <span />
                 <Link className="blue-label" to="/reset-password/link">
@@ -105,7 +114,7 @@ function Login() {
         </Formik>
         <p className="heavy black">or use</p>
         <div className="oauth-buttons">
-          <div className="google oauth">
+          <div onClick={googleLogin} className="google oauth">
             <div className="oauth-logo-container">
               <GoogleIcon />
             </div>

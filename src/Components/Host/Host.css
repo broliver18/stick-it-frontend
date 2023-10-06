@@ -40,6 +40,11 @@
     top: 75px;
 }
 
+.logout-message {
+    height: 20rem;
+    text-align: center;
+}
+
 #host p {
     margin-bottom: 15px;
 }

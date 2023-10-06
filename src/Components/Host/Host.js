@@ -27,7 +27,15 @@ function Host() {
     })
       .catch((error) => console.log(error))
       .then((res) => res.json())
-      .then((data) => setQuizzes(data));
+      .then((data) => {
+        if (!user.loggedIn) {
+          const userData = data.userData;
+          setUser({ ...userData });
+          localStorage.setItem("loggedIn", true);
+          localStorage.setItem("username", userData.username);
+        }
+        setQuizzes(data.quizzes);
+      });
   }, [trigger]);
 
   const navigateToHostLobby = (quizId) => navigate(`/host/lobby/${quizId}`);
@@ -109,21 +117,33 @@ function Host() {
   return (
     <div id="host">
       <div className="header">
-        <div className="header-details">
-          <h3>Welcome {user.username}</h3>
-          <h4 onClick={logout}>Log Out</h4>
+        {user.loggedIn ? (
+          <div className="header-details">
+            <h3>Welcome {user.username}</h3>
+            <h4 onClick={logout}>Log Out</h4>
+          </div>
+        ) : (
+          <div className={"header-details"}>
+            <h4 onClick={() => navigate("/login")}>Log In</h4>
+          </div>
+        )}
+      </div>
+      {user.loggedIn ? (
+        <div className="container-top body">
+          <h1>Start a Game</h1>
+          <p>
+            Select a Game Below or{" "}
+            <Link id="create-game-link" to="/host/create-quiz">
+              Create your Own!
+            </Link>
+          </p>
+          {renderAction()}
         </div>
-      </div>
-      <div className="container-top body">
-        <h1>Start a Game</h1>
-        <p>
-          Select a Game Below or{" "}
-          <Link id="create-game-link" to="/host/create-quiz">
-            Create your Own!
-          </Link>
-        </p>
-        {renderAction()}
-      </div>
+      ) : (
+        <div className="container-middle logout-message">
+          <h1>Oops... Doesn't look like you're logged in yet!</h1>
+        </div>
+      )}
     </div>
   );
 }

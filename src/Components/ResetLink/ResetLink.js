@@ -53,7 +53,7 @@ function ResetLink() {
                     autoComplete="email"
                   />
                   <ErrorMessage
-                    className="error"
+                    className="client-error"
                     name="email"
                     component="div"
                   />

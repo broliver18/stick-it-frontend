@@ -43,7 +43,7 @@ function ResetPassword() {
               </label>
               <Field id="new-password" name="newPassword" type="password" />
               <ErrorMessage
-                className="error"
+                className="client-error"
                 name="newPassword"
                 component="div"
               />
