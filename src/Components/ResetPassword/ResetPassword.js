@@ -63,7 +63,7 @@ function ResetPassword() {
               {confirmationHandler()}
               <div className="button-container">
                 <button type="submit" disabled={isSubmitting}>
-                  Sign Up
+                  Reset Password
                 </button>
                 <Link className="standalone-link blue-label" to="/login">
                   Back to login page
