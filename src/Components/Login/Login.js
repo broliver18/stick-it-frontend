@@ -18,6 +18,9 @@ function Login() {
   const googleLogin = () =>
     (window.location.href = "http://localhost:4000/auth/google");
 
+  const facebookLogin = () => 
+    (window.location.href = "http://localhost:4000/auth/facebook");
+
   function errorHandler() {
     if (error) {
       return <h4 className="server-error">{error}</h4>;
@@ -120,7 +123,7 @@ function Login() {
             </div>
             <h3>Google</h3>
           </div>
-          <div className="facebook oauth">
+          <div onClick={facebookLogin} className="facebook oauth">
             <div className="oauth-logo-container">
               <FacebookIcon />
             </div>

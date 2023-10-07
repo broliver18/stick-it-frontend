@@ -15,6 +15,13 @@ function SignUp() {
   const navigate = useNavigate();
   const { setUser } = useContext(AccountContext);
 
+  const googleLogin = () =>
+    (window.location.href = "http://localhost:4000/auth/google");
+
+  const facebookLogin = () => 
+    (window.location.href = "http://localhost:4000/auth/facebook");
+
+
   function errorHandler() {
     if (error) {
       return <p className="server-error">{error}</p>;
@@ -122,13 +129,13 @@ function SignUp() {
         </Formik>
         <p className="heavy black">or use</p>
         <div className="oauth-buttons">
-          <div className="google oauth">
+          <div onClick={googleLogin} className="google oauth">
             <div className="oauth-logo-container">
               <GoogleIcon />
             </div>
             <h3>Google</h3>
           </div>
-          <div className="facebook oauth">
+          <div onClick={facebookLogin} className="facebook oauth">
             <div className="oauth-logo-container">
               <FacebookIcon />
             </div>
