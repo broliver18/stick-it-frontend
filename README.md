@@ -1,7 +1,7 @@
 # Stick-It
 
 ## Description
-This app was intended for teachers to use with their students and works similarly to Kahoot. The teacher can create quizzes with both multiple-choice and short-answer questions. They can then host a game for that quiz which the students can join via generated PIN. 
+This app was intended for teachers to use with their students. The teacher can create quizzes with both multiple-choice and short-answer questions. They can then host a game for that quiz which the students can join via generated PIN. 
 
 Unlike Kahoot, this game is self-paced, meaning that not all users have to answer a question simultaneously. Instead of the question showing up on the host's screen, it will show up on the user's screen. If a user answers a question correctly, they will be allowed to flip 1 of 24 possible cards. The back of the card consists of the number of points (which can be negative) that will be awarded to the user (the host will determine the range of possible points when creating the quiz).
 
