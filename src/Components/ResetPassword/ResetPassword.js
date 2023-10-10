@@ -7,10 +7,17 @@ import "./ResetPassword.css";
 
 function ResetPassword() {
   const [confirmation, setCofirmation] = useState(null);
+  const [error, setError] = useState(null);
 
   function confirmationHandler() {
     if (confirmation) {
       return <p className="confirmation">{confirmation}</p>;
+    }
+  }
+
+  function errorHandler() {
+    if (error) {
+      return <p className="server-error">{error}</p>;
     }
   }
 
@@ -65,6 +72,7 @@ function ResetPassword() {
                 <button type="submit" disabled={isSubmitting}>
                   Reset Password
                 </button>
+                {errorHandler()}
               </div>
             </Form>
           )}

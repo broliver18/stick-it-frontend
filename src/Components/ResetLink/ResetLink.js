@@ -7,18 +7,18 @@ import "./ResetLink.css";
 
 function ResetLink() {
   const [isEmailVerified, setIsEmailVerified] = useState(false);
-  const [emailError, setEmailError] = useState(null);
+  const [emailError, setEmailError] = useState();
   const [codeError, setCodeError] = useState(null);
 
   function emailErrorHandler() {
     if (emailError) {
-      return <p className="error">{emailError}</p>;
+      return <p className="server-error">{emailError}</p>;
     }
   }
 
   function codeErrorHandler() {
     if (codeError) {
-      return <p className="error">{codeError}</p>;
+      return <p className="server-error">{codeError}</p>;
     }
   }
 
@@ -54,11 +54,11 @@ function ResetLink() {
                   name="email"
                   component="div"
                 />
-                {emailErrorHandler()}
                 <div className="button-container">
                   <button type="submit" disabled={isSubmitting}>
                     Send Reset Link
                   </button>
+                  {emailErrorHandler()}
                 </div>
               </Form>
             )}
@@ -98,11 +98,11 @@ function ResetLink() {
                   name="resetCode"
                   component="div"
                 />
-                {codeErrorHandler()}
                 <div className="button-container">
                   <button type="submit" disabled={isSubmitting}>
                     Send Reset Code
                   </button>
+                  {codeErrorHandler()}
                 </div>
               </Form>
             )}
