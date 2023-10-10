@@ -124,9 +124,8 @@ function SignUp() {
                 <button type="submit" disabled={isSubmitting}>
                   Sign Up
                 </button>
-
-              </div>
-              {errorHandler()}
+                {errorHandler()}
+              </div>  
             </Form>
           )}
         </Formik>

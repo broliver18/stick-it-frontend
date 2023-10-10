@@ -65,13 +65,13 @@ function ResetPassword() {
                 <button type="submit" disabled={isSubmitting}>
                   Reset Password
                 </button>
-                <Link className="standalone-link blue-label" to="/login">
-                  Back to login page
-                </Link>{" "}
               </div>
             </Form>
           )}
         </Formik>
+        <Link className="standalone-link blue-label" to="/login">
+          Back to login page
+        </Link>{" "}
       </div>
     </div>
   );
