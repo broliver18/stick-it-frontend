@@ -15,6 +15,10 @@ function Host() {
   const { user, setUser } = useContext(AccountContext);
 
   useEffect(() => {
+    localStorage.removeItem("oauth2")
+  }, []);
+
+  useEffect(() => {
     socket.emit("remove-existing-games");
   }, []);
 

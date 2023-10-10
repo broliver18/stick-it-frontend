@@ -21,6 +21,7 @@
 
 .server-error {
     margin: 10px 0 2px 0;
+    font-weight: 500;
 }
 
 .login-signup-container {

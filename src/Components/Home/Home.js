@@ -19,6 +19,10 @@ function Home() {
   const { setIsPlaying } = useContext(GameContext);
 
   useEffect(() => {
+    localStorage.removeItem("oauth2")
+  }, []);
+
+  useEffect(() => {
     nameInputRef.current.focus();
   }, []);
 

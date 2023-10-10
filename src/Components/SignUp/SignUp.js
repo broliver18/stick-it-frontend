@@ -15,12 +15,15 @@ function SignUp() {
   const navigate = useNavigate();
   const { setUser } = useContext(AccountContext);
 
-  const googleLogin = () =>
+  function googleLogin() {
     (window.location.href = "http://localhost:4000/auth/google");
+    localStorage.setItem("oauth2", true)
+  } 
 
-  const facebookLogin = () => 
+  function facebookLogin() {
     (window.location.href = "http://localhost:4000/auth/facebook");
-
+    localStorage.setItem("oauth2", true)
+  }  
 
   function errorHandler() {
     if (error) {

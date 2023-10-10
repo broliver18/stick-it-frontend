@@ -15,11 +15,22 @@ function Login() {
   const navigate = useNavigate();
   const { setUser } = useContext(AccountContext);
 
-  const googleLogin = () =>
-    (window.location.href = "http://localhost:4000/auth/google");
+  useEffect(() => {
+    const oauthAttempt = localStorage.getItem("oauth2");
+    if (oauthAttempt) {
+      setError("There is already an account associated with this email.")
+    }
+  }, []);
 
-  const facebookLogin = () => 
+  function googleLogin() {
+    (window.location.href = "http://localhost:4000/auth/google");
+    localStorage.setItem("oauth2", true)
+  } 
+
+  function facebookLogin() {
     (window.location.href = "http://localhost:4000/auth/facebook");
+    localStorage.setItem("oauth2", true)
+  }  
 
   function errorHandler() {
     if (error) {
