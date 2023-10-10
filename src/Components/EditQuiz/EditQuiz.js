@@ -101,16 +101,6 @@ function EditQuiz() {
     }
   }
 
-  function navigateBack() {
-    if (
-      window.confirm(
-        "All unsaved changes will be lost. Are you sure you want to proceed?"
-      )
-    ) {
-      navigate("/host");
-    }
-  }
-
   function addQuestion() {
     setQuestionsArray((prevState) => [
       ...prevState,
@@ -146,10 +136,7 @@ function EditQuiz() {
   }
 
   return (
-    <div id="create-game" className="container-top">
-      <div onClick={navigateBack} id="back-button">
-        <BackButton />
-      </div>
+    <div id="create-quiz" className="container-top">
       <h1>Edit Quiz</h1>
       <form id="quiz-details">
         <label htmlFor="quiz-name">Quiz Name</label>

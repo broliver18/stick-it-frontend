@@ -36,7 +36,15 @@
     align-items: center;
 }
 
-#names, #scores {
+#names-container {
+    margin-top: 0;
+}
+
+#names {
+    margin-top: 8px;
+}
+
+#scores {
     margin-top: 10px;
 }
 
