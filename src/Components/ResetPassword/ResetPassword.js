@@ -63,7 +63,7 @@ function ResetPassword() {
                 type="password"
               />
               <ErrorMessage
-                className="error"
+                className="client-error"
                 name="confirmPassword"
                 component="div"
               />

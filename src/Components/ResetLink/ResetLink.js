@@ -76,7 +76,7 @@ function ResetLink() {
           <Formik
             initialValues={{ resetCode: "" }}
             validationSchema={Yup.object({
-              email: Yup.string().required("Code required"),
+              resetCode: Yup.string().required("Code required"),
             })}
             onSubmit={(values, actions) => {
               actions.resetForm();

@@ -3,7 +3,6 @@ import { useNavigate } from "react-router-dom";
 import { nanoid } from "nanoid";
 
 import QuestionForm from "../QuestionForm/QuestionForm";
-import BackButton from "../Svgs/BackButton";
 
 import "./CreateQuiz.css";
 

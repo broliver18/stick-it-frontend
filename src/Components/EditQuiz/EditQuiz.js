@@ -3,7 +3,6 @@ import { useNavigate, useParams } from "react-router-dom";
 import { nanoid } from "nanoid";
 
 import QuestionForm from "../QuestionForm/QuestionForm";
-import BackButton from "../Svgs/BackButton";
 
 import "./EditQuiz.css";
 
@@ -83,6 +82,10 @@ function EditQuiz() {
           setIsQuizCreated(true);
           alert("Quiz saved successfully!");
           navigate("/host");
+        } else if (
+          message === "A quiz with this name already exists."
+        ) {
+          alert(message);
         } else {
           alert("Sorry, something went wrong.");
           setQuestions([]);
