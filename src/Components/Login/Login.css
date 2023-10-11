@@ -21,7 +21,7 @@
 
 .server-error {
     margin: 10px 0 2px 0;
-    font-weight: 500;
+    font-weight: 400;
 }
 
 .login-signup-container {
@@ -106,7 +106,7 @@
     margin: 8px 0 0 0;
 }
 
-.form h1, .login-signup-container label, .button-container p, .oauth h3, .black, #forgot-password-link {
+.form h1, .login-signup-container label, .oauth h3, .black, #forgot-password-link {
     color: black;
 }
 

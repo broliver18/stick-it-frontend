@@ -11,13 +11,13 @@ function ResetPassword() {
 
   function confirmationHandler() {
     if (confirmation) {
-      return <p className="confirmation">{confirmation}</p>;
+      return <h4 className="confirmation">{confirmation}</h4>;
     }
   }
 
   function errorHandler() {
     if (error) {
-      return <p className="server-error">{error}</p>;
+      return <h4 className="server-error">{error}</h4>;
     }
   }
 
@@ -25,7 +25,7 @@ function ResetPassword() {
     <div className="reset-password container-top">
       <div id="reset-password" className="container-top form">
         <h1>Reset Password</h1>
-        <h4>Do not refresh page</h4>
+        <h4 className="black no-margin">Do not refresh page</h4>
         <Formik
           initialValues={{
             newPassword: "",

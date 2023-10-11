@@ -7,18 +7,18 @@ import "./ResetLink.css";
 
 function ResetLink() {
   const [isEmailVerified, setIsEmailVerified] = useState(false);
-  const [emailError, setEmailError] = useState();
+  const [emailError, setEmailError] = useState(null);
   const [codeError, setCodeError] = useState(null);
 
   function emailErrorHandler() {
     if (emailError) {
-      return <p className="server-error">{emailError}</p>;
+      return <h4 className="server-error">{emailError}</h4>;
     }
   }
 
   function codeErrorHandler() {
     if (codeError) {
-      return <p className="server-error">{codeError}</p>;
+      return <h4 className="server-error">{codeError}</h4>;
     }
   }
 
@@ -72,7 +72,7 @@ function ResetLink() {
       return (
         <div id="reset-link" className="container-top form">
           <h1>Reset Password</h1>
-          <h4>Do not refresh page</h4>
+          <h4 className="black no-margin">Do not refresh page</h4>
           <Formik
             initialValues={{ resetCode: "" }}
             validationSchema={Yup.object({

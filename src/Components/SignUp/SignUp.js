@@ -1,4 +1,4 @@
-import React, { useState, useContext } from "react";
+import React, { useState, useEffect, useContext } from "react";
 import { Link, useNavigate } from "react-router-dom";
 import { Formik, Form, Field, ErrorMessage } from "formik";
 import * as Yup from "yup";
@@ -15,6 +15,10 @@ function SignUp() {
   const navigate = useNavigate();
   const { setUser } = useContext(AccountContext);
 
+  useEffect(() => {
+    localStorage.removeItem("oauth2")
+  }, []);
+
   function googleLogin() {
     (window.location.href = "http://localhost:4000/auth/google");
     localStorage.setItem("oauth2", true)
@@ -27,7 +31,7 @@ function SignUp() {
 
   function errorHandler() {
     if (error) {
-      return <p className="server-error">{error}</p>;
+      return <h4 className="server-error">{error}</h4>;
     }
   }
 

@@ -6,7 +6,6 @@
     margin-top: 15px;
 }
 
-#reset-link h4, #reset-password h4 {
+.no-margin {
     margin: 0;
-    color: black;
 }
