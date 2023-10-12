@@ -108,7 +108,7 @@ function ResetLink() {
             )}
           </Formik>
           <Link className="standalone-link blue-label" to="/login">
-            Back to login page loser
+            Back to login page
           </Link>{" "}
         </div>
       );
