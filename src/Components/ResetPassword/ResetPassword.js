@@ -9,18 +9,14 @@ function ResetPassword() {
   const [confirmation, setCofirmation] = useState(null);
   const [error, setError] = useState(null);
 
-  function confirmationHandler() {
-    if (confirmation) {
+  function messageHandler() {
+    if (error) {
+      return <h4 className="server-error">{error}</h4>;
+    } else if (confirmation) {
       return <h4 className="confirmation">{confirmation}</h4>;
     }
   }
-
-  function errorHandler() {
-    if (error) {
-      return <h4 className="server-error">{error}</h4>;
-    }
-  }
-
+  
   return (
     <div className="reset-password container-top">
       <div id="reset-password" className="container-top form">
@@ -67,12 +63,11 @@ function ResetPassword() {
                 name="confirmPassword"
                 component="div"
               />
-              {confirmationHandler()}
               <div className="button-container">
                 <button type="submit" disabled={isSubmitting}>
                   Reset Password
                 </button>
-                {errorHandler()}
+                {messageHandler()}
               </div>
             </Form>
           )}
