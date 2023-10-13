@@ -114,7 +114,7 @@ function Login() {
               />
               <p id="forgot-password-link">
                 Forgot Password? <span />
-                <Link className="blue-label" to="/reset-password/link">
+                <Link className="blue-label" to="/reset-password/email">
                   Reset your password
                 </Link>
               </p>

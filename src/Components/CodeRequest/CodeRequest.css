@@ -2,6 +2,11 @@
     margin-top: 190px;
 }
 
+.light {
+    text-align: center;
+    font-weight: 500;
+}
+
 .standalone-link {
     margin-top: 15px;
 }
