@@ -2,6 +2,7 @@ import React, { useState, useEffect } from "react";
 import { useNavigate, useParams } from "react-router-dom";
 import { nanoid } from "nanoid";
 
+import { SERVER_ROOT_URL } from "../../utils/urls";
 import QuestionForm from "../QuestionForm/QuestionForm";
 
 import "./EditQuiz.css";
@@ -37,7 +38,7 @@ function EditQuiz() {
   const { quizId } = useParams();
 
   useEffect(() => {
-    fetch(`http://localhost:4000/profile/quiz/${quizId}`, {
+    fetch(`${SERVER_ROOT_URL}/profile/quiz/${quizId}`, {
       credentials: "include",
       headers: {
         "Content-Type": "application/json",
@@ -64,7 +65,7 @@ function EditQuiz() {
     if (!trigger) return;
     if (questions.length === 0) return;
 
-    fetch(`http://localhost:4000/profile/quiz/${quizId}`, {
+    fetch(`SERVER_ROOT_URL/profile/quiz/${quizId}`, {
       method: "PUT",
       credentials: "include",
       headers: {

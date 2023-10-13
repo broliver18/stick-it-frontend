@@ -2,6 +2,7 @@ import React, { useState, useEffect } from "react";
 import { useNavigate } from "react-router-dom";
 import { nanoid } from "nanoid";
 
+import { SERVER_ROOT_URL } from "../../utils/urls";
 import QuestionForm from "../QuestionForm/QuestionForm";
 
 import "./CreateQuiz.css";
@@ -39,7 +40,7 @@ function CreateQuiz() {
     if (!trigger) return;
     if (questions.length === 0) return;
 
-    fetch("http://localhost:4000/profile/quiz", {
+    fetch(`${SERVER_ROOT_URL}/profile/quiz`, {
       method: "POST",
       credentials: "include",
       headers: {

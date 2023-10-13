@@ -4,6 +4,7 @@ import { Formik, Form, Field, ErrorMessage } from "formik";
 import * as Yup from "yup";
 
 import { AccountContext } from "../Contexts/AccountContext";
+import { SERVER_ROOT_URL } from "../../utils/urls";
 import GoogleIcon from "../Svgs/GoogleIcon";
 import FacebookIcon from "../Svgs/FacebookIcon";
 
@@ -23,12 +24,12 @@ function Login() {
   }, []);
 
   function googleLogin() {
-    (window.location.href = "http://localhost:4000/auth/google");
+    (window.location.href = `${SERVER_ROOT_URL}/auth/google`);
     localStorage.setItem("oauth2", true)
   } 
 
   function facebookLogin() {
-    (window.location.href = "http://localhost:4000/auth/facebook");
+    (window.location.href = `${SERVER_ROOT_URL}/auth/facebook`);
     localStorage.setItem("oauth2", true)
   }  
 
@@ -53,7 +54,7 @@ function Login() {
           onSubmit={(values, actions) => {
             actions.resetForm();
             const vals = { ...values };
-            fetch("http://localhost:4000/auth/login", {
+            fetch(`${SERVER_ROOT_URL}/auth/login`, {
               method: "POST",
               credentials: "include",
               headers: {

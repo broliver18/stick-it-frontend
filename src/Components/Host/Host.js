@@ -3,6 +3,7 @@ import { Link, useNavigate } from "react-router-dom";
 import { socket } from "../../socket";
 
 import { AccountContext } from "../Contexts/AccountContext";
+import { SERVER_ROOT_URL } from "../../utils/urls";
 import TrashCan from "../Svgs/TrashCan";
 
 import "./Host.css";
@@ -23,7 +24,7 @@ function Host() {
   }, []);
 
   useEffect(() => {
-    fetch("http://localhost:4000/profile/quizzes", {
+    fetch(`${SERVER_ROOT_URL}/profile/quizzes`, {
       credentials: "include",
       headers: {
         "Content-Type": "application/json",
@@ -47,7 +48,7 @@ function Host() {
 
   function deleteQuiz(id) {
     if (window.confirm("Are you sure you want to delete this quiz?")) {
-      fetch("http://localhost:4000/profile/quiz", {
+      fetch(`${SERVER_ROOT_URL}/profile/quiz`, {
         method: "DELETE",
         credentials: "include",
         headers: {
@@ -60,7 +61,7 @@ function Host() {
   }
 
   function logout() {
-    fetch("http://localhost:4000/auth/logout", {
+    fetch(`${SERVER_ROOT_URL}/auth/logout`, {
       credentials: "include",
       headers: {
         "Content-Type": "appication/json",
