@@ -1,24 +1,25 @@
-import React, { useState } from "react";
+import React, { useEffect } from "react";
 import { Link, useNavigate } from "react-router-dom";
 import { Formik, Form, Field, ErrorMessage } from "formik";
+import { nanoid } from "nanoid";
 import * as Yup from "yup";
+
+import { SERVER_ROOT_URL } from "../../utils/urls";
 
 import "./CodeRequest.css";
 
 function CodeRequest() {
-  const [error, setError] = useState(null);
+  const navigate = useNavigate();
 
-  function errorHandler() {
-    if (error) {
-      return <h4 className="server-error">{error}</h4>;
-    }
-  }
+  useEffect(() => {
+    localStorage.removeItem("oauth2")
+  }, []);
 
   return (
     <div className="reset-password container-top">
       <div id="reset-link" className="container-top form">
         <h1>Reset Password</h1>
-        <h5 className="black no-margin light">Enter your email address to receive a verification code</h5>
+        <h5 className="black no-margin light">You will receive an email with a verification code if there is an account registered with the email address entered.</h5>
         <Formik
           initialValues={{ email: "" }}
           validationSchema={Yup.object({
@@ -28,6 +29,26 @@ function CodeRequest() {
           })}
           onSubmit={(values, actions) => {
             actions.resetForm();
+            const vals = { ...values };
+            fetch(`${SERVER_ROOT_URL}/auth/requestToken`, {
+              method: "POST",
+              credentials: "include",
+              headers: {
+                "Content-Type": "application/json",
+              },
+              body: JSON.stringify(vals),
+            })
+            .catch((error) => console.log(error))
+            .then((res) => res.json())
+            .then((data) => {
+              let userId = nanoid();
+              if (data === "no user found") {
+                navigate(`/reset-password/code/${userId}`);
+              } else {
+                userId = data;
+                navigate(`/reset-password/code/${userId}`);
+              }
+            })
           }}
         >
           {({ handleSubmit, isSubmitting }) => (
@@ -50,7 +71,6 @@ function CodeRequest() {
                 <button type="submit" disabled={isSubmitting}>
                   Send Reset Link
                 </button>
-                {errorHandler()}
               </div>
             </Form>
           )}

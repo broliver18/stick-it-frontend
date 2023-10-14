@@ -1,13 +1,17 @@
 import React, { useState } from "react";
-import { Link, useNavigate } from "react-router-dom";
+import { Link, useParams } from "react-router-dom";
 import { Formik, Form, Field, ErrorMessage } from "formik";
 import * as Yup from "yup";
+
+import { SERVER_ROOT_URL } from "../../utils/urls";
 
 import "./ResetPassword.css";
 
 function ResetPassword() {
-  const [confirmation, setCofirmation] = useState(null);
+  const [confirmation, setConfirmation] = useState(null);
   const [error, setError] = useState(null);
+
+  const { userId } = useParams();
 
   function messageHandler() {
     if (error) {
@@ -33,10 +37,31 @@ function ResetPassword() {
               .min(8, "The password is too short"),
             confirmPassword: Yup.string()
               .required("Confirm password required")
-              .oneOf([Yup.ref("password"), null], "Passwords must match"),
+              .oneOf([Yup.ref("newPassword"), null], "Passwords must match"),
           })}
           onSubmit={(values, actions) => {
             actions.resetForm();
+            const vals = { ...values };
+            fetch(`${SERVER_ROOT_URL}/auth/reset-password/${userId}`, {
+              method: "PUT",
+              credentials: "include",
+              headers: {
+                "Content-Type": "application/json",
+              },
+              body: JSON.stringify(vals),
+            })
+            .catch((error) => console.log(error))
+            .then((res) => {
+              if (!res || !res.ok || res.status > 400) {
+                setError("There was an error with the server. Try again later.")
+              }
+              return res.json();
+            })
+            .then((data) => {
+              if (data === "success") {
+                setConfirmation("Your password was successfully reset!");
+              }
+            })
           }}
         >
           {({ handleSubmit, isSubmitting }) => (

@@ -1,12 +1,17 @@
 import React, { useState } from "react";
-import { Link, useNavigate } from "react-router-dom";
+import { Link, useParams, useNavigate } from "react-router-dom";
 import { Formik, Form, Field, ErrorMessage } from "formik";
 import * as Yup from "yup";
+
+import { SERVER_ROOT_URL } from "../../utils/urls";
 
 import "./CodeVerify.css";
 
 function CodeVerify() {
   const [error, setError] = useState(null);
+
+  const navigate = useNavigate();
+  const { userId } = useParams();
 
   function errorHandler() {
     if (error) {
@@ -18,7 +23,7 @@ function CodeVerify() {
     <div className="reset-password container-top">
       <div id="reset-link" className="container-top form">
         <h1>Reset Password</h1>
-        <h4 className="black no-margin">Do not refresh page</h4>
+        <h5 className="black no-margin light">Verification code will expire in one hour. Do not refresh page.</h5>
         <Formik
           initialValues={{ resetCode: "" }}
           validationSchema={Yup.object({
@@ -26,6 +31,22 @@ function CodeVerify() {
           })}
           onSubmit={(values, actions) => {
             actions.resetForm();
+            const vals = { ...values };
+            fetch(`${SERVER_ROOT_URL}/auth/verifyToken/${userId}/?token=${vals.resetCode}`, {
+              crendentials: "include",
+              headers: {
+                "Content-Type": "application/json",
+              },
+            })
+            .catch((error) => console.log(error))
+            .then((res) => res.json())
+            .then((data) => {
+              if (data === "success") {
+                navigate(`/reset-password/${userId}`);
+              } else {
+                setError(data);
+              }
+            })
           }}
         >
           {({ handleSubmit, isSubmitting }) => (
@@ -40,7 +61,7 @@ function CodeVerify() {
                 autoComplete="off"
               />
               <ErrorMessage
-                className="error"
+                className="client-error"
                 name="resetCode"
                 component="div"
               />

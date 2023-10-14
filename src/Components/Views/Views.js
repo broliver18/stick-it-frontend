@@ -31,8 +31,8 @@ function Views() {
         <Route path="login" element={loggedIn ? <Navigate to="/host" /> : <Login />} />
         <Route path="sign-up" element={loggedIn ? <Navigate to="/host" /> : <SignUp />} />
         <Route path="reset-password/email" element={<CodeRequest />} />
-        <Route path="reset-password/code" element={<CodeVerify />} />
-        <Route path="reset-password" element={<ResetPassword />} />
+        <Route path="reset-password/code/:userId" element={<CodeVerify />} />
+        <Route path="reset-password/:userId" element={<ResetPassword />} />
         <Route path="player/lobby" element={!isPlaying ? <Navigate to="/" /> : <PlayerLobby />} />
         <Route path="player/game" element={!isPlaying ? <Navigate to="/" /> : <PlayerGame />} />
         <Route path="player/finished-game" element={!isPlaying ? <Navigate to="/" /> : <FinishedGame />} />
