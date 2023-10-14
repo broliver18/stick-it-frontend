@@ -4,6 +4,7 @@ import { Formik, Form, Field, ErrorMessage } from "formik";
 import * as Yup from "yup";
 
 import { AccountContext } from "../Contexts/AccountContext";
+import { register } from "../../utils/register";
 import { SERVER_ROOT_URL } from "../../utils/urls";
 import GoogleIcon from "../Svgs/GoogleIcon";
 import FacebookIcon from "../Svgs/FacebookIcon";
@@ -17,18 +18,18 @@ function SignUp() {
   const { setUser } = useContext(AccountContext);
 
   useEffect(() => {
-    localStorage.removeItem("oauth2")
+    localStorage.removeItem("oauth2");
   }, []);
 
   function googleLogin() {
-    (window.location.href = `${SERVER_ROOT_URL}/auth/google`);
-    localStorage.setItem("oauth2", true)
-  } 
+    window.location.href = `${SERVER_ROOT_URL}/auth/google`;
+    localStorage.setItem("oauth2", true);
+  }
 
   function facebookLogin() {
-    (window.location.href = `${SERVER_ROOT_URL}/auth/facebook`);
-    localStorage.setItem("oauth2", true)
-  }  
+    window.location.href = `${SERVER_ROOT_URL}/auth/facebook`;
+    localStorage.setItem("oauth2", true);
+  }
 
   function errorHandler() {
     if (error) {
@@ -78,15 +79,7 @@ function SignUp() {
                 return res.json();
               })
               .then((data) => {
-                if (!data) return;
-                setUser({ ...data });
-                if (data.status) {
-                  setError(data.status);
-                } else if (data.loggedIn) {
-                  localStorage.setItem("loggedIn", true);
-                  localStorage.setItem("username", data.username);
-                  navigate("/host");
-                }
+                register(data, navigate, setUser, setError);
               });
           }}
         >
@@ -96,7 +89,11 @@ function SignUp() {
                 Name
               </label>
               <Field id="name" name="name" type="text" autoComplete="name" />
-              <ErrorMessage className="client-error" name="name" component="div" />
+              <ErrorMessage
+                className="client-error"
+                name="name"
+                component="div"
+              />
               <label className="heavy" htmlFor="email">
                 Email
               </label>
@@ -106,12 +103,20 @@ function SignUp() {
                 type="email"
                 autoComplete="email"
               />
-              <ErrorMessage className="client-error" name="email" component="div" />
+              <ErrorMessage
+                className="client-error"
+                name="email"
+                component="div"
+              />
               <label className="heavy" htmlFor="password">
                 Password
               </label>
               <Field id="password" name="password" type="password" />
-              <ErrorMessage className="client-error" name="password" component="div" />
+              <ErrorMessage
+                className="client-error"
+                name="password"
+                component="div"
+              />
               <label className="heavy" htmlFor="confirm-password">
                 Confirm Password
               </label>
@@ -130,7 +135,7 @@ function SignUp() {
                   Sign Up
                 </button>
                 {errorHandler()}
-              </div>  
+              </div>
             </Form>
           )}
         </Formik>

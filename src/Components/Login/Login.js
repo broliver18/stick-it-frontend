@@ -4,6 +4,7 @@ import { Formik, Form, Field, ErrorMessage } from "formik";
 import * as Yup from "yup";
 
 import { AccountContext } from "../Contexts/AccountContext";
+import { register } from "../../utils/register";
 import { SERVER_ROOT_URL } from "../../utils/urls";
 import GoogleIcon from "../Svgs/GoogleIcon";
 import FacebookIcon from "../Svgs/FacebookIcon";
@@ -77,15 +78,7 @@ function Login() {
                 return res.json();
               })
               .then((data) => {
-                if (!data) return;
-                setUser({ ...data });
-                if (data.loggedIn) {
-                  localStorage.setItem("loggedIn", true);
-                  localStorage.setItem("username", data.username);
-                  navigate("/host");
-                } else {
-                  setError(data.status);
-                }
+                register(data, navigate, setUser, setError);
               });
           }}
         >
