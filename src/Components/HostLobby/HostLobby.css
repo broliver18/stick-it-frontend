@@ -1,5 +1,5 @@
 #host-lobby h1 {
-    margin-bottom: 40px;
+    margin-bottom: 20px;
 }
 
 #host-lobby h2 {
@@ -9,10 +9,10 @@
 #players-list {
     margin-bottom: 25px;
     width: 800px;
-    height: 525px;
+    height: 500px;
     background-color: #dad7cd;
     border-radius: 5px;
-    overflow-y: sroll;
+    overflow-y: scroll;
 }
 
 #players-list::-webkit-scrollbar {
@@ -53,7 +53,7 @@
     }
 
     #host-lobby h1 {
-        margin: 10px 0 35px 0
+        margin: 10px 0 7px 0
     }
 
     #players-list {

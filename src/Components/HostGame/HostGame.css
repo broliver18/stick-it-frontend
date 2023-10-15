@@ -91,7 +91,7 @@
     #host-game button {
         width: 150px;
         height: 2rem;
-        font-size: 16;
+        font-size: 16px;
     }
 
     #names-container h2, #scores-container h2 {
