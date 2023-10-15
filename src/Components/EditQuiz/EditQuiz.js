@@ -65,7 +65,7 @@ function EditQuiz() {
     if (!trigger) return;
     if (questions.length === 0) return;
 
-    fetch(`SERVER_ROOT_URL/profile/quiz/${quizId}`, {
+    fetch(`${SERVER_ROOT_URL}/profile/quiz/${quizId}`, {
       method: "PUT",
       credentials: "include",
       headers: {

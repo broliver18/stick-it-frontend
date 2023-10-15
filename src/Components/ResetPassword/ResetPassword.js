@@ -1,5 +1,5 @@
 import React, { useState } from "react";
-import { Link, useParams } from "react-router-dom";
+import { Link, useNavigate, useParams } from "react-router-dom";
 import { Formik, Form, Field, ErrorMessage } from "formik";
 import * as Yup from "yup";
 
@@ -11,6 +11,7 @@ function ResetPassword() {
   const [confirmation, setConfirmation] = useState(null);
   const [error, setError] = useState(null);
 
+  const navigate = useNavigate();
   const { userId } = useParams();
 
   function messageHandler() {
@@ -25,7 +26,6 @@ function ResetPassword() {
     <div className="reset-password container-top">
       <div id="reset-password" className="container-top form">
         <h1>Reset Password</h1>
-        <h4 className="black no-margin">Do not refresh page</h4>
         <Formik
           initialValues={{
             newPassword: "",
@@ -60,6 +60,9 @@ function ResetPassword() {
             .then((data) => {
               if (data === "success") {
                 setConfirmation("Your password was successfully reset!");
+                setTimeout(() => {
+                  navigate("/login");
+                }, 1000)
               }
             })
           }}

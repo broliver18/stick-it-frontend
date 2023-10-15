@@ -24,7 +24,7 @@ function CodeVerify() {
       <div id="reset-link" className="container-top form">
         <h1>Reset Password</h1>
         <h5 className="black no-margin light">
-          Verification code will expire in one hour. Do not refresh page.
+          Verification code will expire in one hour.
         </h5>
         <Formik
           initialValues={{ resetCode: "" }}
