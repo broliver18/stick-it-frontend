@@ -19,7 +19,7 @@ function Home() {
   const { setIsPlaying } = useContext(GameContext);
 
   useEffect(() => {
-    localStorage.removeItem("oauth2")
+    localStorage.removeItem("oauth2");
   }, []);
 
   useEffect(() => {
@@ -87,33 +87,39 @@ function Home() {
   }
 
   return (
-    <div id="home" className="container-middle">
-      <h1>Join a Game</h1>
-      <div className="game-input-info">
-        <label htmlFor="display-name">Display Name</label>
-        <input
-          id="display-name"
-          name="displayName"
-          type="text"
-          value={displayName}
-          onChange={handleChange}
-          ref={nameInputRef}
-        />
-        <label htmlFor="pin">Game Pin</label>
-        <input
-          id="pin"
-          name="pin"
-          type="text"
-          autoComplete="off"
-          value={pin}
-          onChange={handleChange}
-        />
-        <button onClick={incrementTrigger}>Join</button>
-        <Link className="link" to="/login">
-          Click here to host a game
-        </Link>
+    <>
+      <div id="home" className="container-middle">
+        <h1>Join a Game</h1>
+        <div className="game-input-info">
+          <label htmlFor="display-name">Display Name</label>
+          <input
+            id="display-name"
+            name="displayName"
+            type="text"
+            value={displayName}
+            onChange={handleChange}
+            ref={nameInputRef}
+          />
+          <label htmlFor="pin">Game Pin</label>
+          <input
+            id="pin"
+            name="pin"
+            type="text"
+            autoComplete="off"
+            value={pin}
+            onChange={handleChange}
+          />
+          <button onClick={incrementTrigger}>Join</button>
+          <Link className="link" to="/login">
+            Click here to host a game
+          </Link>
+        </div>
       </div>
-    </div>
+      <div className="footer">
+        <h3>Contact Info</h3>
+        <p>bruno200710@hotmail.com</p>
+      </div>
+    </>
   );
 }
 

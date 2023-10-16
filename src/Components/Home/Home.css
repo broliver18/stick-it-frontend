@@ -56,6 +56,20 @@ body {
     text-decoration: underline;
 }
 
+.footer {
+    position: absolute;
+    bottom: 15px;
+    width: 100%;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+}
+
+.footer h3, .footer p {
+    margin: 3px;
+}
+
 label {
     margin: 16px 0 5px 0;
 }
@@ -66,4 +80,10 @@ p {
 
 input:focus {
     outline: none;
+}
+
+@media only screen and (max-width: 450px) {
+    .footer {
+        bottom: 5px;
+    }
 }
