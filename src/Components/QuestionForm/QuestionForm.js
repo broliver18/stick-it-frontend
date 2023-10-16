@@ -31,6 +31,7 @@ function QuestionForm({
     const questionType = questionTypeValue.value;
     const inputInfo = { questionType, ...input };
     saveQuestionInfo(inputInfo);
+  // eslint-disable-next-line react-hooks/exhaustive-deps
   }, [trigger]);
 
   useEffect(() => {
@@ -50,7 +51,7 @@ function QuestionForm({
     } else {
       return;
     }
-  }, [isQuizCreated]);
+  }, [isQuizCreated, resetQuizCreated, trigger]);
 
   const {
     question,

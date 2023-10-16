@@ -59,7 +59,7 @@ function EditQuiz() {
         }));
         setQuestionsArray([...questionFormData]);
       });
-  }, []);
+  }, [quizId]);
 
   useEffect(() => {
     if (!trigger) return;
@@ -92,7 +92,7 @@ function EditQuiz() {
           setQuestions([]);
         }
       });
-  }, [questions]);
+  }, [input, navigate, questions, quizId, trigger]);
 
   const resetQuizCreated = () => setIsQuizCreated(false);
 

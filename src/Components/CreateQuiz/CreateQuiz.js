@@ -62,7 +62,7 @@ function CreateQuiz() {
           setQuestions([]);
         }
       });
-  }, [questions]);
+  }, [input, navigate, questions, trigger]);
 
   const resetQuizCreated = () => setIsQuizCreated(false);
 

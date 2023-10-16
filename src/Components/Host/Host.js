@@ -41,7 +41,7 @@ function Host() {
         }
         setQuizzes(data.quizzes);
       });
-  }, [trigger]);
+  }, [setUser, trigger, user.loggedIn]);
 
   const navigateToHostLobby = (quizId) => navigate(`/host/lobby/${quizId}`);
   const navigateToEditQuiz = (quizId) => navigate(`/host/edit-quiz/${quizId}`);

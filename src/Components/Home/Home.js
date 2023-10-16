@@ -67,13 +67,14 @@ function Home() {
     socket.on("game-found-status", playerJoinEvent);
     socket.on("no-name", noNameEvent);
     socket.on("name-already-exists", nameAlreadyExistsEvent);
+    console.log("rendering");
 
     return () => {
       socket.off("game-found-status", playerJoinEvent);
       socket.off("no-name", noNameEvent);
       socket.off("name-already-exists", nameAlreadyExistsEvent);
     };
-  }, [trigger]);
+  }, [displayName, navigate, pin, setIsPlaying, trigger]);
 
   useEffect(() => {
     socket.emit("player-disconnect");
