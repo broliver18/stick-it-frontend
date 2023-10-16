@@ -117,7 +117,7 @@ function Home() {
       </div>
       <div className="footer">
         <h3>Contact Info</h3>
-        <p>bruno200710@hotmail.com</p>
+        <p>support@stickitgames.com</p>
       </div>
     </>
   );
