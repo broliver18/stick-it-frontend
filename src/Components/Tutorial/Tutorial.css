@@ -1,0 +1,66 @@
+.instructions-container {
+    position: relative;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    top: 100px;
+    border-radius: 5px;
+    background-color: #dad7cd;
+    width: 600px;
+    height: 700px;
+}
+
+.nav-buttons {
+    position: absolute;
+    display: flex;
+    justify-content: end;
+    align-items: center;
+    right: 10px;
+    bottom: 10px;
+    width: 200px;
+}
+
+.nav-buttons button {
+    cursor: pointer;
+    border: none;
+    border-radius: 5px;
+    right: 40px;
+    margin-left: 5px;
+    height: 2.3rem;
+    font-weight: 900; 
+    background-color: #344e41;
+}
+
+.nav-buttons button:hover {
+    filter: brightness(110%);
+}
+
+#numbering {
+    position: absolute;
+    margin: 0;
+    top: 10px;
+    right: 10px;
+    color: #344e41;
+}
+
+#prev {
+    width: 80px;
+}
+
+#next {
+    width: 60px;
+}
+
+@media only screen and (max-width: 625px) {
+    .instructions-container {
+        width: 450px;
+    }
+}
+
+@media only screen and (max-width: 450px) {
+    .instructions-container {
+        width: 300px;
+        height: 500px;
+    }
+}

@@ -3,6 +3,7 @@ import { Routes, Route, Navigate } from "react-router-dom";
 
 import Root from "../Root/Root";
 import Home from "../Home/Home";
+import Tutorial from "../Tutorial/Tutorial";
 import Login from "../Login/Login";
 import SignUp from "../SignUp/SignUp";
 import CodeRequest from "../CodeRequest/CodeRequest";
@@ -28,6 +29,7 @@ function Views() {
     <Routes>
       <Route path="/" element={<Root />}>  
         <Route path="" element={loggedIn ? <Navigate to="/host" /> : <Home />} />
+        <Route path="tutorial" element={<Tutorial />} />
         <Route path="login" element={loggedIn ? <Navigate to="/host" /> : <Login />} />
         <Route path="sign-up" element={loggedIn ? <Navigate to="/host" /> : <SignUp />} />
         <Route path="reset-password/email" element={<CodeRequest />} />
