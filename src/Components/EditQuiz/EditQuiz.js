@@ -80,13 +80,14 @@ function EditQuiz() {
       .then((res) => res.json())
       .then((message) => {
         if (message === "success") {
-          setIsQuizCreated(true);
           alert("Quiz saved successfully!");
+          setIsQuizCreated(true);
           navigate("/host");
         } else if (
           message === "A quiz with this name already exists."
         ) {
           alert(message);
+          setQuestions([]);
         } else {
           alert("Sorry, something went wrong.");
           setQuestions([]);
