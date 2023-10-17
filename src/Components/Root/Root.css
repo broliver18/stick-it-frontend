@@ -1,11 +1,13 @@
 .logo-container {
     position: fixed;
     top: 0;
+    height: 45px;
     z-index: 10;
+    background-color: #588157;
 }
 
 @media only screen and (max-width: 750px) {
-    .logo-container {
+   .logo-container {
         width: 100%;
         display: flex;
         justify-content: center;

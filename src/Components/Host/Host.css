@@ -147,6 +147,10 @@
     height: 35px;
 }
 
+.mobile {
+    display: none;
+}
+
 @media only screen and (max-width: 820px) {
     #saved-quizzes {
         width: 500px;
@@ -187,6 +191,14 @@
         max-height: 60px;
         font-size: 22px;
         margin: 0 0 0 8px;
+    }
+
+    .mobile {
+        position: absolute;
+        display: flex;
+        z-index: 20;
+        top: 15px;
+        right: 10px;
     }
 
     .quiz button {

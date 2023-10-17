@@ -16,7 +16,7 @@ function Host() {
   const { user, setUser } = useContext(AccountContext);
 
   useEffect(() => {
-    localStorage.removeItem("oauth2")
+    localStorage.removeItem("oauth2");
   }, []);
 
   useEffect(() => {
@@ -147,6 +147,16 @@ function Host() {
       ) : (
         <div className="container-middle logout-message">
           <h1>Oops... Doesn't look like you're logged in yet!</h1>
+        </div>
+      )}
+      {user.loggedIn ? (
+        <div className="header-details mobile">
+          <h3>Welcome {user.username}</h3>
+          <h4 onClick={logout}>Log Out</h4>
+        </div>
+      ) : (
+        <div className={"header-details mobile"}>
+          <h4 onClick={() => navigate("/login")}>Log In</h4>
         </div>
       )}
     </div>
