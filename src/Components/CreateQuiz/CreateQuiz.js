@@ -62,7 +62,8 @@ function CreateQuiz() {
           setQuestions([]);
         }
       });
-  }, [input, navigate, questions, trigger]);
+  // eslint-disable-next-line react-hooks/exhaustive-deps
+  }, [questions]);
 
   const resetQuizCreated = () => setIsQuizCreated(false);
 

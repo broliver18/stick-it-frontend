@@ -9,6 +9,7 @@ import "./EditQuiz.css";
 
 function EditQuiz() {
   const [trigger, setTrigger] = useState(0);
+  const [isDataFetched, setIsDataFetched] = useState(false);
   const [isQuizCreated, setIsQuizCreated] = useState(false);
   const [questions, setQuestions] = useState([]);
   const [questionsArray, setQuestionsArray] = useState([
@@ -58,8 +59,10 @@ function EditQuiz() {
           question,
         }));
         setQuestionsArray([...questionFormData]);
+        setIsDataFetched(true);
       });
-  }, [quizId]);
+  // eslint-disable-next-line react-hooks/exhaustive-deps
+  }, []);
 
   useEffect(() => {
     if (!trigger) return;
@@ -93,7 +96,8 @@ function EditQuiz() {
           setQuestions([]);
         }
       });
-  }, [input, navigate, questions, quizId, trigger]);
+  // eslint-disable-next-line react-hooks/exhaustive-deps
+  }, [questions]);
 
   const resetQuizCreated = () => setIsQuizCreated(false);
 
@@ -171,7 +175,7 @@ function EditQuiz() {
           onChange={handleChange}
         />
       </form>
-      {input.quizName && (
+      {isDataFetched && (
         <div className="form-container">
           {questionsArray.map((questionInfo) => (
             <QuestionForm

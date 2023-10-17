@@ -51,7 +51,8 @@ function QuestionForm({
     } else {
       return;
     }
-  }, [isQuizCreated, resetQuizCreated, trigger]);
+  // eslint-disable-next-line react-hooks/exhaustive-deps
+  }, [isQuizCreated]);
 
   const {
     question,
