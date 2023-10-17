@@ -33,12 +33,15 @@ function Host() {
       .catch((error) => console.log(error))
       .then((res) => res.json())
       .then((data) => {
+        if (data === "not logged in") {
+          return;
+        }
         if (!user.loggedIn) {
           const userData = data.userData;
           setUser({ ...userData });
           localStorage.setItem("loggedIn", true);
           localStorage.setItem("username", userData.username);
-        }
+        } 
         setQuizzes(data.quizzes);
       });
   }, [setUser, trigger, user.loggedIn]);
