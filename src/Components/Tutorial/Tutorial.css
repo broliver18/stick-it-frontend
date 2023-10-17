@@ -2,14 +2,46 @@
     position: relative;
     display: flex;
     flex-direction: column;
-    justify-content: center;
+    justify-content: flex-start;
     align-items: center;
     top: 100px;
     border-radius: 5px;
     background-color: #dad7cd;
-    width: 600px;
+    width: 560px;
     height: 700px;
+    padding: 20px;
 }
+
+.instructions-container h1, 
+.instructions-container h2,
+.instructions-container h3,
+.instructions-container h4,
+.instructions-container h5 {
+    text-align: center;
+    color: #344e41;
+}
+
+.tutorial-img-container {
+    margin-top: 50px;
+    width: 200px;
+}
+
+img {
+    height: 100%;
+    width: 100%;
+}
+
+.instructions-container h1  {
+    font-size: 40px;
+}
+
+.instructions-container h2 {
+    font-weight: 500;
+}
+
+.instructions-container h3 {
+    font-weight: 400;
+} 
 
 .nav-buttons {
     position: absolute;
@@ -21,7 +53,7 @@
     width: 200px;
 }
 
-.nav-buttons button {
+.nav-buttons button, #skip {
     cursor: pointer;
     border: none;
     border-radius: 5px;
@@ -32,7 +64,7 @@
     background-color: #344e41;
 }
 
-.nav-buttons button:hover {
+.nav-buttons button:hover, #skip:hover {
     filter: brightness(110%);
 }
 
@@ -41,7 +73,15 @@
     margin: 0;
     top: 10px;
     right: 10px;
+    font-weight: 400;
     color: #344e41;
+}
+
+#skip {
+    position: absolute;
+    bottom: 10px;
+    left: 10px;
+    width: 100px;
 }
 
 #prev {
@@ -54,13 +94,50 @@
 
 @media only screen and (max-width: 625px) {
     .instructions-container {
-        width: 450px;
+        width: 390px;
     }
 }
 
 @media only screen and (max-width: 450px) {
+    #tutorial {
+        margin-top: 0;
+    }
+
     .instructions-container {
-        width: 300px;
+        width: 260px;
         height: 500px;
+    }
+
+    .instructions-container h1  {
+        font-size: 28px;
+    }
+    
+    .instructions-container h2 {
+        font-size: 20px;
+    }
+    
+    .instructions-container h3 {
+        font-size: 14px;
+    } 
+
+    .tutorial-img-container {
+        margin-top: 30px;
+        width: 120px;
+    }
+
+    #skip, #prev, #next {
+        font-size: 12px;
+    }
+
+    #skip {
+        width: 75px;
+    }
+    
+    #prev {
+        width: 65px;
+    }
+    
+    #next {
+        width: 55px;
     }
 }
