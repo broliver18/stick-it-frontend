@@ -1,3 +1,7 @@
+#tutorial {
+    margin-top: -20px;
+}
+
 .instructions-container {
     position: relative;
     display: flex;
@@ -8,16 +12,18 @@
     border-radius: 5px;
     background-color: #dad7cd;
     width: 560px;
-    height: 700px;
+    height: 650px;
     padding: 20px;
 }
 
 .instructions-container h1, 
 .instructions-container h2,
-.instructions-container h3,
-.instructions-container h4,
-.instructions-container h5 {
+.instructions-container h3 {
     text-align: center;
+    color: #344e41;
+}
+
+strong {
     color: #344e41;
 }
 
@@ -26,10 +32,16 @@
     width: 200px;
 }
 
+.gif-container, .gif-container-special {
+    margin-top: 5px;
+    width: 400px;
+}
+
 img {
     height: 100%;
     width: 100%;
 }
+
 
 .instructions-container h1  {
     font-size: 40px;
@@ -80,7 +92,7 @@ img {
 #skip {
     position: absolute;
     bottom: 10px;
-    left: 10px;
+    left: 5px;
     width: 100px;
 }
 
@@ -95,6 +107,10 @@ img {
 @media only screen and (max-width: 625px) {
     .instructions-container {
         width: 390px;
+    }
+
+    .gif-container {
+        width: 300px;
     }
 }
 
@@ -125,19 +141,35 @@ img {
         width: 120px;
     }
 
+    .gif-container, .gif-container-special {
+        width: 200px;
+    }
+
+    .gif-container-special {
+        margin-top: -8px;
+    }
+
+    .nav-buttons {
+        bottom: 5px;
+        right: 5px;
+    }
+
     #skip, #prev, #next {
-        font-size: 12px;
+        font-size: 8px;
+        height: 25px;
     }
 
     #skip {
-        width: 75px;
+        bottom: 5px;
+        left: 0;
+        width: 55px;
     }
     
     #prev {
-        width: 65px;
+        width: 45px;
     }
     
     #next {
-        width: 55px;
+        width: 35px;
     }
 }
