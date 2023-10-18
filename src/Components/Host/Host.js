@@ -126,16 +126,6 @@ function Host() {
   return (
     <div id="host">
       <div className="header">
-        {user.loggedIn ? (
-          <div className="header-details">
-            <h3>Welcome {user.username}</h3>
-            <h4 onClick={logout}>Log Out</h4>
-          </div>
-        ) : (
-          <div className={"header-details"}>
-            <h4 onClick={() => navigate("/login")}>Log In</h4>
-          </div>
-        )}
       </div>
       {user.loggedIn ? (
         <div className="container-top body">
@@ -154,12 +144,12 @@ function Host() {
         </div>
       )}
       {user.loggedIn ? (
-        <div className="header-details mobile">
+        <div className="header-details">
           <h3>Welcome {user.username}</h3>
           <h4 onClick={logout}>Log Out</h4>
         </div>
       ) : (
-        <div className={"header-details mobile"}>
+        <div className={"header-details"}>
           <h4 onClick={() => navigate("/login")}>Log In</h4>
         </div>
       )}
