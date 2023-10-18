@@ -17,6 +17,10 @@
     height: 140px;
 }
 
+#score-message h1, #score-message h3 {
+    text-align: center;
+}
+
 #final-score h1 {
     margin: 5px;
 }

@@ -23,6 +23,10 @@ function FinishedGame() {
   }, [playerId]);
 
   useEffect(() => {
+    localStorage.setItem("finishedGame", true);
+  }, []);
+
+  useEffect(() => {
     if (!trigger) return;
     
     socket.emit("player-leave-game")
@@ -46,6 +50,7 @@ function FinishedGame() {
     <div id="finished-game" className="container-middle">
       <div id="score-message" className="center">
         <h1>Congrats on Finishing the Game!</h1>
+        <h3>Do not go back to previous page or you'll lose your score</h3>
         <div id="final-score" className="center">
           <h2>Final Score:</h2>
           <h1>{finalScore}</h1>

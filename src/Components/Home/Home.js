@@ -30,6 +30,10 @@ function Home() {
   }, []);
 
   useEffect(() => {
+    localStorage.removeItem("finishedGame");
+  }, []);
+
+  useEffect(() => {
     localStorage.removeItem("oauth2");
   }, []);
 

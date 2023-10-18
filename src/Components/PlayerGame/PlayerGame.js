@@ -51,6 +51,13 @@ function PlayerGame() {
   }, [navigate, playerId]);
 
   useEffect(() => {
+    const finishedGame = localStorage.getItem("finishedGame");
+    if (finishedGame) {
+      navigate("/");
+    }
+  }, [navigate]);
+
+  useEffect(() => {
     if (trigger === quizInfo.numberOfQuestions) return;
     const questionEvent = (questionData) => setQuestionInfo(questionData);
 
