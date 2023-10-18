@@ -145,7 +145,7 @@
     #score {
         position: static;
         height: 100px;
-        margin-top: 0;
+        margin-top: 15px;
         border: none;
     }
     
@@ -188,14 +188,14 @@
     }
 
     #multiple-choice-answers div {
-        width: 150px;
-        height: 80px;
+        width: 130px;
+        height: 60px;
     }
 
     #score {
         position: static;
+        margin-top: 10px;
         height: 100px;
-        margin-top: 0;
         border: none;
     }
     
