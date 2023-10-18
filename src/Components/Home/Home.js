@@ -9,7 +9,7 @@ import "./Home.css";
 
 function Home() {
   const [trigger, setTrigger] = useState(0);
-  const [isTutorialDisplay, setIsTutorialDisplay] = useState(true);
+  const [isTutorialDisplay, setIsTutorialDisplay] = useState(false);
   const [input, setInput] = useState({
     displayName: "",
     pin: "",
@@ -19,6 +19,15 @@ function Home() {
   const nameInputRef = useRef();
   const navigate = useNavigate();
   const { setIsPlaying } = useContext(GameContext);
+
+  useEffect(() => {
+    const tutorialVisited = localStorage.getItem("tutorialVisited");
+    if (!tutorialVisited) {
+      setTimeout(() => {
+        setIsTutorialDisplay(true);
+      }, 2000) 
+    }
+  }, []);
 
   useEffect(() => {
     localStorage.removeItem("oauth2");
@@ -82,8 +91,12 @@ function Home() {
     socket.emit("player-disconnect");
   }, []);
 
-  const closeTutorial = () => setIsTutorialDisplay(false);
-  const incrementTrigger = () => setTrigger((prevState) => prevState + 1);
+  const incrementTrigger = () => setTrigger((prevState) => prevState + 1)
+
+  function closeTutorial() {
+    setIsTutorialDisplay(false);
+    localStorage.setItem("tutorialVisited", true);
+  }
 
   function handleChange(e) {
     const { name, value } = e.target;
