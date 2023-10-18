@@ -2,11 +2,13 @@ import React, { useState, useEffect, useRef, useContext } from "react";
 import { Link, useNavigate } from "react-router-dom";
 import { socket } from "../../socket";
 
+import Tutorial from "../Tutorial/Tutorial";
 import { GameContext } from "../Contexts/PlayerContext";
 
 import "./Home.css";
 
 function Home() {
+  const [isTutorialDisplay, setIsTutorialDisplay] = useState(true);
   const [trigger, setTrigger] = useState(0);
   const [input, setInput] = useState({
     displayName: "",
@@ -73,13 +75,14 @@ function Home() {
       socket.off("no-name", noNameEvent);
       socket.off("name-already-exists", nameAlreadyExistsEvent);
     };
-  // eslint-disable-next-line react-hooks/exhaustive-deps
+    // eslint-disable-next-line react-hooks/exhaustive-deps
   }, [trigger]);
 
   useEffect(() => {
     socket.emit("player-disconnect");
   }, []);
 
+  const closeTutorial = () => setIsTutorialDisplay(false);
   const incrementTrigger = () => setTrigger((prevState) => prevState + 1);
 
   function handleChange(e) {
@@ -115,11 +118,14 @@ function Home() {
             Click here to host a game
           </Link>
         </div>
+        {isTutorialDisplay && <Tutorial closeTutorial={closeTutorial}/>}
       </div>
-      <div className="footer">
-        <h3>Contact Info</h3>
-        <p>support@stickitgames.com</p>
-      </div>
+      {!isTutorialDisplay && (
+        <div className="footer">
+          <h3>Contact Info</h3>
+          <p>support@stickitgames.com</p>
+        </div>
+      )}
     </>
   );
 }

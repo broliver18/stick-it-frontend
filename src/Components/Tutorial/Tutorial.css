@@ -1,6 +1,6 @@
 #tutorial {
-    margin-top: -20px;
-}
+    position: absolute;
+} 
 
 .instructions-container {
     position: relative;
@@ -121,6 +121,10 @@ img {
 }
 
 @media only screen and (max-width: 450px) {
+    #tutorial {
+        top: -200px;
+    }
+
     .instructions-container {
         width: 260px;
         height: 500px;

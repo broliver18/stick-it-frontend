@@ -7,13 +7,13 @@ import playGameGif from "../../images/playGameGif.gif";
 
 import "./Tutorial.css";
 
-function Tutorial() {
+function Tutorial({ closeTutorial }) {
   const [tutorialNum, setTutorialNum] = useState(1);
 
   function next() {
-    if (tutorialNum > 3) return;
+    if (tutorialNum > 4) closeTutorial();
     setTutorialNum((prevState) => prevState + 1);
-  };
+  }
 
   function prev() {
     if (tutorialNum < 2) return;
@@ -43,12 +43,31 @@ function Tutorial() {
       case 2:
         return (
           <>
+            <h1>Origins</h1>
+            <h3>
+              Originally, this game was played on a white board with sticky notes.
+              Each sticky note had a random number behind it so no one could see .
+              When someone answered a question correctly, they would be allowed to go to
+              the board and select one sticky note to flip over. The number behind the sticky note was the amount of 
+              points the player would be awarded. This would continue while someone
+              kept track of everybody's points. The player with the most points would win!
+            </h3>
+            <h3>
+              While fun, this game took a lot of time and organization to play. Not only would someone
+              have to set up all the sticky notes, but they would also have to keep track of everyone's points.
+              To make things easier, this digital version was created. It is just as fun, but without all the hassle!
+            </h3>
+          </>
+        );
+      case 3:
+        return (
+          <>
             <h1>Create a game!</h1>
             <h3 className="small-margin">
-              To create a game, decide on a name, as well as the
-              point range you wish to have. This is important! The point range
-              includes the <strong>minimum points</strong> a player can get
-              after answering a question correctly. Vice versa for the{" "}
+              To create a game, decide on a name, as well as the point range you
+              wish to have. This is important! The point range includes the{" "}
+              <strong>minimum points</strong> a player can get after answering a
+              question correctly. Vice versa for the{" "}
               <strong>maximum points.</strong> And yes, you can make the minimum
               points be negative!
             </h3>
@@ -62,7 +81,7 @@ function Tutorial() {
             </div>
           </>
         );
-      case 3:
+      case 4:
         return (
           <>
             <h1>Join a game!</h1>
@@ -80,20 +99,20 @@ function Tutorial() {
             </div>
           </>
         );
-      case 4:
+      case 5:
         return (
           <>
             <h1>Play a game!</h1>
-            <h2>
-              Answer a question correctly and get to flip 1 of 24 cards.
-            </h2>
+            <h2>Answer a question correctly and get to flip 1 of 24 cards.</h2>
             <h3>
               The cards could be any value ranging from the{" "}
-              <strong>minimum points</strong> to the <strong>maximum points</strong> the host selected for the
-              game. The value behind the card is how many points you'll get so
-              choose wisely! The values are re-generated after every question so there's no
-              use in memorizing what's behind each card. You can play at your own pace while the host's screen
-              shows the players' rankings.
+              <strong>minimum points</strong> to the{" "}
+              <strong>maximum points</strong> the host selected for the game.
+              The value behind the card is how many points you'll get so choose
+              wisely! The values are re-generated after every question so
+              there's no use in memorizing what's behind each card. You can play
+              at your own pace while the host's screen shows the players'
+              rankings.
             </h3>
             <div className="gif-container">
               <img src={playGameGif} alt="Play game gif" />
@@ -107,8 +126,10 @@ function Tutorial() {
     <div id="tutorial" className="container-top">
       <div className="instructions-container">
         {renderAction()}
-        <h4 id="numbering">{tutorialNum}/4</h4>
-        <button id="skip">Skip Tutorial</button>
+        <h4 id="numbering">{tutorialNum}/5</h4>
+        <button onClick={closeTutorial} id="skip">
+          Skip Tutorial
+        </button>
         <div className="nav-buttons">
           <button onClick={prev} id="prev">
             Previous

@@ -6,6 +6,11 @@ body {
     background-color: #588157;
 }
 
+.tutorial-container {
+    position: relative;
+    top: 0;
+}
+
 .container-middle {
     position: relative;
     transform: translateY(50%);
