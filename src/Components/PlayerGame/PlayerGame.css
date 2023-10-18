@@ -6,8 +6,8 @@
     margin-top: 15px;
     display: grid;
     grid-template-columns: repeat(8, 1fr);
-    row-gap: 20px;
-    column-gap: 30px;
+    row-gap: 15px;
+    column-gap: 25px;
 }
 
 .question-message-container {
@@ -43,13 +43,13 @@
 #multiple-choice-answers {
     display: grid;
     grid-template-columns: repeat(2, 1fr);
-    gap: 15px;
+    gap: 10px;
 }
 
 #multiple-choice-answers div {
     cursor: pointer;
     width: 200px;
-    height: 100px;
+    height: 90px;
     display: flex;
     justify-content: center;
     align-items: center;
@@ -108,7 +108,7 @@
 
 #score {
     position: relative;
-    bottom: 230px;
+    bottom: 210px;
     left: 300px;
     border: 2px solid #344e41;
     border-radius: 5px;
@@ -118,7 +118,7 @@
 
 #question-number {
     position: relative;
-    bottom: 325px;
+    bottom: 305px;
     left: 300px;
     margin-bottom: -100px;
 }
