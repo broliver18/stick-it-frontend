@@ -21,11 +21,11 @@ function Home() {
   const { setIsPlaying } = useContext(GameContext);
 
   useEffect(() => {
-    const tutorialVisited = localStorage.getItem("tutorialVisited");
+    const tutorialVisited = sessionStorage.getItem("tutorialVisited");
     if (!tutorialVisited) {
       setTimeout(() => {
         setIsTutorialDisplay(true);
-      }, 2000) 
+      }, 3000) 
     }
   }, []);
 
@@ -99,7 +99,7 @@ function Home() {
 
   function closeTutorial() {
     setIsTutorialDisplay(false);
-    localStorage.setItem("tutorialVisited", true);
+    sessionStorage.setItem("tutorialVisited", true);
   }
 
   function handleChange(e) {
