@@ -12,6 +12,8 @@ import Card from "../Card/Card";
 import "./PlayerGame.css";
 
 function PlayerGame() {
+  const [isDataFetched, setIsDataFetched] = useState(false);
+  const [trigger, setTrigger] = useState(0);
   const [questionInfo, setQuestionInfo] = useState({});
   const [quizInfo, setQuizInfo] = useState({});
   const [input, setInput] = useState({ answer: "" });
@@ -20,9 +22,7 @@ function PlayerGame() {
   const [isCorrect, setIsCorrect] = useState(false);
   const [questionNum, setQuestionNum] = useState(1);
   const [score, setScore] = useState(0);
-  const [trigger, setTrigger] = useState(0);
   const [readyToNavigate, setReadyToNavigate] = useState(false);
-
   const [searchParams] = useSearchParams();
   const playerId = searchParams.get("id");
 
@@ -32,6 +32,7 @@ function PlayerGame() {
     function getQuizInfoEvent(info) {
       setQuizInfo(info);
       updateCardPoints(info.minPoints, info.maxPoints);
+      setIsDataFetched(true);
     }
 
     function noGameFoundEvent() {
@@ -215,7 +216,7 @@ function PlayerGame() {
 
   return (
     <>
-      {quizInfo && (
+      {isDataFetched && (
         <div id="player-game" className="container-top">
           <h1>{quizInfo.name}</h1>
           <div className="grid-container">

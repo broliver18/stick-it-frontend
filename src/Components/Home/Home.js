@@ -8,8 +8,8 @@ import { GameContext } from "../Contexts/PlayerContext";
 import "./Home.css";
 
 function Home() {
-  const [isTutorialDisplay, setIsTutorialDisplay] = useState(true);
   const [trigger, setTrigger] = useState(0);
+  const [isTutorialDisplay, setIsTutorialDisplay] = useState(true);
   const [input, setInput] = useState({
     displayName: "",
     pin: "",
