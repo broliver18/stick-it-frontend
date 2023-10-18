@@ -1,17 +1,24 @@
 import React, { useState } from "react";
-import { Link } from "react-router-dom";
 
 import tutorialLogo from "../../images/tutorialLogo.png";
 import createQuizGif from "../../images/createQuizGif.gif";
 import joinGameGif from "../../images/joinGameGif.gif";
+import playGameGif from "../../images/playGameGif.gif";
 
 import "./Tutorial.css";
 
 function Tutorial() {
   const [tutorialNum, setTutorialNum] = useState(1);
 
-  const next = () => setTutorialNum((prevState) => prevState + 1);
-  const prev = () => setTutorialNum((prevState) => prevState - 1);
+  function next() {
+    if (tutorialNum > 3) return;
+    setTutorialNum((prevState) => prevState + 1);
+  };
+
+  function prev() {
+    if (tutorialNum < 2) return;
+    setTutorialNum((prevState) => prevState - 1);
+  }
 
   function renderAction() {
     // eslint-disable-next-line default-case
@@ -38,8 +45,7 @@ function Tutorial() {
           <>
             <h1>Create a game!</h1>
             <h3 className="small-margin">
-              To create a game, you must be a host. The host hosts the game for
-              other players to join and play. Decide on a name, as well as the
+              To create a game, decide on a name, as well as the
               point range you wish to have. This is important! The point range
               includes the <strong>minimum points</strong> a player can get
               after answering a question correctly. Vice versa for the{" "}
@@ -51,7 +57,7 @@ function Tutorial() {
               multiple-choice questions are supported. Answers are not
               case-sensitive.
             </h3>
-            <div className="gif-container-special">
+            <div className="gif-container">
               <img src={createQuizGif} alt="Create quiz gif no-mobile" />
             </div>
           </>
@@ -77,9 +83,9 @@ function Tutorial() {
       case 4:
         return (
           <>
-            <h1>A game of chance!</h1>
+            <h1>Play a game!</h1>
             <h2>
-              Answer a question correctly and you get to flip 1 of 24 cards.
+              Answer a question correctly and get to flip 1 of 24 cards.
             </h2>
             <h3>
               The cards could be any value ranging from the{" "}
@@ -89,6 +95,9 @@ function Tutorial() {
               use in memorizing what's behind each card. You can play at your own pace while the host's screen
               shows the players' rankings.
             </h3>
+            <div className="gif-container">
+              <img src={playGameGif} alt="Play game gif" />
+            </div>
           </>
         );
     }

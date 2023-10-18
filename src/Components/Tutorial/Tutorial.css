@@ -32,7 +32,9 @@ strong {
     width: 200px;
 }
 
-.gif-container, .gif-container-special {
+.gif-container {
+    position: absolute;
+    bottom: 75px;
     margin-top: 5px;
     width: 400px;
 }
@@ -58,7 +60,7 @@ img {
 .nav-buttons {
     position: absolute;
     display: flex;
-    justify-content: end;
+    justify-content: flex-end;
     align-items: center;
     right: 10px;
     bottom: 10px;
@@ -109,16 +111,16 @@ img {
         width: 390px;
     }
 
+    .tutorial-img-container {
+        margin-top: 15px;
+    }
+
     .gif-container {
         width: 300px;
     }
 }
 
 @media only screen and (max-width: 450px) {
-    #tutorial {
-        margin-top: 0;
-    }
-
     .instructions-container {
         width: 260px;
         height: 500px;
@@ -141,12 +143,9 @@ img {
         width: 120px;
     }
 
-    .gif-container, .gif-container-special {
+    .gif-container {
+        bottom: 45px;
         width: 200px;
-    }
-
-    .gif-container-special {
-        margin-top: -8px;
     }
 
     .nav-buttons {
