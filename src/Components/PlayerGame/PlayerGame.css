@@ -135,7 +135,7 @@
     .grid-container {
         margin-top: 5px;
         grid-template-columns: repeat(6, 1fr);
-        gap: 20px;
+        gap: 15px;
     }
 
     .question-message-container {
