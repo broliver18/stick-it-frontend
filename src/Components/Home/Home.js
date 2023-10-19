@@ -25,7 +25,7 @@ function Home() {
     if (!tutorialVisited) {
       setTimeout(() => {
         setIsTutorialDisplay(true);
-      }, 3000) 
+      }, 2000) 
     }
   }, []);
 
