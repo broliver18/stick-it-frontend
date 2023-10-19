@@ -4,8 +4,6 @@ import { Formik, Form, Field, ErrorMessage } from "formik";
 import { nanoid } from "nanoid";
 import * as Yup from "yup";
 
-import { SERVER_ROOT_URL } from "../../utils/urls";
-
 import "./CodeRequest.css";
 
 function CodeRequest() {
@@ -30,7 +28,7 @@ function CodeRequest() {
           onSubmit={(values, actions) => {
             actions.resetForm();
             const vals = { ...values };
-            fetch(`${SERVER_ROOT_URL}/auth/requestToken`, {
+            fetch(`${process.env.REACT_APP_SERVER_URL}/auth/requestToken`, {
               method: "POST",
               credentials: "include",
               headers: {

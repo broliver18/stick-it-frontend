@@ -3,8 +3,6 @@ import { Link, useNavigate, useParams } from "react-router-dom";
 import { Formik, Form, Field, ErrorMessage } from "formik";
 import * as Yup from "yup";
 
-import { SERVER_ROOT_URL } from "../../utils/urls";
-
 import "./ResetPassword.css";
 
 function ResetPassword() {
@@ -42,7 +40,7 @@ function ResetPassword() {
           onSubmit={(values, actions) => {
             actions.resetForm();
             const vals = { ...values };
-            fetch(`${SERVER_ROOT_URL}/auth/reset-password/${userId}`, {
+            fetch(`${process.env.REACT_APP_SERVER_URL}/auth/reset-password/${userId}`, {
               method: "PUT",
               credentials: "include",
               headers: {

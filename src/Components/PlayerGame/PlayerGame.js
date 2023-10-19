@@ -4,7 +4,7 @@ import {
   createSearchParams,
   useSearchParams,
 } from "react-router-dom";
-import { socket } from "../../socket";
+import socket from "../../socket";
 import { nanoid } from "nanoid";
 
 import Card from "../Card/Card";

@@ -3,8 +3,6 @@ import { Link, useParams, useNavigate } from "react-router-dom";
 import { Formik, Form, Field, ErrorMessage } from "formik";
 import * as Yup from "yup";
 
-import { SERVER_ROOT_URL } from "../../utils/urls";
-
 import "./CodeVerify.css";
 
 function CodeVerify() {
@@ -35,7 +33,7 @@ function CodeVerify() {
             actions.resetForm();
             const vals = { ...values };
             fetch(
-              `${SERVER_ROOT_URL}/auth/verifyToken/${userId}/?token=${vals.resetCode}`,
+              `${process.env.REACT_APP_SERVER_URL}/auth/verifyToken/${userId}/?token=${vals.resetCode}`,
               {
                 crendentials: "include",
                 headers: {

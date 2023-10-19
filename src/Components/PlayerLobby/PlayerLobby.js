@@ -1,6 +1,6 @@
 import React, { useEffect } from "react";
 import { useNavigate, createSearchParams } from "react-router-dom";
-import { socket } from "../../socket";
+import socket from "../../socket";
 
 import "./PlayerLobby.css";
 

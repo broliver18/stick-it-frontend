@@ -1,5 +1,7 @@
 import { io } from 'socket.io-client';
 
-import { SERVER_ROOT_URL } from "./utils/urls";
+const socket = new io(process.env.REACT_APP_SERVER_URL, {
+    withCredentials: true,
+});
 
-export const socket = io(SERVER_ROOT_URL);
+export default socket;

@@ -1,9 +1,8 @@
 import React, { useState, useEffect, useContext } from "react";
 import { Link, useNavigate } from "react-router-dom";
-import { socket } from "../../socket";
+import socket from "../../socket";
 
 import { AccountContext } from "../Contexts/AccountContext";
-import { SERVER_ROOT_URL } from "../../utils/urls";
 import TrashCan from "../Svgs/TrashCan";
 
 import "./Host.css";
@@ -24,7 +23,7 @@ function Host() {
   }, []);
 
   useEffect(() => {
-    fetch(`${SERVER_ROOT_URL}/profile/quizzes`, {
+    fetch(`${process.env.REACT_APP_SERVER_URL}/profile/quizzes`, {
       credentials: "include",
       headers: {
         "Content-Type": "application/json",
@@ -52,7 +51,7 @@ function Host() {
 
   function deleteQuiz(id) {
     if (window.confirm("Are you sure you want to delete this quiz?")) {
-      fetch(`${SERVER_ROOT_URL}/profile/quiz`, {
+      fetch(`${process.env.REACT_APP_SERVER_URL}/profile/quiz`, {
         method: "DELETE",
         credentials: "include",
         headers: {
@@ -65,7 +64,7 @@ function Host() {
   }
 
   function logout() {
-    fetch(`${SERVER_ROOT_URL}/auth/logout`, {
+    fetch(`${process.env.REACT_APP_SERVER_URL}/auth/logout`, {
       credentials: "include",
       headers: {
         "Content-Type": "appication/json",

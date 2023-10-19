@@ -1,6 +1,6 @@
 import React, { useState, useEffect, useRef, useContext } from "react";
 import { Link, useNavigate } from "react-router-dom";
-import { socket } from "../../socket";
+import socket from "../../socket";
 
 import Tutorial from "../Tutorial/Tutorial";
 import { GameContext } from "../Contexts/PlayerContext";

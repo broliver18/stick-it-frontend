@@ -1,7 +1,7 @@
 #tutorial {
     position: absolute;
     animation-name: popUp;
-    animation-duration: 0.2s;
+    animation-duration: 0.15s;
     animation-timing-function: ease-out;
     animation-delay: 0;
     animation-direction: alternate;

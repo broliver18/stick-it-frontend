@@ -1,6 +1,6 @@
 import React, { useState, useEffect } from "react";
 import { useNavigate, useParams, createSearchParams } from "react-router-dom";
-import { socket } from "../../socket";
+import socket from "../../socket";
 
 import "./HostLobby.css";
 
