@@ -21,12 +21,16 @@ function Home() {
   const { setIsPlaying } = useContext(GameContext);
 
   useEffect(() => {
+    let timeout;
+
     const tutorialVisited = sessionStorage.getItem("tutorialVisited");
     if (!tutorialVisited) {
-      setTimeout(() => {
+      timeout = setTimeout(() => {
         setIsTutorialDisplay(true);
       }, 2000) 
     }
+
+    return () => clearTimeout(timeout);
   }, []);
 
   useEffect(() => {
