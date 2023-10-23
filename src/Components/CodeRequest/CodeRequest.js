@@ -17,7 +17,7 @@ function CodeRequest() {
     <div className="reset-password container-top">
       <div id="reset-link" className="container-top form">
         <h1>Reset Password</h1>
-        <h5 className="black no-margin light">You will receive an email with a verification code if there is an account registered with the email address entered.</h5>
+        <h5 className="black no-margin light">You will receive an email with a verification code if there is an account registered with the email address entered. Be sure to check your junk folder.</h5>
         <Formik
           initialValues={{ email: "" }}
           validationSchema={Yup.object({
