@@ -166,7 +166,7 @@ img {
 
 @media only screen and (max-width: 450px) {
     #tutorial {
-        top: -200px;
+        top: -150px;
     }
 
     .instructions-container {
@@ -209,14 +209,14 @@ img {
     #skip {
         bottom: 5px;
         left: 0;
-        width: 55px;
+        width: 60px;
     }
     
     #prev {
-        width: 45px;
+        width: 52px;
     }
     
     #next {
-        width: 35px;
+        width: 42px;
     }
 }
