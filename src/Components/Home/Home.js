@@ -113,7 +113,7 @@ function Home() {
 
   return (
     <>
-      <div id="home" className="container-middle">
+      <div id="home" className="container-center">
         <h1>Join a Game</h1>
         <div className="game-input-info">
           <label htmlFor="display-name">Display Name</label>

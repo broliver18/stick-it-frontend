@@ -18,7 +18,7 @@ function CodeVerify() {
   }
 
   return (
-    <div className="reset-password container-top">
+    <div className="reset-password container-center">
       <div id="reset-link" className="container-top form">
         <h1>Reset Password</h1>
         <h5 className="black no-margin light">

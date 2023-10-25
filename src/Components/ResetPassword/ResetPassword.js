@@ -21,7 +21,7 @@ function ResetPassword() {
   }
   
   return (
-    <div className="reset-password container-top">
+    <div className="reset-password container-center">
       <div id="reset-password" className="container-top form">
         <h1>Reset Password</h1>
         <Formik

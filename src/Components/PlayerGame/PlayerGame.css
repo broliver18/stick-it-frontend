@@ -48,13 +48,14 @@
 
 #multiple-choice-answers div {
     cursor: pointer;
-    width: 200px;
+    width: 196px;
     height: 90px;
     display: flex;
     justify-content: center;
     align-items: center;
     background-color: #a3b18a;
     border-radius: 5px;
+    padding: 0 2px;
 }
 
 #multiple-choice-answers div:hover {
@@ -187,8 +188,12 @@
         gap: 10px;
     }
 
+    #multiple-choice-answers div h4 {
+        font-size: 10px;
+    }
+
     #multiple-choice-answers div {
-        width: 130px;
+        width: 126px;
         height: 60px;
     }
 

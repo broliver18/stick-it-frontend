@@ -38,7 +38,7 @@ function PlayerLobby() {
   const leaveLobby = () => navigate("/");
 
   return (
-    <div id="player-lobby" className="container-middle">
+    <div id="player-lobby" className="container-center">
       <h1>Waiting for Host to Start Game</h1>
       <p>Do you see your name on the host's screen?</p>
       <div className="spinner-container">
