@@ -113,7 +113,7 @@ function Home() {
 
   return (
     <>
-      <div id="home" className="container-center">
+      <div id="home" className="container-middle">
         <h1>Join a Game</h1>
         <div className="game-input-info">
           <label htmlFor="display-name">Display Name</label>
@@ -139,7 +139,10 @@ function Home() {
             Click here to host a game
           </Link>
         </div>
-        {isTutorialDisplay && <Tutorial closeTutorial={closeTutorial}/>}
+        {isTutorialDisplay && 
+        <div className="tutorial-container">
+          <Tutorial closeTutorial={closeTutorial}/>
+        </div>}
       </div>
       {!isTutorialDisplay && (
         <div className="footer">

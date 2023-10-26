@@ -40,7 +40,7 @@ function Login() {
   }
 
   return (
-    <div id="login" className="container-center">
+    <div id="login" className="container-top">
       <div id="login-form" className="container-top form">
         <h1>Log In</h1>
         <Formik

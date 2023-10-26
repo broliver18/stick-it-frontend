@@ -37,7 +37,7 @@ function SignUp() {
   }
 
   return (
-    <div id="sign-up" className="container-center">
+    <div id="sign-up" className="container-top">
       <div id="sign-up-form" className="container-top form">
         <h1>Sign Up</h1>
         <Formik

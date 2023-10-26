@@ -1,5 +1,5 @@
 #tutorial {
-    position: absolute;
+    margin: 0;
     animation-name: popUp;
     animation-duration: 0.15s;
     animation-timing-function: ease-out;
@@ -165,10 +165,6 @@ img {
 }
 
 @media only screen and (max-width: 450px) {
-    #tutorial {
-        top: -150px;
-    }
-
     .instructions-container {
         width: 260px;
         height: 500px;
