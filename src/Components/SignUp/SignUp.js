@@ -87,7 +87,13 @@ function SignUp() {
               <label className="heavy" htmlFor="name">
                 Name
               </label>
-              <Field id="name" name="name" type="text" autoComplete="name" />
+              <Field
+                className="text-field"
+                id="name"
+                name="name"
+                type="text"
+                autoComplete="name"
+              />
               <ErrorMessage
                 className="client-error"
                 name="name"
@@ -97,6 +103,7 @@ function SignUp() {
                 Email
               </label>
               <Field
+                className="text-field"
                 id="email"
                 name="email"
                 type="email"
@@ -110,7 +117,12 @@ function SignUp() {
               <label className="heavy" htmlFor="password">
                 Password
               </label>
-              <Field id="password" name="password" type="password" />
+              <Field
+                className="text-field"
+                id="password"
+                name="password"
+                type="password"
+              />
               <ErrorMessage
                 className="client-error"
                 name="password"
@@ -120,6 +132,7 @@ function SignUp() {
                 Confirm Password
               </label>
               <Field
+                className="text-field"
                 id="confirm-password"
                 name="confirmPassword"
                 type="password"

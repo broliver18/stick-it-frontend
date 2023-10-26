@@ -19,7 +19,7 @@
 }
 
 .header-details {
-    position: absolute;
+    position: fixed;
     display: flex;
     justify-content: center;
     align-items: center;
@@ -39,6 +39,7 @@
 .body {
     position: relative;
     top: 45px;
+    height: 1000px;
 }
 
 .logout-message {

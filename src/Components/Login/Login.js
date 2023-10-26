@@ -19,19 +19,19 @@ function Login() {
   useEffect(() => {
     const oauthAttempt = localStorage.getItem("oauth2");
     if (oauthAttempt) {
-      setError("There is already an account associated with this email.")
+      setError("There is already an account associated with this email.");
     }
   }, []);
 
   function googleLogin() {
-    (window.location.href = `${process.env.REACT_APP_SERVER_URL}/auth/google`);
-    localStorage.setItem("oauth2", true)
-  } 
+    window.location.href = `${process.env.REACT_APP_SERVER_URL}/auth/google`;
+    localStorage.setItem("oauth2", true);
+  }
 
   function facebookLogin() {
-    (window.location.href = `${process.env.REACT_APP_SERVER_URL}/auth/facebook`);
-    localStorage.setItem("oauth2", true)
-  }  
+    window.location.href = `${process.env.REACT_APP_SERVER_URL}/auth/facebook`;
+    localStorage.setItem("oauth2", true);
+  }
 
   function errorHandler() {
     if (error) {
@@ -87,6 +87,7 @@ function Login() {
                 Email
               </label>
               <Field
+                className="text-field"
                 id="email"
                 name="email"
                 type="email"
@@ -100,7 +101,12 @@ function Login() {
               <label className="heavy" htmlFor="password">
                 Password
               </label>
-              <Field id="password" name="password" type="password" />
+              <Field
+                className="text-field"
+                id="password"
+                name="password"
+                type="password"
+              />
               <ErrorMessage
                 className="client-error"
                 name="password"
@@ -117,7 +123,7 @@ function Login() {
                   Log In
                 </button>
                 {errorHandler()}
-              </div>   
+              </div>
             </Form>
           )}
         </Formik>

@@ -62,6 +62,7 @@ function CodeVerify() {
                 Reset Code
               </label>
               <Field
+                className="text-field"
                 id="reset-code"
                 name="resetCode"
                 type="text"

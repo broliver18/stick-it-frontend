@@ -19,7 +19,7 @@ function ResetPassword() {
       return <h4 className="confirmation">{confirmation}</h4>;
     }
   }
-  
+
   return (
     <div className="reset-password container-top">
       <div id="reset-password" className="container-top form">
@@ -40,29 +40,34 @@ function ResetPassword() {
           onSubmit={(values, actions) => {
             actions.resetForm();
             const vals = { ...values };
-            fetch(`${process.env.REACT_APP_SERVER_URL}/auth/reset-password/${userId}`, {
-              method: "PUT",
-              credentials: "include",
-              headers: {
-                "Content-Type": "application/json",
-              },
-              body: JSON.stringify(vals),
-            })
-            .catch((error) => console.log(error))
-            .then((res) => {
-              if (!res || !res.ok || res.status > 400) {
-                setError("There was an error with the server. Try again later.")
+            fetch(
+              `${process.env.REACT_APP_SERVER_URL}/auth/reset-password/${userId}`,
+              {
+                method: "PUT",
+                credentials: "include",
+                headers: {
+                  "Content-Type": "application/json",
+                },
+                body: JSON.stringify(vals),
               }
-              return res.json();
-            })
-            .then((data) => {
-              if (data === "success") {
-                setConfirmation("Your password was successfully reset!");
-                setTimeout(() => {
-                  navigate("/login");
-                }, 1000)
-              }
-            })
+            )
+              .catch((error) => console.log(error))
+              .then((res) => {
+                if (!res || !res.ok || res.status > 400) {
+                  setError(
+                    "There was an error with the server. Try again later."
+                  );
+                }
+                return res.json();
+              })
+              .then((data) => {
+                if (data === "success") {
+                  setConfirmation("Your password was successfully reset!");
+                  setTimeout(() => {
+                    navigate("/login");
+                  }, 1000);
+                }
+              });
           }}
         >
           {({ handleSubmit, isSubmitting }) => (
@@ -70,7 +75,12 @@ function ResetPassword() {
               <label className="heavy" htmlFor="new-password">
                 Password
               </label>
-              <Field id="new-password" name="newPassword" type="password" />
+              <Field
+                className="text-field"
+                id="new-password"
+                name="newPassword"
+                type="password"
+              />
               <ErrorMessage
                 className="client-error"
                 name="newPassword"
@@ -80,6 +90,7 @@ function ResetPassword() {
                 Confirm Password
               </label>
               <Field
+                className="text-field"
                 id="confirm-password"
                 name="confirmPassword"
                 type="password"

@@ -55,6 +55,7 @@ function CodeRequest() {
                 Email
               </label>
               <Field
+                className="text-field"
                 id="email"
                 name="email"
                 type="email"

@@ -99,6 +99,7 @@ input:focus {
         bottom: 5px;
     }
 
+    .text-field,
     input[type="text"],
     input[type="number"]
     textarea {

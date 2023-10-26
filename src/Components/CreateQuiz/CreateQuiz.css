@@ -76,7 +76,8 @@
 
     .buttons button {
         width: 100px;
+        height: 2.2rem;
         margin: 8px;
-        font-size: 12px;
+        font-size: 11px;
     }
 }
