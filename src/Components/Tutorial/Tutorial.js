@@ -44,6 +44,7 @@ function Tutorial({ closeTutorial }) {
         return (
           <>
             <h1>Origins</h1>
+            <h2 className="no-mobile">Why is it called Stick It anyway?</h2>
             <h3>
               Originally, this game was played on a white board with sticky notes.
               Each sticky note had a random number behind it so no one could see .
@@ -63,18 +64,13 @@ function Tutorial({ closeTutorial }) {
         return (
           <>
             <h1>Create a game!</h1>
-            <h3 className="small-margin">
-              To create a game, decide on a name, as well as the point range you
+            <h2>Choose between multiple choice or short answer questions</h2>
+            <h3 className="large-margin">
+              Decide on a name, as well as the point range you
               wish to have. This is important! The point range includes the{" "}
-              <strong>minimum points</strong> a player can get after answering a
-              question correctly. Vice versa for the{" "}
-              <strong>maximum points.</strong> And yes, you can make the minimum
-              points be negative!
-            </h3>
-            <h3 className="small-margin">
-              Once that is done, start adding questions! Both short-answer and
-              multiple-choice questions are supported. Answers are not
-              case-sensitive.
+              <strong>minimum</strong> and <strong>maximum</strong> points a player can get after answering a
+              question correctly. And yes, you can make the minimum
+              points be negative! Answers will not be case-sensitive.
             </h3>
             <div className="gif-container">
               <img src={createQuizGif} alt="Create quiz gif no-mobile" />
@@ -103,16 +99,14 @@ function Tutorial({ closeTutorial }) {
         return (
           <>
             <h1>Play a game!</h1>
-            <h2>Answer a question correctly and get to flip 1 of 24 cards.</h2>
+            <h2>Answer correctly and get to flip a card.</h2>
             <h3>
               The cards could be any value ranging from the{" "}
               <strong>minimum points</strong> to the{" "}
               <strong>maximum points</strong> the host selected for the game.
               The value behind the card is how many points you'll get so choose
-              wisely! The values are re-generated after every question so
-              there's no use in memorizing what's behind each card. You can play
-              at your own pace while the host's screen shows the players'
-              rankings.
+              wisely! The values are re-generated after every question so it's impossible to cheat. Play
+              at your own pace. The host's screen will show everyone's rankings.
             </h3>
             <div className="gif-container">
               <img src={playGameGif} alt="Play game gif" />

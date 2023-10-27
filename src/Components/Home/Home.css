@@ -70,7 +70,7 @@ body {
 
 .footer {
     position: absolute;
-    bottom: 15px;
+    bottom: 10px;
     width: 100%;
     display: flex;
     flex-direction: column;
@@ -94,7 +94,21 @@ input:focus {
     outline: none;
 }
 
+@media only screen and (max-height: 615px) {
+    .tutorial-container {
+        margin-bottom: 80px;
+    }
+
+    .footer {
+        display: none;
+    }
+}
+
 @media only screen and (max-width: 450px) {
+    .game-input-info button {
+        width: 20.8rem;
+    }
+
     .footer {
         bottom: 5px;
     }

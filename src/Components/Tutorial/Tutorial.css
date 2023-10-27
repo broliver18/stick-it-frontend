@@ -94,6 +94,7 @@ img {
     right: 40px;
     margin-left: 5px;
     height: 2.3rem;
+    font-size: 11px;
     font-weight: 900; 
     background-color: #344e41;
 }
@@ -129,7 +130,7 @@ img {
 @media only screen and (max-height: 800px) {
     .instructions-container {
         top: 40px;
-        height: 520px;
+        height: 460px;
     }
 
     .tutorial-img-container {
@@ -138,15 +139,27 @@ img {
     }
 
     .gif-container {
-        width: 300px;
-        bottom: 65px;
+        width: 290px;
+        bottom: 57px;
     }
 
     .instructions-container h1, 
     .instructions-container h2, 
     .instructions-container h3 {
-        margin-bottom: 10px;
-        margin-top: 10px;
+        margin-bottom: 12px;
+        margin-top: 12px;
+    }
+
+    .instructions-container h1 {
+        font-size: 34px;
+    }
+
+    .instructions-container h2 {
+        font-size: 26px;
+    }
+
+    .instructions-container h3 {
+        font-size: 16px;
     }
 }
 
@@ -170,6 +183,10 @@ img {
         height: 500px;
     }
 
+    .no-mobile {
+        display: none;
+    }
+
     .instructions-container h1  {
         font-size: 28px;
     }
@@ -188,8 +205,13 @@ img {
     }
 
     .gif-container {
-        bottom: 45px;
+        bottom: 55px;
         width: 200px;
+    }
+
+    #numbering {
+        top: 6px;
+        right: 6px;
     }
 
     .nav-buttons {
@@ -199,6 +221,7 @@ img {
 
     #skip, #prev, #next {
         font-size: 8px;
+        padding: 2px;
         height: 25px;
     }
 
