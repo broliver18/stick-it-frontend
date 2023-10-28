@@ -95,10 +95,6 @@ input:focus {
 }
 
 @media only screen and (max-height: 615px) {
-    .tutorial-container {
-        margin-bottom: 80px;
-    }
-
     .footer {
         display: none;
     }
@@ -118,5 +114,15 @@ input:focus {
     input[type="number"]
     textarea {
         font-size: 16px    
+    }
+}
+
+@media only screen and (max-width: 375px) {
+    .game-input-info input {
+        width: 18rem;
+    }
+
+    .game-input-info button {
+        width: 19rem;
     }
 }

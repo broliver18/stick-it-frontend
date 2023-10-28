@@ -56,7 +56,7 @@ strong {
     position: absolute;
     bottom: 75px;
     margin-top: 5px;
-    width: 400px;
+    width: 380px;
 }
 
 img {
@@ -166,6 +166,7 @@ img {
 @media only screen and (max-width: 625px) {
     .instructions-container {
         width: 390px;
+        height: 520px;
     }
 
     .tutorial-img-container {
@@ -205,7 +206,7 @@ img {
     }
 
     .gif-container {
-        bottom: 55px;
+        bottom: 70px;
         width: 200px;
     }
 

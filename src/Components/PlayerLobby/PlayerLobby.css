@@ -1,8 +1,10 @@
 #player-lobby h1 {
+    text-align: center;
     margin-bottom: 15px;
 }
 
 #player-lobby p {
+    text-align: center;
     margin-bottom: 25px;
 }
 

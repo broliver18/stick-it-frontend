@@ -45,7 +45,7 @@
 }
 
 #scores {
-    margin-top: 10px;
+    margin-top: 12px;
 }
 
 #scores {
@@ -82,7 +82,7 @@
     }
 }
 
-@media only screen and (max-width: 450px) {
+@media only screen and (max-width: 500px) {
     #rankings {
         width: 250px;
         height: 450px;

@@ -50,6 +50,17 @@
     color: #fff;
 }
 
+@media only screen and (max-width: 650px) {
+    .flip-card {
+        height: 98px;
+        width: 68px;
+    }
+
+    .flip-card-front h4, .flip-card-back h4 {
+        font-size: 12px;
+    }    
+}
+
 @media only screen and (max-width: 450px) {
     .flip-card {
         height: 80px;
@@ -57,6 +68,17 @@
     }
 
     .flip-card-front h4, .flip-card-back h4 {
-        font-size: 10px;
+        font-size: 9px;
+    }
+}
+
+@media only screen and (max-width: 375px) {
+    .flip-card {
+        height: 62px;
+        width: 40px;
+    }
+
+    .flip-card-front h4, .flip-card-back h4 {
+        font-size: 7px;
     }
 }

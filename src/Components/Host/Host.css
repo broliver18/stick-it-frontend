@@ -48,6 +48,7 @@
 }
 
 #host p {
+    text-align: center;
     margin-bottom: 15px;
 }
 
@@ -165,13 +166,13 @@
     }
 }
 
-@media only screen and (max-width: 450px) {
+@media only screen and (max-width: 515px) {
     #host p {
         margin-bottom: 20px;
     }
 
     .header-details {
-        right: 20px;
+        right: 15px;
     }
 
     #no-quizzes-message {
@@ -196,5 +197,23 @@
 
     #saved-quizzes {
         width: 325px;
+    }
+
+    .svg-container {
+        left: 10px;
+    }
+
+    @media only screen and (max-width: 350px) {
+        #saved-quizzes {
+            width: 300px;
+        }
+
+        .quiz button {
+            right: 10px;
+        }
+
+        .header-details {
+            right: 10px;
+        }
     }
 }

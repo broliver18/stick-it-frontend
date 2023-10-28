@@ -208,6 +208,12 @@
         position: relative;
         bottom: 55px;
         left: 0;
-    }
+    }  
 }
 
+@media only screen and (max-width: 375px) {
+    #short-answer h2, #multiple-choice h2 {
+        width: 200px;
+        font-size: 14px;
+    }
+}
