@@ -42,3 +42,7 @@ This app can be used by people of all ages but will likely be more entertaining 
 ![Screenshot 2023-08-03 at 3 31 52 PM](https://github.com/broliver18/stick-it-frontend/assets/99209406/a9ed35af-64a4-4b4d-9ff7-6e9c7bb29bbb)
 ![Screenshot 2023-08-03 at 2 30 11 PM](https://github.com/broliver18/stick-it-frontend/assets/99209406/313b6efa-8680-4592-9f01-b3f510a37bc6)
 ![Screenshot 2023-08-03 at 2 30 41 PM](https://github.com/broliver18/stick-it-frontend/assets/99209406/04e27b05-f007-45fe-8282-5bf6d6e0fb4f)
+<img width="1206" alt="Screenshot 2023-10-12 at 11 08 41 PM" src="https://github.com/broliver18/stick-it-frontend/assets/99209406/2ec63b36-19eb-484e-afca-54a4cd480f9b">
+<img width="1436" alt="Screenshot 2023-10-12 at 11 09 25 PM" src="https://github.com/broliver18/stick-it-frontend/assets/99209406/77e93569-7a30-41c6-972d-7c5afcec7059">
+<img width="1423" alt="Screenshot 2023-10-12 at 11 11 09 PM" src="https://github.com/broliver18/stick-it-frontend/assets/99209406/399a75bf-2c0e-4d0b-8234-25a10db95009">
+![Screenshot 2023-10-19 at 11 34 34 AM](https://github.com/broliver18/stick-it-frontend/assets/99209406/e0ab3be5-c04b-4260-87c0-05f898691641)
