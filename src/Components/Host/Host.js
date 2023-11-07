@@ -32,24 +32,34 @@ function Host() {
       .catch((error) => console.log(error))
       .then((res) => res.json())
       .then((data) => {
-        if (data === "not logged in") {
-          return;
+        if (data === "You are not logged in.") {
+          const loggedInUser = localStorage.getItem("loggedIn");
+          if (loggedInUser) {
+            setUser({ loggedIn: false, username: "" });
+            localStorage.removeItem("loggedIn");
+            localStorage.removeItem("username");
+            return;
+          } else {
+            return;
+          }
         }
         if (!user.loggedIn) {
           const userData = data.userData;
           setUser({ ...userData });
           localStorage.setItem("loggedIn", true);
           localStorage.setItem("username", userData.username);
-        } 
+        }
         setQuizzes(data.quizzes);
       });
-  // eslint-disable-next-line react-hooks/exhaustive-deps
+    // eslint-disable-next-line react-hooks/exhaustive-deps
   }, [trigger]);
 
   const navigateToHostLobby = (quizId) => navigate(`/host/lobby/${quizId}`);
   const navigateToEditQuiz = (quizId) => navigate(`/host/edit-quiz/${quizId}`);
 
   function deleteQuiz(id) {
+    if (!user.loggedIn) return;
+
     if (window.confirm("Are you sure you want to delete this quiz?")) {
       fetch(`${process.env.REACT_APP_SERVER_URL}/profile/quiz`, {
         method: "DELETE",
@@ -77,7 +87,6 @@ function Host() {
           localStorage.removeItem("loggedIn");
           localStorage.removeItem("username");
           setUser({ loggedIn: false, username: "" });
-          navigate("/");
         }
       });
   }
@@ -124,8 +133,7 @@ function Host() {
 
   return (
     <div id="host">
-      <div className="header">
-      </div>
+      <div className="header"></div>
       {user.loggedIn ? (
         <div className="container-top body">
           <h1>Start a Game</h1>
