@@ -87,6 +87,7 @@ function Host() {
           localStorage.removeItem("loggedIn");
           localStorage.removeItem("username");
           setUser({ loggedIn: false, username: "" });
+          navigate("/");
         }
       });
   }

@@ -1,6 +1,6 @@
 .logo-container {
     position: fixed;
-    top: 0;
+    top: 3px;
     height: 45px;
     width: 100%;
     z-index: 10;
