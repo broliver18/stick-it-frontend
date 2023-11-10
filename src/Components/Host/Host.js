@@ -126,7 +126,7 @@ function Host() {
     } else {
       return (
         <div id="no-quizzes-message" className="container-middle">
-          <h1>No Quizzes Yet!</h1>
+          <h1>No quizzes yet!</h1>
         </div>
       );
     }
@@ -139,9 +139,9 @@ function Host() {
         <div className="container-top body">
           <h1>Start a Game</h1>
           <p>
-            Select a Game Below or{" "}
+            Select a game below or{" "}
             <Link id="create-game-link" to="/host/create-quiz">
-              Create your Own!
+              create your own!
             </Link>
           </p>
           {renderAction()}
