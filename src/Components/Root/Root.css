@@ -1,14 +1,19 @@
-.logo-container {
+.logo {
     position: fixed;
-    top: 3px;
-    height: 45px;
+    top: 0;
+    height: 48px;
     width: 100%;
     z-index: 10;
     background-color: #588157;
 }
 
+.logo-container {
+    position: relative;
+    top: 3px;
+}
+
 @media only screen and (max-width: 750px) {
-   .logo-container {
+   .logo {
         display: flex;
         justify-content: center;
     }

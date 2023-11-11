@@ -8,12 +8,12 @@ import "./Root.css";
 function Root() {
   return (
     <>
-    <div className="logo">
-      <div className="logo-container">
-        <Logo />
+      <div className="logo">
+        <div className="logo-container">
+          <Logo />
+        </div>
       </div>
-    </div>
-    <Outlet />
+      <Outlet />
     </>
   );
 }
