@@ -1,0 +1,242 @@
+#tutorial {
+    margin: 0;
+    animation-name: popUp;
+    animation-duration: 0.15s;
+    animation-timing-function: ease-out;
+    animation-delay: 0;
+    animation-direction: alternate;
+    animation-iteration-count: 1;
+    animation-fill-mode: forwards;
+    animation-play-state: running;
+} 
+
+@keyframes popUp {
+    0% {
+        transform: scale(0.2);
+    }
+    70% {
+        transform: scale(1.3);
+    }
+    100% {
+        transform: scale(1);
+    }
+}
+
+.instructions-container {
+    position: relative;
+    display: flex;
+    flex-direction: column;
+    justify-content: flex-start;
+    align-items: center;
+    top: 100px;
+    border-radius: 5px;
+    background-color: #dad7cd;
+    width: 560px;
+    height: 650px;
+    padding: 20px;
+}
+
+.instructions-container h1, 
+.instructions-container h2,
+.instructions-container h3 {
+    text-align: center;
+    color: #344e41;
+}
+
+strong {
+    color: #344e41;
+}
+
+.tutorial-img-container {
+    margin-top: 50px;
+    width: 200px;
+}
+
+.gif-container {
+    position: absolute;
+    bottom: 75px;
+    margin-top: 5px;
+    width: 380px;
+}
+
+img {
+    height: 100%;
+    width: 100%;
+}
+
+
+.instructions-container h1  {
+    font-size: 40px;
+}
+
+.instructions-container h2 {
+    font-weight: 500;
+}
+
+.instructions-container h3 {
+    font-weight: 400;
+} 
+
+.nav-buttons {
+    position: absolute;
+    display: flex;
+    justify-content: flex-end;
+    align-items: center;
+    right: 10px;
+    bottom: 10px;
+    width: 200px;
+}
+
+.nav-buttons button, #skip {
+    cursor: pointer;
+    border: none;
+    border-radius: 5px;
+    right: 40px;
+    margin-left: 5px;
+    height: 2.3rem;
+    font-size: 11px;
+    font-weight: 900; 
+    background-color: #344e41;
+}
+
+.nav-buttons button:hover, #skip:hover {
+    filter: brightness(110%);
+}
+
+#numbering {
+    position: absolute;
+    margin: 0;
+    top: 10px;
+    right: 10px;
+    font-weight: 400;
+    color: #344e41;
+}
+
+#skip {
+    position: absolute;
+    bottom: 10px;
+    left: 5px;
+    width: 100px;
+}
+
+#prev {
+    width: 80px;
+}
+
+#next {
+    width: 60px;
+}
+
+@media only screen and (max-height: 800px) {
+    .instructions-container {
+        top: 40px;
+        height: 460px;
+    }
+
+    .tutorial-img-container {
+        margin-top: 30px;
+        width: 150px;
+    }
+
+    .gif-container {
+        width: 280px;
+        bottom: 57px;
+    }
+
+    .instructions-container h1, 
+    .instructions-container h2, 
+    .instructions-container h3 {
+        margin-bottom: 10px;
+        margin-top: 10px;
+    }
+
+    .instructions-container h1 {
+        font-size: 34px;
+    }
+
+    .instructions-container h2 {
+        font-size: 26px;
+    }
+
+    .instructions-container h3 {
+        font-size: 16px;
+    }
+}
+
+@media only screen and (max-width: 625px) {
+    .instructions-container {
+        width: 390px;
+        height: 520px;
+    }
+
+    .tutorial-img-container {
+        margin-top: 15px;
+    }
+
+    .gif-container {
+        width: 280px;
+    }
+}
+
+@media only screen and (max-width: 450px) {
+    .instructions-container {
+        width: 260px;
+        height: 500px;
+    }
+
+    .no-mobile {
+        display: none;
+    }
+
+    .instructions-container h1  {
+        font-size: 28px;
+    }
+    
+    .instructions-container h2 {
+        font-size: 20px;
+    }
+    
+    .instructions-container h3 {
+        font-size: 14px;
+    } 
+
+    .tutorial-img-container {
+        margin-top: 30px;
+        width: 120px;
+    }
+
+    .gif-container {
+        bottom: 70px;
+        width: 200px;
+    }
+
+    #numbering {
+        top: 6px;
+        right: 6px;
+    }
+
+    .nav-buttons {
+        bottom: 5px;
+        right: 5px;
+    }
+
+    #skip, #prev, #next {
+        font-size: 8px;
+        padding: 2px;
+        height: 25px;
+    }
+
+    #skip {
+        bottom: 5px;
+        left: 0;
+        width: 63px;
+    }
+    
+    #prev {
+        width: 52px;
+    }
+    
+    #next {
+        width: 42px;
+    }
+}

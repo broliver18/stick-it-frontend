@@ -1,0 +1,140 @@
+.form {
+    background-color: #dad7cd;
+    padding: 0 25px 25px 25px;
+    border-radius: 10px;
+    width: 350px;
+}
+
+.heavy {
+    font-weight: 550;
+}
+
+.client-error, .server-error {
+    color: #d41010
+}
+
+.client-error {
+    margin-top: 2px;
+    font-size: 14px;
+}
+
+.server-error {
+    margin: 10px 0 2px 0;
+    font-weight: 400;
+}
+
+.login-signup-container {
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+}
+
+.login-signup-container input {
+    width: 21rem;
+    height: 2.6rem;
+    border-radius: 5px;
+    border: none;
+    color: #333333;
+}
+
+.login-signup-container button:hover {
+    filter: brightness(110%);
+}
+
+.button-container button {
+    cursor: pointer;
+    width: 21.4rem;
+    height: 2.8rem;
+    padding: 6px 0;
+    line-height: 23px;
+    font-weight: 700;
+    border-radius: 5px;
+    border: none;
+    background-color: #333333;
+}
+
+.button-container {
+    margin-top: 25px;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: flex-start;
+}
+
+.blue-label {
+    color: #1267ce;
+}
+
+.oauth-buttons {
+    display: flex;
+    margin-top: 12px;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    width: 97%;
+}
+
+.oauth {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    position: relative;
+    border: 2px solid black;
+    width: 100%;
+    height: 2.8rem;
+    border-radius: 5px;
+    margin-bottom: 15px;
+    cursor: pointer;
+}
+
+.oauth:hover {
+    background-color: #b2beb5;
+}
+
+.oauth-logo-container {
+    position: absolute;
+    padding-top: 5px;
+    left: 10px;
+}
+
+.oauth h3 {
+    font-weight: 350;
+}
+
+#forgot-password-link {
+    margin: 8px 0 0 0;
+}
+
+.form h1, .login-signup-container label, .oauth h3, .black, #forgot-password-link {
+    color: black;
+}
+
+@media only screen and (max-width: 450px) {
+    .form {
+        width: 75%;
+        margin-bottom: 10px;
+    }
+
+    .button-container {
+        padding: 0;
+        margin-left: 0;
+        width: 102%;
+    }
+
+    .login-signup-container {
+        width: 100%;
+    }
+
+    .login-signup-container input {
+        width: 96%;
+    }
+
+    .button-container button {
+        width: 100%;
+    }
+
+    .oauth-buttons {
+        margin-left: 5px;
+        width: 101%;
+    }
+}
