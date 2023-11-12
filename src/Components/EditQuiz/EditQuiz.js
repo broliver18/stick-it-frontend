@@ -85,13 +85,8 @@ function EditQuiz() {
           alert("Quiz saved successfully!");
           setIsQuizCreated(true);
           navigate("/host");
-        } else if (
-          message === "A quiz with this name already exists."
-        ) {
-          alert(message);
-          setQuestions([]);
         } else {
-          alert("Sorry, something went wrong.");
+          alert(message);
           setQuestions([]);
         }
       });
