@@ -1,0 +1,128 @@
+* {
+    color: white;
+}
+
+body {
+    background-color: #588157;
+}
+
+.tutorial-container {
+    position: absolute;
+}
+
+.container-middle {
+    position: relative;
+    transform: translateY(50%);
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+}
+
+.container-center {
+    height: 100vh;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+}
+
+.game-input-info {
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+}
+
+.game-input-info input {
+    width: 20rem;
+    height: 2rem;
+    border-radius: 5px;
+    border: none;
+    background-color: white;
+    color: black;
+}
+
+.game-input-info button {
+    cursor: pointer;
+    width: 20.5rem;
+    padding: 6px 0;
+    line-height: 23px;
+    font-weight: 700;
+    margin-top: 16px;
+    border-radius: 5px;
+    border: none;
+    background-color: #333333;
+}
+
+.game-input-info button:hover {
+    filter: brightness(108%);
+}
+
+.link {
+    margin-top: 12px;
+    text-decoration: none;
+}
+
+.link:hover {
+    text-decoration: underline;
+}
+
+.footer {
+    position: absolute;
+    bottom: 10px;
+    width: 100%;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+}
+
+.footer h3, .footer p {
+    margin: 3px;
+}
+
+label {
+    margin: 16px 0 5px 0;
+}
+
+p {
+    margin-bottom: 5px;
+}
+
+input:focus {
+    outline: none;
+}
+
+@media only screen and (max-height: 615px) {
+    .footer {
+        display: none;
+    }
+}
+
+@media only screen and (max-width: 450px) {
+    .game-input-info button {
+        width: 21rem;
+    }
+
+    .footer {
+        bottom: 5px;
+    }
+
+    .text-field,
+    input[type="text"],
+    input[type="number"]
+    textarea {
+        font-size: 16px    
+    }
+}
+
+@media only screen and (max-width: 375px) {
+    .game-input-info input {
+        width: 18rem;
+    }
+
+    .game-input-info button {
+        width: 19rem;
+    }
+}

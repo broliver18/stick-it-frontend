@@ -1,0 +1,100 @@
+#host-game h1 {
+    text-align: center;
+}
+
+#rankings {
+    display: flex;
+    justify-content: space-around;
+    margin: 15px 0 25px 0;
+    width: 800px;
+    height: 600px;
+    border-radius: 5px;
+    background-color: #a3b18a;
+    overflow-y: scroll;
+}
+
+#rankings::-webkit-scrollbar {
+    display: none;
+}
+
+#host-game button {
+    cursor: pointer;
+    background-color: #344e41;
+    border: none;
+    margin: 15px;
+    width: 225px;
+    height: 3rem;
+    border-radius: 5px;
+    font-weight: 600;
+    font-size: 20px;  
+}
+
+#names-container, #scores-container {
+    display: flex;
+    flex-direction: column;
+    justify-content: flex-start;
+    align-items: center;
+}
+
+#names-container {
+    margin-top: 0;
+}
+
+#names {
+    margin-top: 8px;
+}
+
+#scores {
+    margin-top: 12px;
+}
+
+#scores {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+}
+
+#names p, #scores p {
+    color: #344e41;
+}
+
+#names p {
+    margin: 7px;
+}
+
+#scores p {
+    margin: 4px;
+}
+
+#names-container h2, #scores-container h2 {
+    margin-bottom: 0;
+    color: #344e41;
+}
+
+#host-game button:hover {
+    filter: brightness(110%);
+}
+
+@media only screen and (max-width: 1000px) {
+    #rankings {
+        width: 500px;
+        height: 500px;
+    }
+}
+
+@media only screen and (max-width: 500px) {
+    #rankings {
+        width: 250px;
+        height: 450px;
+    }
+
+    #host-game button {
+        width: 150px;
+        height: 2rem;
+        font-size: 16px;
+    }
+
+    #names-container h2, #scores-container h2 {
+        font-size: 18px;
+    }
+}
