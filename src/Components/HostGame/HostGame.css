@@ -55,6 +55,8 @@
 }
 
 #names p, #scores p {
+    font-size: 20px;
+    font-weight: 500;
     color: #344e41;
 }
 

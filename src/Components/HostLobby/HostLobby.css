@@ -17,6 +17,11 @@
     overflow-y: scroll;
 }
 
+#players-list p {
+    font-size: 20px;
+    font-weight: 500;
+}
+
 #players-list::-webkit-scrollbar {
     display: none;
 }
